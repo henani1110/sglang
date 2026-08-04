@@ -184,6 +184,8 @@ tl_out/
 
 # Plots
 *.png
+!assets/tokenflow/
+!assets/tokenflow/*.png
 *.pdf
 
 # personnal
