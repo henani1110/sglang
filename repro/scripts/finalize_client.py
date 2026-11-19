@@ -1,0 +1,4 @@
+from pathlib import Path
+root=Path('/home/chx/projects/tokenflow-repro-paper-candidate')
+p=root/'repro/scripts/replay.py';s=p.read_text();old='aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=600),read_bufsize=10*1024**2)';new='aiohttp.ClientSession(connector=aiohttp.TCPConnector(limit=0),timeout=aiohttp.ClientTimeout(total=600),read_bufsize=10*1024**2)';assert s.count(old)==1;s=s.replace(old,new);old="ev=json.loads(b);events.append({'time_s':time.perf_counter()-begin,'data':ev})";new="received=time.perf_counter()-begin;ev=json.loads(b);events.append({'time_s':received,'data':ev})";assert s.count(old)==1;s=s.replace(old,new);p.write_text(s)
+p=root/'repro/scripts/stage2_report.py';s=p.read_text();old=" if name not in request_cache:request_cache[name]=";new=" if name not in request_cache:\n  request_cache.clear()\n  request_cache[name]=";assert s.count(old)==1;p.write_text(s.replace(old,new))

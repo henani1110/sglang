@@ -1344,6 +1344,8 @@ class PrefillAdder:
                     self._get_running_request_total_token_offset(running_req)
                 )
                 release_counter += 1
+                if os.environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+                    logger.info("REPRO_KV preempt rid=%s output_tokens=%d", running_req.rid, len(running_req.output_ids))
                 self.running_batch.release_req(
                     i, len(self.running_batch.reqs) - release_counter, server_args
                 )

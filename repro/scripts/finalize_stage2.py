@@ -1,0 +1,11 @@
+from pathlib import Path
+root=Path('/home/chx/projects/tokenflow-repro-paper-candidate')
+p=root/'repro/scripts/launch.sh';s=p.read_text();s=s.replace('--random-seed 42)', '--random-seed 42 --enable-cache-report)');p.write_text(s)
+p=root/'repro/scripts/analyze.py';s=p.read_text();s=s.replace('ttft=[];tokens=0;', 'ttft=[];token_ttft=[];tokens=0;');s=s.replace("  ttft.append(ts[0]-r['send_s']);latencies", "  visible=next((e['time_s'] for e in r['events'] if e['data'].get('text','')!=''),ts[0])\n  ttft.append(visible-r['send_s']);token_ttft.append(ts[0]-r['send_s']);latencies");s=s.replace("'ttft_s':ts[0]-r['send_s']", "'ttft_s':visible-r['send_s'],'token_ttft_s':ts[0]-r['send_s']");s=s.replace("'ttft_mean_s':statistics.mean(ttft)", "'token_ttft_mean_s':statistics.mean(token_ttft),'ttft_mean_s':statistics.mean(ttft)");p.write_text(s)
+p=root/'repro/scripts/stage2_driver.py';s=p.read_text();s=s.replace("'patch_sha256':hashlib.sha256(patch).hexdigest(),", "'patch_sha256':hashlib.sha256(patch).hexdigest(),'launcher_sha256':digest(ROOT/'repro/scripts/launch.sh'),'client_sha256':digest(ROOT/'repro/scripts/replay.py'),'analyzer_sha256':digest(ROOT/'repro/scripts/analyze.py'),")
+s=s.replace("'gpu1_watts','host_used_gib'", "'gpu1_watts','gpu1_temp_c','gpu1_sm_mhz','gpu1_mem_mhz','host_used_gib'")
+s=s.replace("--query-gpu=memory.used,utilization.gpu,power.draw'", "--query-gpu=memory.used,utilization.gpu,power.draw,temperature.gpu,clocks.sm,clocks.mem'")
+s=s.replace("g[1][2],(m.total", "g[1][2],g[1][3],g[1][4],g[1][5],(m.total")
+s=s.replace(" event('server_ready',mode=mode,group=group)", " (BASE/'env'/f'{tag}-server-info.json').write_bytes(request('/server_info'))\n event('server_ready',mode=mode,group=group)")
+s=s.replace("    assert proc.poll() is None,'server exited'", "    assert proc.poll() is None,'server exited'\n    assert hashlib.sha256(subprocess.check_output(['git','diff'])).hexdigest()==identity['patch_sha256'],'source changed during matrix'")
+p.write_text(s)

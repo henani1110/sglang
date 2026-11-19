@@ -704,6 +704,12 @@ class HiCacheController:
         start_event.record()
         with device_module.stream(self.write_stream):
             start_event.wait(self.write_stream)
+            producer = getattr(self, "_repro_producer_stream", None)
+            if producer is not None:
+                self.write_stream.wait_stream(producer)
+            repro_saved = None
+            if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") == "1":
+                repro_saved = [(self.mem_pool_device.k_buffer[l][device_indices].clone(), self.mem_pool_device.v_buffer[l][device_indices].clone()) for l in range(self.layer_num)]
             self.mem_pool_host.backup_from_device_all_layer(
                 self.mem_pool_device, host_indices, device_indices, self.io_backend
             )
@@ -716,6 +722,12 @@ class HiCacheController:
             if device_indices.is_cuda:
                 device_indices.record_stream(self.write_stream)
 
+        if repro_saved is not None:
+            if not hasattr(self, "_repro_write_checks"):
+                self._repro_write_checks = {}
+            group = (list(op.node_ids), host_indices, repro_saved)
+            for node_id in op.node_ids:
+                self._repro_write_checks[node_id] = group
         self.ack_write_queue.append(HiCacheAck(start_event, finish_event, op.node_ids))
         self._register_write_ack(finish_event, op)
 

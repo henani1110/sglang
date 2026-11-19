@@ -1,0 +1,269 @@
+diff --git a/python/sglang/bench_serving.py b/python/sglang/bench_serving.py
+index 133ed5780..6c8eacdba 100644
+--- a/python/sglang/bench_serving.py
++++ b/python/sglang/bench_serving.py
+@@ -85,7 +85,7 @@ def save_request_outputs(outputs: List["RequestFuncOutput"], output_path: str) -
+     path = Path(output_path).expanduser()
+     path.parent.mkdir(parents=True, exist_ok=True)
+ 
+-    temp_path = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
++    temp_path = path.with_name(f".{path.stem}.{uuid.uuid4().hex}.tmp{path.suffix}")
+     try:
+         _serialize_request_outputs(temp_path, outputs)
+         os.replace(temp_path, path)
+diff --git a/python/sglang/srt/managers/cache_controller.py b/python/sglang/srt/managers/cache_controller.py
+index 4edccc674..0bb2b39f7 100644
+--- a/python/sglang/srt/managers/cache_controller.py
++++ b/python/sglang/srt/managers/cache_controller.py
+@@ -704,6 +704,12 @@ class HiCacheController:
+         start_event.record()
+         with device_module.stream(self.write_stream):
+             start_event.wait(self.write_stream)
++            producer = getattr(self, "_repro_producer_stream", None)
++            if producer is not None:
++                self.write_stream.wait_stream(producer)
++            repro_saved = None
++            if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") == "1":
++                repro_saved = [(self.mem_pool_device.k_buffer[l][device_indices].clone(), self.mem_pool_device.v_buffer[l][device_indices].clone()) for l in range(self.layer_num)]
+             self.mem_pool_host.backup_from_device_all_layer(
+                 self.mem_pool_device, host_indices, device_indices, self.io_backend
+             )
+@@ -716,6 +722,12 @@ class HiCacheController:
+             if device_indices.is_cuda:
+                 device_indices.record_stream(self.write_stream)
+ 
++        if repro_saved is not None:
++            if not hasattr(self, "_repro_write_checks"):
++                self._repro_write_checks = {}
++            group = (list(op.node_ids), host_indices, repro_saved)
++            for node_id in op.node_ids:
++                self._repro_write_checks[node_id] = group
+         self.ack_write_queue.append(HiCacheAck(start_event, finish_event, op.node_ids))
+         self._register_write_ack(finish_event, op)
+ 
+diff --git a/python/sglang/srt/managers/schedule_policy.py b/python/sglang/srt/managers/schedule_policy.py
+index a7f0922d3..6e4d4423a 100644
+--- a/python/sglang/srt/managers/schedule_policy.py
++++ b/python/sglang/srt/managers/schedule_policy.py
+@@ -1344,6 +1344,8 @@ class PrefillAdder:
+                     self._get_running_request_total_token_offset(running_req)
+                 )
+                 release_counter += 1
++                if os.environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++                    logger.info("REPRO_KV preempt rid=%s output_tokens=%d", running_req.rid, len(running_req.output_ids))
+                 self.running_batch.release_req(
+                     i, len(self.running_batch.reqs) - release_counter, server_args
+                 )
+diff --git a/python/sglang/srt/managers/scheduler.py b/python/sglang/srt/managers/scheduler.py
+index 8fceb5041..c78b25a22 100644
+--- a/python/sglang/srt/managers/scheduler.py
++++ b/python/sglang/srt/managers/scheduler.py
+@@ -718,14 +718,9 @@ class Scheduler(
+             and server_args.disable_radix_cache
+         ):
+             if not self.is_hybrid_swa:
+-                if _ENABLE_SYNC_CACHE:
+-                    from sglang.srt.mem_cache.sync_cache import SyncCache
++                from sglang.srt.mem_cache.chunk_cache import ChunkCache
+ 
+-                    self.tree_cache = SyncCache(params=params, server_args=server_args)
+-                else:
+-                    from sglang.srt.mem_cache.chunk_cache import ChunkCache
+-
+-                    self.tree_cache = ChunkCache(params)
++                self.tree_cache = ChunkCache(params)
+             else:
+                 from sglang.srt.mem_cache.chunk_cache import SWAChunkCache
+ 
+@@ -748,14 +743,22 @@ class Scheduler(
+                         params=params, server_args=server_args
+                     )
+                 else:
+-                    from sglang.srt.mem_cache.hiradix_cache import HiRadixCache
++                    if _ENABLE_SYNC_CACHE:
++                        from sglang.srt.mem_cache.sync_cache import SyncCache
+ 
+-                    self.tree_cache = HiRadixCache(
+-                        params=params, server_args=server_args
+-                    )
++                        self.tree_cache = SyncCache(params=params, server_args=server_args)
++                    else:
++                        from sglang.srt.mem_cache.hiradix_cache import HiRadixCache
++
++                        self.tree_cache = HiRadixCache(
++                            params=params, server_args=server_args
++                        )
+                 self.tp_worker.register_hicache_layer_transfer_counter(
+                     self.tree_cache.cache_controller.layer_done_counter
+                 )
++                if __import__("os").environ.get("TOKENFLOW_REPRO_FENCE_WRITES") == "1":
++                    self.tree_cache.cache_controller._repro_producer_stream = self.forward_stream
++
+             elif self.is_hybrid_swa:
+                 from sglang.srt.mem_cache.swa_radix_cache import SWARadixCache
+ 
+@@ -2448,11 +2451,9 @@ class Scheduler(
+             # Release KV for removed running requests before filtering them out.
+             for remove_ct, idx in enumerate(sorted(remove_indices, reverse=True)):
+                 req: Req = running_reqs[idx]
+-                if hasattr(self.tree_cache, "evict_device"):
+-                    self.tree_cache.evict_device(req)
+-                else:
+-                    # Fallback path for non-sync caches.
+-                    release_kv_cache(req, self.tree_cache, is_insert=False)
++                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++                    logger.info("REPRO_KV policy_pause rid=%s output_tokens=%d", req.rid, len(req.output_ids))
++                release_kv_cache(req, self.tree_cache, is_insert=False)
+                 req.reset_for_retract()
+ 
+             if keep_indices:
+diff --git a/python/sglang/srt/mem_cache/hiradix_cache.py b/python/sglang/srt/mem_cache/hiradix_cache.py
+index 2d3e579bb..df8b2c34c 100644
+--- a/python/sglang/srt/mem_cache/hiradix_cache.py
++++ b/python/sglang/srt/mem_cache/hiradix_cache.py
+@@ -646,6 +646,8 @@ class HiRadixCache(RadixCache):
+         else:
+             return 0
+ 
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV write_queued node=%s tokens=%d", node.id, len(host_indices))
+         return len(host_indices)
+ 
+     def write_backup_storage(self, node: TreeNode):
+@@ -680,6 +682,7 @@ class HiRadixCache(RadixCache):
+                     finish_event.synchronize()
+                     for ack_id in ack_list:
+                         backuped_node = self.ongoing_write_through.pop(ack_id)
++                        self._repro_verify_write_ack(ack_id)
+                         if self.enable_storage:
+                             self.write_backup_storage(backuped_node)
+                 self.cache_controller.ack_write_queue.clear()
+@@ -710,6 +713,7 @@ class HiRadixCache(RadixCache):
+             finish_event.synchronize()
+             for ack_id in ack_list:
+                 backuped_node = self.ongoing_write_through.pop(ack_id)
++                self._repro_verify_write_ack(ack_id)
+                 self.dec_lock_ref(backuped_node)
+                 if self.enable_storage:
+                     self.write_backup_storage(backuped_node)
+@@ -725,6 +729,11 @@ class HiRadixCache(RadixCache):
+             # no need to sync across TP workers as batch forwarding is synced
+             for ack_id in ack_list:
+                 end_node = self.ongoing_load_back.pop(ack_id)
++                verify_nodes = getattr(self, "_repro_loaded_nodes", {}).pop(ack_id, [])
++                for check_node in verify_nodes:
++                    self._repro_verify_kv(check_node, "after_load")
++                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++                    logger.info("REPRO_KV load_done node=%s", ack_id)
+                 self.dec_lock_ref(end_node)
+ 
+         # ACK until all events are processed
+@@ -933,8 +942,55 @@ class HiRadixCache(RadixCache):
+         self.update_eviction_metrics(num_evicted, start_time)
+         return EvictResult(num_tokens_evicted=num_evicted)
+ 
++    def _repro_verify_write_ack(self, ack_id):
++        checks = getattr(self.cache_controller, "_repro_write_checks", {})
++        group = checks.get(ack_id)
++        if group is None:
++            return
++        ids, indices, saved = group
++        hi = indices.long().cpu()
++        host = self.cache_controller.mem_pool_host
++        assert host.layout == "layer_first", host.layout
++        checked = 0
++        for layer, (keys, values) in enumerate(saved):
++            for gpu_copy, host_buffer in ((keys, host.k_buffer), (values, host.v_buffer)):
++                expected = gpu_copy.cpu()
++                actual = host_buffer[layer, hi]
++                assert torch.equal(actual, expected), f"Write ACK mismatch node={ack_id} layer={layer}"
++                checked += expected.numel() * expected.element_size()
++        logger.info("REPRO_KV write_ack_equal node=%s tokens=%d bytes=%d", ack_id, len(hi), checked)
++        for node_id in ids:
++            checks.pop(node_id, None)
++
++    def _repro_verify_kv(self, node, phase):
++        if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") != "1":
++            return
++        if node.value is None or node.host_value is None:
++            return
++        host = self.cache_controller.mem_pool_host
++        device = self.cache_controller.mem_pool_device
++        assert host.layout in ("layer_first", "page_first"), host.layout
++        torch.cuda.synchronize()
++        hi = node.host_value.long().cpu()
++        di = node.value.long()
++        checked = 0
++        for layer in range(host.layer_num):
++            for gpu_buf, host_buf in ((device.k_buffer[layer], host.k_buffer), (device.v_buffer[layer], host.v_buffer)):
++                expected = host_buf[layer, hi] if host.layout == "layer_first" else host_buf[hi, layer]
++                actual = gpu_buf[di].cpu()
++                if not torch.equal(actual, expected):
++                    logger.error("REPRO_KV mismatch_detail phase=%s node=%s layer=%s host_layout=%s shape=%s dtype=%s nan_gpu=%s nan_host=%s max_abs=%s first_gpu=%s first_host=%s", phase, node.id, layer, host.layout, tuple(actual.shape), actual.dtype, torch.isnan(actual).sum().item(), torch.isnan(expected).sum().item(), (actual.float()-expected.float()).abs().max().item(), actual.flatten()[:6].tolist(), expected.flatten()[:6].tolist())
++                    saved = getattr(node, "_repro_written_data", None)
++                    if saved is not None:
++                        logger.error("REPRO_KV snapshot_compare node=%s layer=%s host_equals_saved_k=%s device_equals_saved_k=%s device_indices=%s host_indices=%s", node.id, layer, torch.equal(host.k_buffer[layer, hi], saved[layer][0]), torch.equal(device.k_buffer[layer][di].cpu(), saved[layer][0]), di.cpu().tolist(), hi.tolist())
++                    raise AssertionError(f"KV mismatch phase={phase} node={node.id} layer={layer}")
++                checked += actual.numel() * actual.element_size()
++        logger.info("REPRO_KV tensor_equal phase=%s node=%s tokens=%d bytes=%d", phase, node.id, len(di), checked)
++
+     def _evict_backuped(self, node: TreeNode):
+         # GPU -> CPU demotion: no BlockRemoved since block is still reachable via load_back
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV evict_backed node=%s tokens=%d", node.id, len(node.value))
+         num_evicted = self.cache_controller.evict_device(node.value)
+         assert num_evicted > 0
+         self.evictable_size_ -= num_evicted
+@@ -1043,6 +1099,10 @@ class HiRadixCache(RadixCache):
+             return None
+ 
+         self.ongoing_load_back[last_hit_node.id] = last_hit_node
++        if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") == "1":
++            if not hasattr(self, "_repro_loaded_nodes"):
++                self._repro_loaded_nodes = {}
++            self._repro_loaded_nodes[last_hit_node.id] = list(nodes_to_load)
+         offset = 0
+         for node in nodes_to_load:
+             node.value = device_indices[offset : offset + len(node.host_value)].clone()
+@@ -1056,6 +1116,8 @@ class HiRadixCache(RadixCache):
+             )
+             self.metrics_collector.increment_load_back_num_tokens(len(device_indices))
+ 
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV load_queued node=%s tokens=%d", last_hit_node.id, len(device_indices))
+         return device_indices
+ 
+     def init_load_back(
+diff --git a/python/sglang/srt/mem_cache/sync_cache.py b/python/sglang/srt/mem_cache/sync_cache.py
+index 58198d8bc..6cdb822e0 100644
+--- a/python/sglang/srt/mem_cache/sync_cache.py
++++ b/python/sglang/srt/mem_cache/sync_cache.py
+@@ -40,14 +40,14 @@ class SyncCache(HiRadixCache):
+             hicache_write_policy="write_through",
+             hicache_storage_backend=None,
+         )
+-        super().__init__(params=sync_params, server_args=sync_server_args)
+-
+         self._req_states: Dict[str, SyncCacheReqState] = {}
+ 
+         # Keep the knobs close to the old SyncCache behavior.
+-        self.prefill_sync_chunk_size = max(1, int(sync_params.chunked_prefill_size or 256))
+-        self.decode_sync_stride_steps = 64
+-        self.decode_sync_min_tokens = max(64, sync_params.page_size)
++        self.prefill_sync_chunk_size = max(1, int(sync_params.chunked_prefill_size or 2048))
++        self.decode_sync_stride_steps = 512
++        self.decode_sync_min_tokens = max(512, sync_params.page_size)
++
++        super().__init__(params=sync_params, server_args=sync_server_args)
+ 
+     def _infer_seq_len(self, req: Req) -> int:
+         fill_ids = getattr(req, "fill_ids", None)
+@@ -196,6 +196,8 @@ class SyncCache(HiRadixCache):
+ 
+         self._req_states.pop(req.rid, None)
+ 
++        self.req_to_token_pool.free(req)
++
+     def cache_finished_req(self, req: Req, is_insert: bool = True, **kwargs):
+         self._req_states.pop(req.rid, None)
+         super().cache_finished_req(req, is_insert=is_insert, **kwargs)

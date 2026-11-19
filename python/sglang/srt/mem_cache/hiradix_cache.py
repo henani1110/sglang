@@ -646,6 +646,8 @@ class HiRadixCache(RadixCache):
         else:
             return 0
 
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV write_queued node=%s tokens=%d", node.id, len(host_indices))
         return len(host_indices)
 
     def write_backup_storage(self, node: TreeNode):
@@ -680,6 +682,7 @@ class HiRadixCache(RadixCache):
                     finish_event.synchronize()
                     for ack_id in ack_list:
                         backuped_node = self.ongoing_write_through.pop(ack_id)
+                        self._repro_verify_write_ack(ack_id)
                         if self.enable_storage:
                             self.write_backup_storage(backuped_node)
                 self.cache_controller.ack_write_queue.clear()
@@ -710,6 +713,7 @@ class HiRadixCache(RadixCache):
             finish_event.synchronize()
             for ack_id in ack_list:
                 backuped_node = self.ongoing_write_through.pop(ack_id)
+                self._repro_verify_write_ack(ack_id)
                 self.dec_lock_ref(backuped_node)
                 if self.enable_storage:
                     self.write_backup_storage(backuped_node)
@@ -725,6 +729,11 @@ class HiRadixCache(RadixCache):
             # no need to sync across TP workers as batch forwarding is synced
             for ack_id in ack_list:
                 end_node = self.ongoing_load_back.pop(ack_id)
+                verify_nodes = getattr(self, "_repro_loaded_nodes", {}).pop(ack_id, [])
+                for check_node in verify_nodes:
+                    self._repro_verify_kv(check_node, "after_load")
+                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+                    logger.info("REPRO_KV load_done node=%s", ack_id)
                 self.dec_lock_ref(end_node)
 
         # ACK until all events are processed
@@ -933,8 +942,55 @@ class HiRadixCache(RadixCache):
         self.update_eviction_metrics(num_evicted, start_time)
         return EvictResult(num_tokens_evicted=num_evicted)
 
+    def _repro_verify_write_ack(self, ack_id):
+        checks = getattr(self.cache_controller, "_repro_write_checks", {})
+        group = checks.get(ack_id)
+        if group is None:
+            return
+        ids, indices, saved = group
+        hi = indices.long().cpu()
+        host = self.cache_controller.mem_pool_host
+        assert host.layout == "layer_first", host.layout
+        checked = 0
+        for layer, (keys, values) in enumerate(saved):
+            for gpu_copy, host_buffer in ((keys, host.k_buffer), (values, host.v_buffer)):
+                expected = gpu_copy.cpu()
+                actual = host_buffer[layer, hi]
+                assert torch.equal(actual, expected), f"Write ACK mismatch node={ack_id} layer={layer}"
+                checked += expected.numel() * expected.element_size()
+        logger.info("REPRO_KV write_ack_equal node=%s tokens=%d bytes=%d", ack_id, len(hi), checked)
+        for node_id in ids:
+            checks.pop(node_id, None)
+
+    def _repro_verify_kv(self, node, phase):
+        if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") != "1":
+            return
+        if node.value is None or node.host_value is None:
+            return
+        host = self.cache_controller.mem_pool_host
+        device = self.cache_controller.mem_pool_device
+        assert host.layout in ("layer_first", "page_first"), host.layout
+        torch.cuda.synchronize()
+        hi = node.host_value.long().cpu()
+        di = node.value.long()
+        checked = 0
+        for layer in range(host.layer_num):
+            for gpu_buf, host_buf in ((device.k_buffer[layer], host.k_buffer), (device.v_buffer[layer], host.v_buffer)):
+                expected = host_buf[layer, hi] if host.layout == "layer_first" else host_buf[hi, layer]
+                actual = gpu_buf[di].cpu()
+                if not torch.equal(actual, expected):
+                    logger.error("REPRO_KV mismatch_detail phase=%s node=%s layer=%s host_layout=%s shape=%s dtype=%s nan_gpu=%s nan_host=%s max_abs=%s first_gpu=%s first_host=%s", phase, node.id, layer, host.layout, tuple(actual.shape), actual.dtype, torch.isnan(actual).sum().item(), torch.isnan(expected).sum().item(), (actual.float()-expected.float()).abs().max().item(), actual.flatten()[:6].tolist(), expected.flatten()[:6].tolist())
+                    saved = getattr(node, "_repro_written_data", None)
+                    if saved is not None:
+                        logger.error("REPRO_KV snapshot_compare node=%s layer=%s host_equals_saved_k=%s device_equals_saved_k=%s device_indices=%s host_indices=%s", node.id, layer, torch.equal(host.k_buffer[layer, hi], saved[layer][0]), torch.equal(device.k_buffer[layer][di].cpu(), saved[layer][0]), di.cpu().tolist(), hi.tolist())
+                    raise AssertionError(f"KV mismatch phase={phase} node={node.id} layer={layer}")
+                checked += actual.numel() * actual.element_size()
+        logger.info("REPRO_KV tensor_equal phase=%s node=%s tokens=%d bytes=%d", phase, node.id, len(di), checked)
+
     def _evict_backuped(self, node: TreeNode):
         # GPU -> CPU demotion: no BlockRemoved since block is still reachable via load_back
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV evict_backed node=%s tokens=%d", node.id, len(node.value))
         num_evicted = self.cache_controller.evict_device(node.value)
         assert num_evicted > 0
         self.evictable_size_ -= num_evicted
@@ -1043,6 +1099,10 @@ class HiRadixCache(RadixCache):
             return None
 
         self.ongoing_load_back[last_hit_node.id] = last_hit_node
+        if __import__("os").environ.get("TOKENFLOW_REPRO_VERIFY_KV") == "1":
+            if not hasattr(self, "_repro_loaded_nodes"):
+                self._repro_loaded_nodes = {}
+            self._repro_loaded_nodes[last_hit_node.id] = list(nodes_to_load)
         offset = 0
         for node in nodes_to_load:
             node.value = device_indices[offset : offset + len(node.host_value)].clone()
@@ -1056,6 +1116,8 @@ class HiRadixCache(RadixCache):
             )
             self.metrics_collector.increment_load_back_num_tokens(len(device_indices))
 
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV load_queued node=%s tokens=%d", last_hit_node.id, len(device_indices))
         return device_indices
 
     def init_load_back(
