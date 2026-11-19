@@ -1,0 +1,12 @@
+{
+  "hostname": "flyvideo-MS-7E06",
+  "started_at": "2026-10-31T13:07:08+08:00",
+  "gpu0_pci_address": "0000:01:00.0",
+  "gpu0_current_link_width": "16",
+  "gpu0_max_link_width": "16",
+  "gpu0_current_idle_link_speed": "2.5 GT/s PCIe",
+  "gpu0_max_link_speed": "16.0 GT/s PCIe",
+  "home_available_gb": 215,
+  "worktree_head": "46caa54562a97e71d9b937c62875c90b39274b0d",
+  "worktree_branch": "perf/h3-exact-lora-epilogue-20261029"
+}

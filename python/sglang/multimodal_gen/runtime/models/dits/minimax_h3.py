@@ -88,6 +88,7 @@ from sglang.multimodal_gen.runtime.layers.usp import _ring_attention_varlen
 from sglang.multimodal_gen.runtime.loader.utils import get_param_names_mapping
 from sglang.multimodal_gen.runtime.managers.forward_context import (
     get_forward_context,
+    get_forward_context_or_none,
 )
 from sglang.multimodal_gen.runtime.managers.memory_managers.layerwise_offload import (
     LayerwiseOffloadableModuleMixin,
@@ -1466,6 +1467,24 @@ class MiniMaxH3MLP(nn.Module):
             quant_config.get_name() == "gguf"
         )
 
+    def _try_exact_lora_silu_fusion(
+        self, x: torch.Tensor | tuple[torch.Tensor, ...]
+    ) -> torch.Tensor | None:
+        if not isinstance(x, torch.Tensor) or not x.is_cuda:
+            return None
+        context = get_forward_context_or_none()
+        forward_batch = None if context is None else context.forward_batch
+        sampling_params = getattr(forward_batch, "sampling_params", None)
+        if not (
+            getattr(sampling_params, "exact_lora_epilogue", False)
+            and getattr(
+                sampling_params, "experimental_exact_lora_silu_fusion", False
+            )
+        ):
+            return None
+        method = getattr(self.fc1, "try_exact_lora_silu_mul", None)
+        return None if method is None else method(x)
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if not isinstance(x, tuple) and x.device.type == "mps":
             out = torch.empty_like(x)
@@ -1479,13 +1498,59 @@ class MiniMaxH3MLP(nn.Module):
                 torch.mps.synchronize()
                 torch.mps.empty_cache()
             return out
-        hidden, _ = self.fc1(x)
-        if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
-            out, _ = self.fc2(silu_mul_mxfp8(hidden))
-            return out
-        hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
+        hidden = self._try_exact_lora_silu_fusion(x)
+        if hidden is None:
+            hidden, _ = self.fc1(x)
+            if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
+                out, _ = self.fc2(silu_mul_mxfp8(hidden))
+                return out
+            hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
         out, _ = self.fc2(hidden)
         return out
+
+    def forward_with_gate(
+        self,
+        x: torch.Tensor | tuple[torch.Tensor, ...],
+        residual: torch.Tensor,
+        gate: torch.Tensor,
+        indices: torch.Tensor,
+    ) -> tuple[torch.Tensor, bool]:
+        context = get_forward_context_or_none()
+        forward_batch = None if context is None else context.forward_batch
+        sampling_params = getattr(forward_batch, "sampling_params", None)
+        if not (
+            isinstance(x, torch.Tensor)
+            and x.is_cuda
+            and x.dtype == _BF16_DTYPE
+            and getattr(sampling_params, "quality", None) == "exact"
+            and getattr(sampling_params, "exact_lora_epilogue", False)
+            and getattr(
+                sampling_params, "experimental_exact_lora_gate_fusion", False
+            )
+            and callable(getattr(self.fc2, "can_try_exact_lora_gate_add", None))
+            and callable(getattr(self.fc2, "try_exact_lora_gate_add", None))
+        ):
+            return self.forward(x), False
+
+        hidden = self._try_exact_lora_silu_fusion(x)
+        if hidden is None:
+            hidden, _ = self.fc1(x)
+            if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
+                out, _ = self.fc2(silu_mul_mxfp8(hidden))
+                return out, False
+            hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
+
+        if not self.fc2.can_try_exact_lora_gate_add(
+            hidden, residual, gate, indices
+        ):
+            out, _ = self.fc2(hidden)
+            return out, False
+
+        out = self.fc2.try_exact_lora_gate_add(hidden, residual, gate, indices)
+        if out is None:
+            out, _ = self.fc2(hidden)
+            return out, False
+        return out, True
 
 
 class MiniMaxH3AdalnProj(nn.Module):
@@ -1744,14 +1809,13 @@ class MiniMaxH3DiTBlock(nn.Module):
                 _, h_fp8, h_scales = indexed_scale_shift_mxfp8_(
                     h, shift_mlp, scale_mlp, combined_indices, keep_bf16=False
                 )
-                h = self.mlp((h_fp8, h_scales))
+                mlp_input = (h_fp8, h_scales)
             else:
-                h = _modulate_scale_shift(
+                mlp_input = _modulate_scale_shift(
                     h, shift_mlp, scale_mlp, combined_indices, dtype=_BF16_DTYPE
                 )
-                h = self.mlp(h)
         else:
-            h = _modulate_rmsnorm_scale_shift(
+            mlp_input = _modulate_rmsnorm_scale_shift(
                 x,
                 self.norm2,
                 shift_mlp,
@@ -1760,9 +1824,28 @@ class MiniMaxH3DiTBlock(nn.Module):
                 dtype=_BF16_DTYPE,
                 fused=MINIMAX_H3_NORM_MODULATE.is_enabled(self),
             )
-            h = self.mlp(h)
-        # `residual` is block-local here (see above), so this stays in-place
-        # even while Cache-DiT is attached.
+        gate_fusion_requested = False
+        if not torch.compiler.is_compiling():
+            context = get_forward_context_or_none()
+            forward_batch = None if context is None else context.forward_batch
+            sampling_params = getattr(forward_batch, "sampling_params", None)
+            gate_fusion_requested = bool(
+                getattr(sampling_params, "exact_lora_epilogue", False)
+                and getattr(
+                    sampling_params, "experimental_exact_lora_gate_fusion", False
+                )
+            )
+        if gate_fusion_requested:
+            h, gate_fused = self.mlp.forward_with_gate(
+                mlp_input,
+                residual,
+                gate_mlp,
+                combined_indices,
+            )
+            if gate_fused:
+                return h
+        else:
+            h = self.mlp(mlp_input)
         return _modulate_gate(
             residual,
             gate_mlp,

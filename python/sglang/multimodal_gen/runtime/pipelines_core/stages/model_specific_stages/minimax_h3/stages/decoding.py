@@ -2,8 +2,13 @@
 from __future__ import annotations
 
 import functools
+import hashlib
+import json
+import os
+import re
 from collections.abc import Mapping
-from contextlib import contextmanager, nullcontext
+from contextlib import ExitStack, contextmanager, nullcontext
+from dataclasses import asdict, is_dataclass
 
 import torch
 
@@ -42,6 +47,7 @@ from sglang.multimodal_gen.runtime.utils.precision import (
     resolve_decode_precision,
     resolve_precision,
 )
+from sglang.multimodal_gen.runtime.utils.profiler import maybe_record_function
 from sglang.multimodal_gen.runtime.utils.torch_compile import (
     ActiveTargetCompiledCallable,
 )
@@ -260,12 +266,155 @@ def _minimax_h3_decoder_task(batch: Req) -> str | None:
     return task_value
 
 
+@contextmanager
+def _temporary_experimental_vae_batching(video_vae, sampling_params):
+    """Apply bounded per-request tile/window caps, then restore the VAE."""
+    previous = {}
+    try:
+        for attribute, request_field in (
+            ("decoder_tile_batch", "experimental_vae_tile_batch"),
+            ("window_batch", "experimental_vae_window_batch"),
+        ):
+            value = getattr(sampling_params, request_field, None)
+            if value is None:
+                continue
+            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 4:
+                raise ValueError(f"{request_field} must be an integer from 1 to 4")
+            if not hasattr(video_vae, attribute):
+                raise ValueError(f"video_vae does not expose {attribute}")
+            previous[attribute] = getattr(video_vae, attribute)
+            setattr(video_vae, attribute, value)
+        yield
+    finally:
+        for attribute, value in previous.items():
+            setattr(video_vae, attribute, value)
+
+
+def _jsonable_config(value):
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    if is_dataclass(value):
+        return _jsonable_config(asdict(value))
+    if isinstance(value, Mapping):
+        return {str(key): _jsonable_config(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_jsonable_config(item) for item in value]
+    return str(value)
+
+
+def _maybe_export_profile_latents(batch: Req, server_args: ServerArgs) -> None:
+    """Export only tensor payloads for one explicitly profiled replay request."""
+    output_root = os.getenv("SGLANG_H3_LATENT_DUMP_DIR")
+    if not output_root or not getattr(batch, "profile_all_stages", False):
+        return
+
+    request_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", str(batch.request_id))
+    output_dir = os.path.join(output_root, request_id)
+    os.makedirs(output_dir, exist_ok=True)
+    tensor_path = os.path.join(output_dir, "latents.pt")
+    temporary_tensor_path = tensor_path + ".tmp"
+    tensors = {
+        "video_latent": batch.latents.detach().cpu().contiguous(),
+        "audio_latent": batch.audio_latents.detach().cpu().contiguous(),
+    }
+    torch.save(tensors, temporary_tensor_path)
+    os.replace(temporary_tensor_path, tensor_path)
+
+    pipeline_config = server_args.pipeline_config
+    video_config = pipeline_config.vae_config
+    audio_config = pipeline_config.audio_vae_config
+    sampling = batch.sampling_params
+    scalar_fields = (
+        "height",
+        "width",
+        "num_frames",
+        "fps",
+        "num_inference_steps",
+        "seed",
+        "quality",
+        "task",
+        "output_mode",
+        "output_compression",
+        "x264_preset",
+    )
+    from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.constants import (
+        MINIMAX_H3_DENOISE_STATE_EXTRA_KEY,
+    )
+
+    metadata = {
+        "request_id": str(batch.request_id),
+        "task": _minimax_h3_decoder_task(batch),
+        "model_path": str(server_args.model_path),
+        "model_variant": str(getattr(server_args, "model_variant", None)),
+        "source_revision": os.getenv("SGLANG_H3_SOURCE_REVISION"),
+        "prompt_sha256": hashlib.sha256(
+            str(getattr(batch, "prompt", "")).encode("utf-8")
+        ).hexdigest(),
+        "sampling": {
+            name: _jsonable_config(getattr(sampling, name, None))
+            for name in scalar_fields
+        },
+        "fps": int(getattr(batch, "fps", 24)),
+        "num_frames": int(getattr(batch, "num_frames", batch.latents.shape[2])),
+        "output_compression": _jsonable_config(
+            getattr(batch, "output_compression", None)
+        ),
+        "x264_preset": _jsonable_config(getattr(batch, "x264_preset", None)),
+        "video_latent": {
+            "shape": list(batch.latents.shape),
+            "dtype": str(batch.latents.dtype),
+        },
+        "audio_latent": {
+            "shape": list(batch.audio_latents.shape),
+            "dtype": str(batch.audio_latents.dtype),
+        },
+        "video_vae_config": _jsonable_config(video_config.arch_config),
+        "audio_vae_config": _jsonable_config(audio_config.arch_config),
+        "denoise_state": _jsonable_config(
+            getattr(batch, "extra", {}).get(MINIMAX_H3_DENOISE_STATE_EXTRA_KEY)
+        ),
+        "component_weight_paths": _jsonable_config(
+            getattr(server_args, "component_weights_paths", {})
+        ),
+        "software": {"torch": str(torch.__version__), "cuda": torch.version.cuda},
+        "tensor_file": os.path.basename(tensor_path),
+        "tensor_file_sha256": None,
+    }
+    with open(tensor_path, "rb") as tensor_file:
+        metadata["tensor_file_sha256"] = hashlib.sha256(tensor_file.read()).hexdigest()
+    config_bytes = json.dumps(
+        metadata, sort_keys=True, separators=(",", ":"), default=str
+    ).encode("utf-8")
+    metadata["metadata_sha256"] = hashlib.sha256(config_bytes).hexdigest()
+    metadata_path = os.path.join(output_dir, "metadata.json")
+    temporary_metadata_path = metadata_path + ".tmp"
+    with open(temporary_metadata_path, "w", encoding="utf-8") as metadata_file:
+        json.dump(metadata, metadata_file, indent=2, sort_keys=True, default=str)
+        metadata_file.write("\n")
+    os.replace(temporary_metadata_path, metadata_path)
+
+
 class MiniMaxH3DecodingStage(DecodingStage):
     def __init__(self, video_vae, audio_vae) -> None:
         super().__init__(vae=video_vae, component_name="video_vae")
         self.video_vae = video_vae
         self.audio_vae = audio_vae
         self._compiled_audio_vae_decode = ActiveTargetCompiledCallable()
+
+    @contextmanager
+    def _profiled_declared_component(self, component_name: str, module):
+        """Separate residency preparation from decode work in profiler traces."""
+        with ExitStack() as stack:
+            with maybe_record_function(
+                f"H3.{component_name}.component_prepare"
+            ):
+                selected = stack.enter_context(
+                    self.use_declared_component(
+                        component_name=component_name,
+                        module=module,
+                    )
+                )
+            yield selected
 
     @property
     def role_affinity(self) -> RoleType:
@@ -318,21 +467,21 @@ class MiniMaxH3DecodingStage(DecodingStage):
         audio_latent: torch.Tensor,
         server_args: ServerArgs,
     ) -> dict:
-        with self.use_declared_component(
-            component_name="audio_vae",
-            module=self.audio_vae,
+        with self._profiled_declared_component(
+            component_name="audio_vae", module=self.audio_vae
         ) as audio_vae:
             assert audio_vae is not None
             self.audio_vae = audio_vae
             if audio_vae.training:
                 audio_vae.eval()
             audio_arch_config = server_args.pipeline_config.audio_vae_config.arch_config
-            audio_decode_latent = _reverse_normalize_latents(
-                audio_latent,
-                mean_values=audio_arch_config.latents_mean,
-                std_values=audio_arch_config.latents_std,
-                name="audio_vae",
-            )
+            with maybe_record_function("H3.audio.reverse_normalize"):
+                audio_decode_latent = _reverse_normalize_latents(
+                    audio_latent,
+                    mean_values=audio_arch_config.latents_mean,
+                    std_values=audio_arch_config.latents_std,
+                    name="audio_vae",
+                )
             audio_vae_dtype = resolve_precision(
                 server_args, "audio_vae", precision_attr="audio_vae_precision"
             )
@@ -349,15 +498,17 @@ class MiniMaxH3DecodingStage(DecodingStage):
                 else nullcontext()
             )
             with _deterministic_audio_decode_context(), autocast_context:
-                audio_decode = self._get_vae_decode_fn(
-                    audio_vae,
-                    server_args,
-                    decode_fn=audio_vae.decode,
-                    compiled_callable=self._compiled_audio_vae_decode,
-                )
-                waveform = _required_tensor(
-                    audio_decode(audio_decode_latent), "audio_vae.decode"
-                )
+                with maybe_record_function("H3.audio.decode_callable_setup"):
+                    audio_decode = self._get_vae_decode_fn(
+                        audio_vae,
+                        server_args,
+                        decode_fn=audio_vae.decode,
+                        compiled_callable=self._compiled_audio_vae_decode,
+                    )
+                with maybe_record_function("H3.audio.vae_decode"):
+                    waveform = _required_tensor(
+                        audio_decode(audio_decode_latent), "audio_vae.decode"
+                    )
             return {
                 "waveform": waveform,
                 "sample_rate": int(audio_vae.sample_rate),
@@ -435,22 +586,24 @@ class MiniMaxH3DecodingStage(DecodingStage):
 
         if self.video_vae is None:
             raise RuntimeError("MiniMax H3 tasks require the video_vae output decoder")
+        with maybe_record_function("H3.latent_export"):
+            _maybe_export_profile_latents(batch, server_args)
         batch_size = int(visual_latent.shape[0])
         audio_waveform, audio_sample_rate = self._decode_replica_audio(
             audio_latent, server_args
         )
-        output_audio_waveform = _canonical_output_audio_waveform(
-            audio_waveform, batch_size=batch_size
-        )
+        with maybe_record_function("H3.audio.canonicalize"):
+            output_audio_waveform = _canonical_output_audio_waveform(
+                audio_waveform, batch_size=batch_size
+            )
         streamed_output_path = streamed_video_output_path(
             batch, server_args, batch_size
         )
 
         visual_frames = None
         output_file_paths = None
-        with self.use_declared_component(
-            component_name="video_vae",
-            module=self.video_vae,
+        with self._profiled_declared_component(
+            component_name="video_vae", module=self.video_vae
         ) as selected_video_vae:
             if selected_video_vae is None:
                 raise RuntimeError("video_vae became unavailable during decode")
@@ -458,28 +611,33 @@ class MiniMaxH3DecodingStage(DecodingStage):
             if selected_video_vae.training:
                 selected_video_vae.eval()
             visual_arch_config = server_args.pipeline_config.vae_config.arch_config
-            visual_decode_latent = _reverse_normalize_latents(
-                visual_latent,
-                mean_values=visual_arch_config.latents_mean,
-                std_values=visual_arch_config.latents_std,
-                name="video_vae",
-            )
+            with maybe_record_function("H3.video.reverse_normalize"):
+                visual_decode_latent = _reverse_normalize_latents(
+                    visual_latent,
+                    mean_values=visual_arch_config.latents_mean,
+                    std_values=visual_arch_config.latents_std,
+                    name="video_vae",
+                )
             video_vae_dtype = resolve_decode_precision(server_args, "video_vae")
             visual_autocast_enabled = autocast_enabled_for_device(
                 visual_latent, video_vae_dtype, server_args.disable_autocast
             )
             if visual_autocast_enabled:
-                selected_video_vae.prepare_decoder_autocast_weights(video_vae_dtype)
+                with maybe_record_function("H3.video.autocast_weight_prepare"):
+                    selected_video_vae.prepare_decoder_autocast_weights(
+                        video_vae_dtype
+                    )
             with autocast_context(
                 video_vae_dtype,
                 server_args.disable_autocast,
                 enabled=visual_autocast_enabled,
             ):
-                video_decode = self._get_vae_decode_fn(
-                    selected_video_vae,
-                    server_args,
-                    decode_fn=selected_video_vae.decode_base,
-                )
+                with maybe_record_function("H3.video.decode_callable_setup"):
+                    video_decode = self._get_vae_decode_fn(
+                        selected_video_vae,
+                        server_args,
+                        decode_fn=selected_video_vae.decode_base,
+                    )
                 finish_frames = functools.partial(
                     self._finish_visual_frames,
                     batch,
@@ -498,14 +656,29 @@ class MiniMaxH3DecodingStage(DecodingStage):
                     )
                     decode_kwargs["on_frames"] = stream
                 try:
-                    with (
-                        use_vae_fast_path(
-                            selected_video_vae,
-                            quality_allows(batch.sampling_params.quality, "lossless"),
-                        ),
-                        set_forward_context(current_timestep=0, attn_metadata=None),
+                    fast_path_override = getattr(
+                        batch.sampling_params, "experimental_vae_fast_path", None
+                    )
+                    if fast_path_override is not None and not isinstance(
+                        fast_path_override, bool
                     ):
-                        decoded = video_decode(visual_decode_latent, **decode_kwargs)
+                        raise ValueError("experimental_vae_fast_path must be a bool")
+                    fast_path_enabled = (
+                        quality_allows(batch.sampling_params.quality, "lossless")
+                        if fast_path_override is None
+                        else fast_path_override
+                    )
+                    with _temporary_experimental_vae_batching(
+                        selected_video_vae, batch.sampling_params
+                    ):
+                        with (
+                            use_vae_fast_path(selected_video_vae, fast_path_enabled),
+                            set_forward_context(current_timestep=0, attn_metadata=None),
+                        ):
+                            with maybe_record_function("H3.video.vae_decode"):
+                                decoded = video_decode(
+                                    visual_decode_latent, **decode_kwargs
+                                )
                     if stream is not None:
                         output_file_paths = stream.finish()
                 except BaseException:
@@ -514,13 +687,15 @@ class MiniMaxH3DecodingStage(DecodingStage):
                     raise
                 if output_file_paths is None:
                     # callbacks borrow slices of decoded; only the final output owns it
-                    visual_frames = finish_frames(decoded, runtime_owned=True)
+                    with maybe_record_function("H3.video.revert_crop_cast"):
+                        visual_frames = finish_frames(decoded, runtime_owned=True)
                 del decoded
 
         if visual_frames is not None:
-            visual_frames = server_args.pipeline_config.post_decoding(
-                visual_frames, server_args
-            )
+            with maybe_record_function("H3.video.post_decoding"):
+                visual_frames = server_args.pipeline_config.post_decoding(
+                    visual_frames, server_args
+                )
         return OutputBatch(
             output=visual_frames,
             output_file_paths=output_file_paths,

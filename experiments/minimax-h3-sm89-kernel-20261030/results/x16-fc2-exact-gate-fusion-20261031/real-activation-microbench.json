@@ -1,0 +1,35 @@
+{
+  "source": "4096-row slice of real FC2 activations from the first opt-in H3 request",
+  "full_shape": [
+    37760,
+    5376
+  ],
+  "measured_shape": [
+    4096,
+    5376
+  ],
+  "gate_dtype": "torch.float32",
+  "scales": [
+    0.0625
+  ],
+  "exact_output_match": true,
+  "rounds": 3,
+  "repeats_per_round": 8,
+  "per_round_ms_per_call": {
+    "reference_two_kernels_ms": [
+      0.2659839987754822,
+      0.2655999958515167,
+      0.2655879855155945
+    ],
+    "fused_one_kernel_ms": [
+      0.1909479945898056,
+      0.1904599964618683,
+      0.19045600295066833
+    ]
+  },
+  "median_ms_per_call": {
+    "reference_two_kernels_ms": 0.2655999958515167,
+    "fused_one_kernel_ms": 0.1904599964618683
+  },
+  "median_reduction_pct": 28.290662862681426
+}

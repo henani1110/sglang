@@ -50,6 +50,13 @@ class MiniMaxH3SamplingParams(SamplingParams):
     conditions: list[dict[str, Any]] | None = None
     target: dict[str, Any] | None = None
     audio_flow_shift: float | None = None
+    exact_lora_epilogue: bool = False
+    experimental_exact_lora_silu_fusion: bool = False
+    experimental_exact_lora_gate_fusion: bool = False
+    experimental_lora_delta_in_gemm: bool = False
+    experimental_vae_fast_path: bool | None = None
+    experimental_vae_tile_batch: int | None = None
+    experimental_vae_window_batch: int | None = None
     output_mode: str | None = field(
         default=None,
         metadata={"batch_sig_exclude": True},
@@ -64,6 +71,13 @@ class MiniMaxH3SamplingParams(SamplingParams):
                 "conditions",
                 "target",
                 "audio_flow_shift",
+                "exact_lora_epilogue",
+                "experimental_exact_lora_silu_fusion",
+                "experimental_exact_lora_gate_fusion",
+                "experimental_lora_delta_in_gemm",
+                "experimental_vae_fast_path",
+                "experimental_vae_tile_batch",
+                "experimental_vae_window_batch",
                 "audio_guidance_scale",
                 "quality",
                 "output_mode",

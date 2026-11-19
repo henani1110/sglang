@@ -1,0 +1,34 @@
+{
+  "device": "NVIDIA GeForce RTX 4090",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "comfy_kitchen_version": "0.2.40",
+  "shape": {
+    "M": 128,
+    "N": 256,
+    "K": 512
+  },
+  "activation_dtype": "bfloat16",
+  "weight_dtype": "int8",
+  "output_dtype": "bfloat16",
+  "seed": 20261030,
+  "results": [
+    {
+      "convrot": false,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "cuda_max_abs": 5728.0,
+      "triton_max_abs": 5728.0
+    },
+    {
+      "convrot": true,
+      "bitwise_equal": false,
+      "max_abs": 64.0,
+      "rmse": 5.4907684326171875,
+      "cuda_max_abs": 5824.0,
+      "triton_max_abs": 5824.0
+    }
+  ],
+  "interpretation": "Synthetic parity smoke only; no performance or model-quality inference."
+}

@@ -1,0 +1,78 @@
+{
+  "mode": "correctness",
+  "device": "NVIDIA GeForce RTX 4090",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "comfy_kitchen_version": "0.2.40",
+  "input": "synthetic int8 activations/weights with per-row/per-channel float scales",
+  "output_dtype": "torch.bfloat16",
+  "baseline_config": 13,
+  "candidate_configs": {
+    "config12_128x128x64_streamk": 12,
+    "config2_64x128x64": 2
+  },
+  "results": [
+    {
+      "shape": "M37760_N21504_K5376",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config12_128x128x64_streamk",
+      "candidate_config": 12,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "shape": "M37760_N21504_K5376",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config2_64x128x64",
+      "candidate_config": 2,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "shape": "M37760_N5376_K14336",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config12_128x128x64_streamk",
+      "candidate_config": 12,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "shape": "M37760_N5376_K14336",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config2_64x128x64",
+      "candidate_config": 2,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "shape": "M37760_N28672_K5376",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config12_128x128x64_streamk",
+      "candidate_config": 12,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    },
+    {
+      "shape": "M37760_N28672_K5376",
+      "selected_production_config": 13,
+      "baseline_config": 13,
+      "candidate": "config2_64x128x64",
+      "candidate_config": 2,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0
+    }
+  ],
+  "passed": true,
+  "timestamp_unix": 1793333034.5791245
+}

@@ -1,0 +1,260 @@
+{
+  "gpu": "GPU0 RTX 4090 PCIe x16",
+  "method": "paired B/G candidate attribution; profiler disabled for all formal samples",
+  "workload": {
+    "prompts": [
+      "static",
+      "speech"
+    ],
+    "seeds": [
+      1201,
+      1202,
+      1203
+    ],
+    "steps": 8,
+    "resolution": "1344x768",
+    "duration_seconds": 5,
+    "quality": "exact"
+  },
+  "formal_samples_per_config": 6,
+  "configs": {
+    "B": {
+      "description": "sage2_exact_fc1_fusion",
+      "n": 6,
+      "mean_ms": 90610.7666195215,
+      "median_ms": 90613.72116056737,
+      "mean_denoise_ms": 75007.9512806066,
+      "mean_decode_ms": 15481.130951976715,
+      "rows": [
+        {
+          "label": "static-seed1201-B",
+          "sample": "static-seed1201",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90525.96384403296,
+          "api_inference_time_s": 90.52596384403296,
+          "denoise_duration_ms": 74958.21952703409,
+          "decode_duration_ms": 15446.49056601338,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+          "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024"
+        },
+        {
+          "label": "static-seed1202-B",
+          "sample": "static-seed1202",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90535.91410000809,
+          "api_inference_time_s": 90.53591410000809,
+          "denoise_duration_ms": 74949.39736486413,
+          "decode_duration_ms": 15468.347219983116,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "928ccffa29dec2e4aa1bd4f7563e410f681a3fa80de0e2c8cf59acba68395b93",
+          "audio_pcm_sha256": "9e6ed1d9ae0c63afd56cef9432947616fc47617d6cd1813eda8cd8de00e3f866"
+        },
+        {
+          "label": "static-seed1203-B",
+          "sample": "static-seed1203",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90639.85110004432,
+          "api_inference_time_s": 90.63985110004432,
+          "denoise_duration_ms": 75010.07475098595,
+          "decode_duration_ms": 15507.954224012792,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "f226ef5bc28dbf77b0fd2d71fc4e943a55d5cae187d0ae23149abcea2636d3ed",
+          "audio_pcm_sha256": "47be18bce4dc1cec5d0a585c05addc1e22001bb412c2e0000dae323f24b46a6f"
+        },
+        {
+          "label": "speech-seed1201-B",
+          "sample": "speech-seed1201",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90587.5912210904,
+          "api_inference_time_s": 90.5875912210904,
+          "denoise_duration_ms": 75016.17799187079,
+          "decode_duration_ms": 15452.876563882455,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "a1bd5c85a0a92bb0ee3b4e88ea4b25dba096b83956e484cb01338baccb396091",
+          "audio_pcm_sha256": "48dfe6922ad2e44b6454cf28a4e692b31691ac660a3cecd8a8d7fa25d79e4c6d"
+        },
+        {
+          "label": "speech-seed1202-B",
+          "sample": "speech-seed1202",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90712.27102796547,
+          "api_inference_time_s": 90.71227102796547,
+          "denoise_duration_ms": 75073.80032585934,
+          "decode_duration_ms": 15520.720734959468,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "f7bb33a9c07a5e76c836444fe53cd9bcdd9473ce3462a20155874ba6aeddc0b5",
+          "audio_pcm_sha256": "5553038415fffe8f0714be0c9d40eeb3c791f94e78e4f27e4b6c6e4552313ee4"
+        },
+        {
+          "label": "speech-seed1203-B",
+          "sample": "speech-seed1203",
+          "config": "B",
+          "config_name": "sage2_exact_fc1_fusion",
+          "total_duration_ms": 90663.00842398778,
+          "api_inference_time_s": 90.66300842398778,
+          "denoise_duration_ms": 75040.0377230253,
+          "decode_duration_ms": 15490.396403009072,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "192815ff8861d21732455526e678f513756a5538e9849e80e9e5f66c46282ab8",
+          "audio_pcm_sha256": "536d022fe5609b8983bf05b8fb3f593338880fed1f58e962e579c312630fbecd"
+        }
+      ]
+    },
+    "G": {
+      "description": "sage2_exact_fc1_and_fc2_gate_fusion",
+      "n": 6,
+      "mean_ms": 90325.26285701897,
+      "median_ms": 90326.24224049505,
+      "mean_denoise_ms": 74748.04501782637,
+      "mean_decode_ms": 15457.180106663145,
+      "rows": [
+        {
+          "label": "static-seed1201-G",
+          "sample": "static-seed1201",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90323.0307099875,
+          "api_inference_time_s": 90.3230307099875,
+          "denoise_duration_ms": 74755.00417896546,
+          "decode_duration_ms": 15447.762947063893,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+          "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024"
+        },
+        {
+          "label": "static-seed1202-G",
+          "sample": "static-seed1202",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90301.54571309686,
+          "api_inference_time_s": 90.30154571309686,
+          "denoise_duration_ms": 74726.4224330429,
+          "decode_duration_ms": 15455.044909846038,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "928ccffa29dec2e4aa1bd4f7563e410f681a3fa80de0e2c8cf59acba68395b93",
+          "audio_pcm_sha256": "9e6ed1d9ae0c63afd56cef9432947616fc47617d6cd1813eda8cd8de00e3f866"
+        },
+        {
+          "label": "static-seed1203-G",
+          "sample": "static-seed1203",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90343.03379617631,
+          "api_inference_time_s": 90.34303379617631,
+          "denoise_duration_ms": 74753.61702707596,
+          "decode_duration_ms": 15470.411638962105,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "f226ef5bc28dbf77b0fd2d71fc4e943a55d5cae187d0ae23149abcea2636d3ed",
+          "audio_pcm_sha256": "47be18bce4dc1cec5d0a585c05addc1e22001bb412c2e0000dae323f24b46a6f"
+        },
+        {
+          "label": "speech-seed1201-G",
+          "sample": "speech-seed1201",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90311.26167089678,
+          "api_inference_time_s": 90.31126167089678,
+          "denoise_duration_ms": 74732.04869800247,
+          "decode_duration_ms": 15459.822595119476,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "a1bd5c85a0a92bb0ee3b4e88ea4b25dba096b83956e484cb01338baccb396091",
+          "audio_pcm_sha256": "48dfe6922ad2e44b6454cf28a4e692b31691ac660a3cecd8a8d7fa25d79e4c6d"
+        },
+        {
+          "label": "speech-seed1202-G",
+          "sample": "speech-seed1202",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90343.25148095377,
+          "api_inference_time_s": 90.34325148095377,
+          "denoise_duration_ms": 74777.6122498326,
+          "decode_duration_ms": 15443.84688604623,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "f7bb33a9c07a5e76c836444fe53cd9bcdd9473ce3462a20155874ba6aeddc0b5",
+          "audio_pcm_sha256": "5553038415fffe8f0714be0c9d40eeb3c791f94e78e4f27e4b6c6e4552313ee4"
+        },
+        {
+          "label": "speech-seed1203-G",
+          "sample": "speech-seed1203",
+          "config": "G",
+          "config_name": "sage2_exact_fc1_and_fc2_gate_fusion",
+          "total_duration_ms": 90329.45377100259,
+          "api_inference_time_s": 90.32945377100259,
+          "denoise_duration_ms": 74743.56552003883,
+          "decode_duration_ms": 15466.191662941128,
+          "peak_reserved_mb": 21518.0,
+          "video_yuv_sha256": "192815ff8861d21732455526e678f513756a5538e9849e80e9e5f66c46282ab8",
+          "audio_pcm_sha256": "536d022fe5609b8983bf05b8fb3f593338880fed1f58e962e579c312630fbecd"
+        }
+      ]
+    }
+  },
+  "paired_median_reduction_pct": 0.31625508057924745,
+  "paired_mean_reduction_pct": 0.3150429101674161,
+  "paired_median_absolute_reduction_ms": 286.5734270308167,
+  "all_six_video_hashes_match": true,
+  "all_six_audio_hashes_match": true,
+  "all_six_pairs_improved": true,
+  "pairs": [
+    {
+      "sample": "static-seed1201",
+      "baseline_ms": 90525.96384403296,
+      "candidate_ms": 90323.0307099875,
+      "absolute_reduction_ms": 202.93313404545188,
+      "relative_reduction_pct": 0.2241711940179747,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    },
+    {
+      "sample": "static-seed1202",
+      "baseline_ms": 90535.91410000809,
+      "candidate_ms": 90301.54571309686,
+      "absolute_reduction_ms": 234.3683869112283,
+      "relative_reduction_pct": 0.2588678639200981,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    },
+    {
+      "sample": "static-seed1203",
+      "baseline_ms": 90639.85110004432,
+      "candidate_ms": 90343.03379617631,
+      "absolute_reduction_ms": 296.81730386801064,
+      "relative_reduction_pct": 0.32746887849627315,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    },
+    {
+      "sample": "speech-seed1201",
+      "baseline_ms": 90587.5912210904,
+      "candidate_ms": 90311.26167089678,
+      "absolute_reduction_ms": 276.3295501936227,
+      "relative_reduction_pct": 0.30504128266222175,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    },
+    {
+      "sample": "speech-seed1202",
+      "baseline_ms": 90712.27102796547,
+      "candidate_ms": 90343.25148095377,
+      "absolute_reduction_ms": 369.01954701170325,
+      "relative_reduction_pct": 0.4068022361582546,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    },
+    {
+      "sample": "speech-seed1203",
+      "baseline_ms": 90663.00842398778,
+      "candidate_ms": 90329.45377100259,
+      "absolute_reduction_ms": 333.5546529851854,
+      "relative_reduction_pct": 0.36790600574967414,
+      "video_hash_match": true,
+      "audio_hash_match": true
+    }
+  ]
+}

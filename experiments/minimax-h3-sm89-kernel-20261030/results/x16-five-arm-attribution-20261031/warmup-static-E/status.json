@@ -1,0 +1,29 @@
+{
+  "id": "dbf56603-2070-408d-8498-876ecad4c6b5",
+  "object": "video",
+  "model": "MiniMaxAI/MiniMax-H3",
+  "status": "completed",
+  "progress": 100,
+  "created_at": 1793427139,
+  "size": "1344x768",
+  "seconds": "5.166667",
+  "quality": "exact",
+  "url": null,
+  "urls": [
+    null
+  ],
+  "remixed_from_video_id": null,
+  "completed_at": 1793427260,
+  "expires_at": null,
+  "error": null,
+  "file_path": "/home/chx/projects/sglang-h3-exact-lora-20261029/outputs/dbf56603-2070-408d-8498-876ecad4c6b5.mp4",
+  "file_paths": [
+    "/home/chx/projects/sglang-h3-exact-lora-20261029/outputs/dbf56603-2070-408d-8498-876ecad4c6b5.mp4"
+  ],
+  "num_outputs": 1,
+  "peak_memory_mb": 20434.0,
+  "inference_time_s": 120.50097522116266,
+  "revised_prompt": null,
+  "action": null,
+  "lidar": null
+}

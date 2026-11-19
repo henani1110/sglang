@@ -17,6 +17,9 @@ from sglang.multimodal_gen.configs.pipeline_configs.minimax_h3 import (
     MiniMaxH3PipelineConfig,
 )
 from sglang.multimodal_gen.runtime.models.vaes import minimax_h3_vae_cuda_opt
+from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.stages.decoding import (
+    _temporary_experimental_vae_batching,
+)
 from sglang.multimodal_gen.runtime.models.vaes.fast_path_gate import (
     VaeFastPathGate,
     use_vae_fast_path,
@@ -271,3 +274,27 @@ def test_denorm_kernel_runs_in_place_only_on_owned_frames(
             f"test denorm owned={runtime_owned} fast path is not bit-exact"
             in caplog.text
         )
+
+
+def test_experimental_decode_caps_restore_after_exception():
+    vae = SimpleNamespace(decoder_tile_batch=1, window_batch=1)
+    params = SimpleNamespace(
+        experimental_vae_tile_batch=2, experimental_vae_window_batch=3
+    )
+    with pytest.raises(RuntimeError, match="decode failed"):
+        with _temporary_experimental_vae_batching(vae, params):
+            assert (vae.decoder_tile_batch, vae.window_batch) == (2, 3)
+            raise RuntimeError("decode failed")
+    assert (vae.decoder_tile_batch, vae.window_batch) == (1, 1)
+
+
+@pytest.mark.parametrize("invalid", [True, 0, 5, 1.5])
+def test_experimental_decode_caps_reject_invalid_values_and_restore(invalid):
+    vae = SimpleNamespace(decoder_tile_batch=1, window_batch=1)
+    params = SimpleNamespace(
+        experimental_vae_tile_batch=2, experimental_vae_window_batch=invalid
+    )
+    with pytest.raises(ValueError, match="experimental_vae_window_batch"):
+        with _temporary_experimental_vae_batching(vae, params):
+            pass
+    assert (vae.decoder_tile_batch, vae.window_batch) == (1, 1)

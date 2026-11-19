@@ -1,0 +1,150 @@
+{
+  "formal_baseline_n": 6,
+  "formal_candidate_n": 6,
+  "baseline_mean_ms": 95200.42833371554,
+  "candidate_mean_ms": 93602.6330490131,
+  "e2e_reduction_pct": 1.678348840092958,
+  "all_formal_decoded_media_hashes_match": true,
+  "rows": [
+    {
+      "label": "warmup-a-baseline",
+      "fusion": false,
+      "total_duration_ms": 133752.84689106047,
+      "denoise_duration_ms": 94821.80725992657,
+      "decode_duration_ms": 29734.90402987227,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "a711f56db5e1b03cf261c207fee1e64e9148e2e230595037265c3b3682a844cc",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "warmup-b-fused",
+      "fusion": true,
+      "total_duration_ms": 93094.41637713462,
+      "denoise_duration_ms": 76885.2225469891,
+      "decode_duration_ms": 15932.127634063363,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba1-a-baseline",
+      "fusion": false,
+      "total_duration_ms": 94964.20762105845,
+      "denoise_duration_ms": 78745.4653789755,
+      "decode_duration_ms": 15928.98684181273,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba1-b-fused",
+      "fusion": true,
+      "total_duration_ms": 93612.67148796469,
+      "denoise_duration_ms": 77332.8657769598,
+      "decode_duration_ms": 15979.11239019595,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba1-b-fused-repeat",
+      "fusion": true,
+      "total_duration_ms": 93667.94355399907,
+      "denoise_duration_ms": 77361.09016090631,
+      "decode_duration_ms": 16016.41512895003,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba1-a-baseline-repeat",
+      "fusion": false,
+      "total_duration_ms": 95299.32324099354,
+      "denoise_duration_ms": 79042.18027810566,
+      "decode_duration_ms": 15982.374330982566,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba2-a-baseline",
+      "fusion": false,
+      "total_duration_ms": 95132.34629901126,
+      "denoise_duration_ms": 78867.54607898183,
+      "decode_duration_ms": 15991.068013943732,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba2-b-fused",
+      "fusion": true,
+      "total_duration_ms": 93521.72841015272,
+      "denoise_duration_ms": 77256.78645609878,
+      "decode_duration_ms": 15991.510835010558,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba2-b-fused-repeat",
+      "fusion": true,
+      "total_duration_ms": 93602.65257884748,
+      "denoise_duration_ms": 77356.86878394336,
+      "decode_duration_ms": 15971.277293050662,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba2-a-baseline-repeat",
+      "fusion": false,
+      "total_duration_ms": 95253.56808118522,
+      "denoise_duration_ms": 78987.26892890409,
+      "decode_duration_ms": 15978.95431611687,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba3-a-baseline",
+      "fusion": false,
+      "total_duration_ms": 95217.17848698609,
+      "denoise_duration_ms": 78928.32302488387,
+      "decode_duration_ms": 16014.05155309476,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba3-b-fused",
+      "fusion": true,
+      "total_duration_ms": 93549.90301001817,
+      "denoise_duration_ms": 77295.57457007468,
+      "decode_duration_ms": 15974.91482202895,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba3-b-fused-repeat",
+      "fusion": true,
+      "total_duration_ms": 93660.89925309643,
+      "denoise_duration_ms": 77384.02320211753,
+      "decode_duration_ms": 15991.02278216742,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    },
+    {
+      "label": "abba3-a-baseline-repeat",
+      "fusion": false,
+      "total_duration_ms": 95335.94627305865,
+      "denoise_duration_ms": 79039.47359789163,
+      "decode_duration_ms": 16021.917612059042,
+      "video_yuv_sha256": "7564ba67158493273a4cac737ec3906287c81c703ba70777ed8b370f57657e65",
+      "audio_pcm_sha256": "80c9f18ac943e614f99da6ab4a161a67f3af1e0c98886d3c84346a71c397c024",
+      "peak_reserved_mb": 22500.0
+    }
+  ]
+}

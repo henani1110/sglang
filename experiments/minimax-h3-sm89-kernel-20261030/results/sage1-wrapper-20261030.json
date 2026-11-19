@@ -1,0 +1,28 @@
+{
+  "backend": "sage1",
+  "device": "NVIDIA GeForce RTX 4090",
+  "torch": "2.14.1+cu130",
+  "cuda_runtime": "13.0",
+  "shape": [
+    37760,
+    56,
+    128
+  ],
+  "live": 37743,
+  "padded": 37760,
+  "dtype": "torch.bfloat16",
+  "warmups": 5,
+  "repeats_per_round": 30,
+  "rounds": 3,
+  "round_medians_ms": [
+    145.3474349975586,
+    145.73768615722656,
+    146.41964721679688
+  ],
+  "pooled_median_ms": 145.73768615722656,
+  "quality_vs_sage1": null,
+  "finite": true,
+  "tail_zero": true,
+  "seed": 20261030,
+  "timestamp_unix": 1793355151.4918606
+}

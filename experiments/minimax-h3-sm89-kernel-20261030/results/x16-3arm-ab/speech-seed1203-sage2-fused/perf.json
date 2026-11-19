@@ -1,0 +1,119 @@
+{
+  "timestamp": "2026-10-31T04:19:19.552140+00:00",
+  "request_id": "dc00938d-3a57-4e05-943c-f6d7f0bf1222",
+  "commit_hash": "46caa54562a97e71d9b937c62875c90b39274b0d",
+  "tag": "server_perf_dump",
+  "total_duration_ms": 90723.63901301287,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.03021489828824997
+    },
+    {
+      "name": "MiniMaxH3PartitionAdmissionStage",
+      "duration_ms": 0.01357891596853733
+    },
+    {
+      "name": "MiniMaxH3TextEncodingStage",
+      "duration_ms": 76.50093804113567
+    },
+    {
+      "name": "MiniMaxH3VisualEncodingStage",
+      "duration_ms": 0.01732795499265194
+    },
+    {
+      "name": "MiniMaxH3AudioEncodingStage",
+      "duration_ms": 0.013840850442647934
+    },
+    {
+      "name": "MiniMaxH3LatentPreparationStage",
+      "duration_ms": 9.161574067547917
+    },
+    {
+      "name": "MiniMaxH3TimestepPreparationStage",
+      "duration_ms": 0.1244591549038887
+    },
+    {
+      "name": "MiniMaxH3DenoisingStage",
+      "duration_ms": 75154.56907404587
+    },
+    {
+      "name": "MiniMaxH3DecodingStage",
+      "duration_ms": 15449.701481033117
+    }
+  ],
+  "denoise_steps_ms": [
+    {
+      "step": 0,
+      "duration_ms": 9344.919709023088
+    },
+    {
+      "step": 1,
+      "duration_ms": 9377.73023894988
+    },
+    {
+      "step": 2,
+      "duration_ms": 9379.093694966286
+    },
+    {
+      "step": 3,
+      "duration_ms": 9378.843478159979
+    },
+    {
+      "step": 4,
+      "duration_ms": 9394.043351057917
+    },
+    {
+      "step": 5,
+      "duration_ms": 9395.060921786353
+    },
+    {
+      "step": 6,
+      "duration_ms": 9380.2122680936
+    },
+    {
+      "step": 7,
+      "duration_ms": 9391.442920081317
+    }
+  ],
+  "memory_checkpoints": {
+    "before_forward": {
+      "allocated_mb": 8369.61,
+      "reserved_mb": 8516.0,
+      "peak_allocated_mb": 8369.61,
+      "peak_reserved_mb": 8516.0,
+      "peak_host_anon_mb": 33996.72
+    },
+    "after_forward": {
+      "allocated_mb": 8385.5,
+      "reserved_mb": 8516.0,
+      "peak_allocated_mb": 15973.56,
+      "peak_reserved_mb": 21518.0,
+      "peak_host_anon_mb": 33996.72
+    },
+    "load_peak": {
+      "allocated_mb": 8384.0,
+      "reserved_mb": 8516.0,
+      "peak_allocated_mb": 10529.74,
+      "peak_reserved_mb": 10574.0,
+      "peak_host_anon_mb": 33996.72
+    },
+    "runtime_peak": {
+      "allocated_mb": 8384.0,
+      "reserved_mb": 8516.0,
+      "peak_allocated_mb": 17007.48,
+      "peak_reserved_mb": 21518.0,
+      "peak_host_anon_mb": 33996.72
+    },
+    "warmup_peak": {
+      "allocated_mb": 8384.0,
+      "reserved_mb": 8516.0,
+      "peak_allocated_mb": 15973.56,
+      "peak_reserved_mb": 0.0,
+      "peak_host_anon_mb": 33996.72
+    }
+  },
+  "meta": {
+    "model": "MiniMaxAI/MiniMax-H3"
+  }
+}

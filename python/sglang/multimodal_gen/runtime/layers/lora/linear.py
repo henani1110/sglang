@@ -87,6 +87,14 @@ def _request_allows_lossless() -> bool:
     return quality is not None and quality_allows(quality, "lossless")
 
 
+def _request_allows_experimental_lora_delta_in_gemm() -> bool:
+    """Request-local opt-in for this numerically different LoRA path."""
+    context = get_forward_context_or_none()
+    forward_batch = None if context is None else context.forward_batch
+    sampling_params = getattr(forward_batch, "sampling_params", None)
+    return bool(getattr(sampling_params, "experimental_lora_delta_in_gemm", False))
+
+
 def _can_add_lora_delta_in_gemm(
     out: torch.Tensor, lora_A: torch.Tensor, lora_B: torch.Tensor
 ) -> bool:
@@ -94,7 +102,14 @@ def _can_add_lora_delta_in_gemm(
         return False
     if lora_A.dim() == 3 and lora_A.shape[0] != lora_B.shape[0]:
         return False
-    return lora_A.dim() in (2, 3) and out.is_contiguous() and _request_allows_lossless()
+    return (
+        lora_A.dim() in (2, 3)
+        and out.is_contiguous()
+        and (
+            _request_allows_lossless()
+            or _request_allows_experimental_lora_delta_in_gemm()
+        )
+    )
 
 
 def _add_lora_delta_in_gemm(
@@ -268,6 +283,36 @@ class BaseLayerWithLoRA(nn.Module):
             return _add_lora_delta_in_gemm(out, x_lora, lora_A, lora_B, scale)
 
         delta = _compute_lora_delta(x_lora, lora_A, lora_B)
+        context = get_forward_context_or_none()
+        forward_batch = None if context is None else context.forward_batch
+        sampling_params = getattr(forward_batch, "sampling_params", None)
+        request_enabled = bool(getattr(sampling_params, "exact_lora_epilogue", False))
+        if (
+            (
+                request_enabled
+                or os.environ.get("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "0") == "1"
+            )
+            and not _request_allows_lossless()
+            and not torch.is_grad_enabled()
+            and out.is_cuda
+            and out.device == delta.device
+            and out.dtype == delta.dtype == torch.bfloat16
+            and out.shape == delta.shape
+            and out.is_contiguous()
+            and delta.is_contiguous()
+        ):
+            from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
+                exact_lora_add,
+            )
+
+            scales = []
+            if self.lora_alpha != self.lora_rank:
+                scales.append(self.lora_alpha / self.lora_rank)
+            if self.strength != 1.0:
+                scales.append(self.strength)
+            if runtime_lora_scale != 1.0:
+                scales.append(runtime_lora_scale)
+            return exact_lora_add(out, delta, tuple(scales))
         delta = self._scale_lora_delta(delta, runtime_lora_scale)
         return out + delta.to(dtype=out.dtype)
 
@@ -873,6 +918,76 @@ class ColumnParallelLinearWithLoRA(BaseLayerWithLoRA):
         output_bias = self.base_layer.bias if self.base_layer.skip_bias_add else None
         return output, output_bias
 
+    def try_exact_lora_silu_mul(
+        self, input_: torch.Tensor
+    ) -> torch.Tensor | None:
+        """Fuse this H3 FC1 LoRA epilogue with rounded SwiGLU when requested."""
+        context = get_forward_context_or_none()
+        forward_batch = None if context is None else context.forward_batch
+        sampling_params = getattr(forward_batch, "sampling_params", None)
+        if not (
+            getattr(sampling_params, "exact_lora_epilogue", False)
+            and getattr(
+                sampling_params, "experimental_exact_lora_silu_fusion", False
+            )
+            and not _request_allows_lossless()
+            and not torch.is_grad_enabled()
+            and not torch.compiler.is_compiling()
+            and input_.is_cuda
+            and input_.dtype == torch.bfloat16
+            and input_.is_contiguous()
+            and not self.disable_lora
+            and not self.merged
+            and not self.has_lora_output_offset
+            and self.lora_A is not None
+            and self.lora_B is not None
+            and len(self._active_lora_list()) == 1
+            and not self.base_layer.gather_output
+            and not self.base_layer.skip_bias_add
+            and self.base_layer.bias is None
+        ):
+            return None
+
+        runtime_lora_scale = self._runtime_lora_scale()
+        if runtime_lora_scale == 0.0:
+            return None
+
+        output = self.base_layer.quant_method.apply(
+            self.base_layer, input_, bias=None
+        )
+        lora_A, lora_B = self.lora_A, self.lora_B
+        if lora_A is None or lora_B is None:
+            return None
+        if isinstance(lora_B, DTensor):
+            lora_B = lora_B.to_local()
+            lora_A = lora_A.to_local()
+        lora_A = self.slice_lora_a_weights(lora_A.to(device=input_.device))
+        lora_B = self.slice_lora_b_weights(lora_B.to(device=input_.device))
+        delta = _compute_lora_delta(input_.to(dtype=lora_A.dtype), lora_A, lora_B)
+        if not (
+            output.is_cuda
+            and output.dtype == torch.bfloat16
+            and output.is_contiguous()
+            and output.shape == delta.shape
+            and delta.dtype == torch.bfloat16
+            and delta.is_contiguous()
+            and output.shape[-1] % 2 == 0
+        ):
+            return None
+
+        scales = []
+        if self.lora_alpha != self.lora_rank:
+            scales.append(self.lora_alpha / self.lora_rank)
+        if self.strength != 1.0:
+            scales.append(self.strength)
+        if runtime_lora_scale != 1.0:
+            scales.append(runtime_lora_scale)
+        from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
+            exact_lora_silu_mul,
+        )
+
+        return exact_lora_silu_mul(output, delta, tuple(scales))
+
     def slice_lora_b_weights(self, B: torch.Tensor) -> torch.Tensor:
         tp_rank = get_tp_rank()
         shard_size = self.base_layer.output_partition_sizes[0]
@@ -939,6 +1054,127 @@ class QKVParallelLinearWithLoRA(ColumnParallelLinearWithLoRA):
 
 
 class RowParallelLinearWithLoRA(BaseLayerWithLoRA):
+    def can_try_exact_lora_gate_add(
+        self,
+        input_: torch.Tensor,
+        residual: torch.Tensor,
+        gate: torch.Tensor,
+        indices: torch.Tensor,
+    ) -> bool:
+        context = get_forward_context_or_none()
+        forward_batch = None if context is None else context.forward_batch
+        sampling_params = getattr(forward_batch, "sampling_params", None)
+        return bool(
+            getattr(sampling_params, "exact_lora_epilogue", False)
+            and getattr(
+                sampling_params, "experimental_exact_lora_gate_fusion", False
+            )
+            and not _request_allows_lossless()
+            and not torch.is_grad_enabled()
+            and not torch.compiler.is_compiling()
+            and input_.is_cuda
+            and input_.dtype == torch.bfloat16
+            and input_.ndim == 2
+            and input_.is_contiguous()
+            and residual.is_cuda
+            and residual.device == input_.device
+            and residual.dtype == torch.bfloat16
+            and residual.ndim == 2
+            and residual.shape[0] == input_.shape[0]
+            and residual.shape[1]
+            == getattr(self.base_layer, "output_size_per_partition", None)
+            and residual.is_contiguous()
+            and gate.is_cuda
+            and gate.device == input_.device
+            and gate.dtype in (torch.bfloat16, torch.float32)
+            and gate.ndim == 2
+            and gate.shape[1] == residual.shape[1]
+            and gate.stride(-1) == 1
+            and indices.is_cuda
+            and indices.device == input_.device
+            and indices.dtype in (torch.int32, torch.int64)
+            and indices.ndim == 1
+            and indices.numel() == input_.shape[0]
+            and not self.disable_lora
+            and not self.merged
+            and not self.has_lora_output_offset
+            and self.lora_A is not None
+            and self.lora_B is not None
+            and self.lora_A.ndim == self.lora_B.ndim == 2
+            and len(self._active_lora_list()) == 1
+            and getattr(self.base_layer, "tp_size", None) == 1
+            and not self.base_layer.skip_bias_add
+            and self.base_layer.bias is None
+            and self._runtime_lora_scale() != 0.0
+        )
+
+    def try_exact_lora_gate_add(
+        self,
+        input_: torch.Tensor,
+        residual: torch.Tensor,
+        gate: torch.Tensor,
+        indices: torch.Tensor,
+    ) -> torch.Tensor | None:
+        if not self.can_try_exact_lora_gate_add(input_, residual, gate, indices):
+            return None
+
+        if self.base_layer.input_is_parallel:
+            input_parallel = input_
+        else:
+            input_parallel = split_tensor_along_last_dim(
+                input_, num_partitions=self.base_layer.tp_size
+            )[0].contiguous()
+
+        runtime_lora_scale = self._runtime_lora_scale()
+        output = self.base_layer.quant_method.apply(
+            self.base_layer,
+            input_parallel,
+            bias=None,
+        )
+        lora_A, lora_B = self.lora_A, self.lora_B
+        if isinstance(lora_B, DTensor):
+            lora_B = lora_B.to_local()
+            lora_A = lora_A.to_local()
+        lora_A = self.slice_lora_a_weights(
+            lora_A.to(device=input_.device, non_blocking=True)
+        )
+        lora_B = self.slice_lora_b_weights(
+            lora_B.to(device=input_.device, non_blocking=True)
+        )
+        delta = _compute_lora_delta(
+            input_parallel.to(dtype=lora_A.dtype), lora_A, lora_B
+        )
+        if not (
+            output.is_cuda
+            and output.dtype == delta.dtype == torch.bfloat16
+            and output.is_contiguous()
+            and delta.is_contiguous()
+            and output.shape == delta.shape == residual.shape
+        ):
+            return None
+
+        scales = []
+        if self.lora_alpha != self.lora_rank:
+            scales.append(self.lora_alpha / self.lora_rank)
+        if self.strength != 1.0:
+            scales.append(self.strength)
+        if runtime_lora_scale != 1.0:
+            scales.append(runtime_lora_scale)
+
+        from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
+            exact_lora_gate_add,
+        )
+
+        return exact_lora_gate_add(
+            output,
+            delta,
+            residual,
+            gate,
+            indices,
+            tuple(scales),
+            inplace=True,
+        )
+
     def forward(self, input_: torch.Tensor):
         if self.disable_lora or (self.merged and not self.has_lora_output_offset):
             return self.base_layer(input_)

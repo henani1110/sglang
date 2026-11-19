@@ -1,0 +1,16 @@
+[
+  {"label":"warmup-a-baseline","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"warmup-b-fused","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba1-a-baseline","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"abba1-b-fused","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba1-b-fused-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba1-a-baseline-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"abba2-a-baseline","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"abba2-b-fused","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba2-b-fused-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba2-a-baseline-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"abba3-a-baseline","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false},
+  {"label":"abba3-b-fused","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba3-b-fused-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":true},
+  {"label":"abba3-a-baseline-repeat","exact_lora_epilogue":true,"experimental_exact_lora_silu_fusion":false}
+]

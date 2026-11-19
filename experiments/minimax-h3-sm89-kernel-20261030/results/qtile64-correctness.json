@@ -1,0 +1,439 @@
+{
+  "mode": "correctness",
+  "device": "NVIDIA GeForce RTX 4090",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "shape": [
+    37760,
+    56,
+    128
+  ],
+  "dtype": "torch.bfloat16",
+  "live": 37743,
+  "padded": 37760,
+  "tiles": {
+    "baseline_M": 128,
+    "candidate_M": 64,
+    "N": 64,
+    "Q_quant": 128,
+    "K_quant": 64
+  },
+  "results": [
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.52523819819362e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1101
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.52523819819362e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1101
+    },
+    {
+      "kind": "input_mutation",
+      "checked": "packed_K",
+      "unchanged": true
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.766941388988926e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1102
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.766941388988926e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1102
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.847016713138146e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1103
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0001220703125,
+      "rmse": 9.847016713138146e-08,
+      "shape": [
+        37760,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "actual_shape",
+      "length": 37760,
+      "seed": 1103
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.00048828125,
+      "rmse": 7.266090165103378e-07,
+      "shape": [
+        63,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 63,
+      "seed": 9063
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.00048828125,
+      "rmse": 7.266090165103378e-07,
+      "shape": [
+        63,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 63,
+      "seed": 9063
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "shape": [
+        64,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 64,
+      "seed": 9064
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "rmse": 0.0,
+      "shape": [
+        64,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 64,
+      "seed": 9064
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 2.0932191091560526e-06,
+      "shape": [
+        65,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 65,
+      "seed": 9065
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 2.0932191091560526e-06,
+      "shape": [
+        65,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 65,
+      "seed": 9065
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.001953125,
+      "rmse": 2.345194388908567e-06,
+      "shape": [
+        127,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 127,
+      "seed": 9127
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.001953125,
+      "rmse": 2.345194388908567e-06,
+      "shape": [
+        127,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 127,
+      "seed": 9127
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 1.19549406463193e-06,
+      "shape": [
+        128,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 128,
+      "seed": 9128
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 1.19549406463193e-06,
+      "shape": [
+        128,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 128,
+      "seed": 9128
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.00048828125,
+      "rmse": 1.0155614518225775e-06,
+      "shape": [
+        129,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 129,
+      "seed": 9129
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.00048828125,
+      "rmse": 1.0155614518225775e-06,
+      "shape": [
+        129,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 129,
+      "seed": 9129
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 9.096493158722296e-07,
+      "shape": [
+        255,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 255,
+      "seed": 9255
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 9.096493158722296e-07,
+      "shape": [
+        255,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 255,
+      "seed": 9255
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 1.125520384448464e-06,
+      "shape": [
+        256,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 256,
+      "seed": 9256
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 1.125520384448464e-06,
+      "shape": [
+        256,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 256,
+      "seed": 9256
+    },
+    {
+      "variant": "qtile64_w4_s3",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 9.335834647572483e-07,
+      "shape": [
+        257,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 257,
+      "seed": 9257
+    },
+    {
+      "variant": "qtile64_w4_s4",
+      "bitwise_equal": false,
+      "max_abs": 0.0009765625,
+      "rmse": 9.335834647572483e-07,
+      "shape": [
+        257,
+        56,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true,
+      "tail_zero": true,
+      "kind": "tile_edge",
+      "length": 257,
+      "seed": 9257
+    }
+  ],
+  "passed": false,
+  "timestamp_unix": 1793331899.1641054,
+  "sageattention_source": "/home/chx/experiments/minimax-h3-exact-lora-20261029/sage/site/sageattention/attn_qk_int8_per_block.py"
+}

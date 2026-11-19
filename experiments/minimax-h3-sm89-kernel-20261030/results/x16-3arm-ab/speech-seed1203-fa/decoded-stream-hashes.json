@@ -1,0 +1,10 @@
+{
+  "video_yuv420p": {
+    "sha256": "ed7849cf91f41c59ba834eeacfb9499af2873905953bc677fd672132f427558e",
+    "bytes": 191987712
+  },
+  "audio_pcm_s16le": {
+    "sha256": "b66e27fc3fa7ea1a0adfd09f60e528cdd47594b0559fbb6b1fac9011fbacdc84",
+    "bytes": 995328
+  }
+}

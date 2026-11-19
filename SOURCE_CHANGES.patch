@@ -1,0 +1,1552 @@
+diff --git a/python/sglang/multimodal_gen/configs/sample/minimax_h3.py b/python/sglang/multimodal_gen/configs/sample/minimax_h3.py
+index ff6931c294..df35ac09ee 100644
+--- a/python/sglang/multimodal_gen/configs/sample/minimax_h3.py
++++ b/python/sglang/multimodal_gen/configs/sample/minimax_h3.py
+@@ -50,6 +50,13 @@ class MiniMaxH3SamplingParams(SamplingParams):
+     conditions: list[dict[str, Any]] | None = None
+     target: dict[str, Any] | None = None
+     audio_flow_shift: float | None = None
++    exact_lora_epilogue: bool = False
++    experimental_exact_lora_silu_fusion: bool = False
++    experimental_exact_lora_gate_fusion: bool = False
++    experimental_lora_delta_in_gemm: bool = False
++    experimental_vae_fast_path: bool | None = None
++    experimental_vae_tile_batch: int | None = None
++    experimental_vae_window_batch: int | None = None
+     output_mode: str | None = field(
+         default=None,
+         metadata={"batch_sig_exclude": True},
+@@ -64,6 +71,13 @@ class MiniMaxH3SamplingParams(SamplingParams):
+                 "conditions",
+                 "target",
+                 "audio_flow_shift",
++                "exact_lora_epilogue",
++                "experimental_exact_lora_silu_fusion",
++                "experimental_exact_lora_gate_fusion",
++                "experimental_lora_delta_in_gemm",
++                "experimental_vae_fast_path",
++                "experimental_vae_tile_batch",
++                "experimental_vae_window_batch",
+                 "audio_guidance_scale",
+                 "quality",
+                 "output_mode",
+diff --git a/python/sglang/multimodal_gen/runtime/entrypoints/utils.py b/python/sglang/multimodal_gen/runtime/entrypoints/utils.py
+index e8f89038d6..a99ea1fa4a 100644
+--- a/python/sglang/multimodal_gen/runtime/entrypoints/utils.py
++++ b/python/sglang/multimodal_gen/runtime/entrypoints/utils.py
+@@ -515,6 +515,7 @@ class CudaVideoEncoder:
+         self._chunk_frames = chunk_frames
+         self._wav_path = wav_path
+         self._frames_queued = 0
++        self._frames_written = 0
+         self._error: BaseException | None = None
+         self._finished = False
+         self._queue: queue.Queue = queue.Queue(maxsize=queued_chunks)
+@@ -634,14 +635,19 @@ class CudaVideoEncoder:
+                     del item
+                     count = int(chunk.shape[0])
+                     copy_stream.wait_event(ready)
+-                    with torch.cuda.stream(copy_stream):
+-                        buffer.tensor[:count].copy_(chunk, non_blocking=True)
+-                    copy_stream.synchronize()
+-                    # the copy is done, so the allocator may hand this block out again
+-                    del chunk, ready
+-                    # write() copies into the pipe; sendfile would only lend it these
+-                    # pages, and the next chunk overwrites them before ffmpeg reads
+-                    _write_all(stdin.fileno(), staged[: count * frame_bytes])
++                    with maybe_record_function(
++                        f"VIDEO_CHUNK frames {self._frames_written}-"
++                        f"{self._frames_written + count} host_stage+ffmpeg_stdin"
++                    ):
++                        with torch.cuda.stream(copy_stream):
++                            buffer.tensor[:count].copy_(chunk, non_blocking=True)
++                        copy_stream.synchronize()
++                        # the copy is done, so the allocator may hand this block out again
++                        del chunk, ready
++                        # write() copies into the pipe; sendfile would only lend it these
++                        # pages, and the next chunk overwrites them before ffmpeg reads
++                        _write_all(stdin.fileno(), staged[: count * frame_bytes])
++                    self._frames_written += count
+         except BaseException as exc:
+             self._error = exc
+             while self._queue.get() is not None:
+diff --git a/python/sglang/multimodal_gen/runtime/layers/lora/exact_epilogue.py b/python/sglang/multimodal_gen/runtime/layers/lora/exact_epilogue.py
+new file mode 100644
+index 0000000000..9b897fcaf1
+--- /dev/null
++++ b/python/sglang/multimodal_gen/runtime/layers/lora/exact_epilogue.py
+@@ -0,0 +1,368 @@
++# SPDX-License-Identifier: Apache-2.0
++"""Opt-in CUDA BF16 LoRA epilogue preserving each eager rounding boundary."""
++
++import torch
++import triton
++import triton.language as tl
++
++from sglang.kernels.numerics import mul_rn_f32, round_bf16_to_fp32
++
++
++@triton.jit
++def _exact_lora_add_kernel(
++    base,
++    delta,
++    output,
++    size: tl.constexpr,
++    scales: tl.constexpr,
++    block: tl.constexpr,
++):
++    offsets = tl.program_id(0) * block + tl.arange(0, block)
++    valid = offsets < size
++    value = tl.load(delta + offsets, valid, other=0).to(tl.float32)
++    for index in tl.static_range(len(scales)):
++        # Do not combine scales: eager rounds after every multiplication.
++        value = (value * scales[index]).to(tl.bfloat16).to(tl.float32)
++    original = tl.load(base + offsets, valid, other=0).to(tl.float32)
++    tl.store(output + offsets, original + value, valid)
++
++
++def exact_lora_add(
++    base: torch.Tensor, delta: torch.Tensor, scales: tuple[float, ...]
++) -> torch.Tensor:
++    """Return a fresh contiguous result; caller checks CUDA/BF16/layout/grad."""
++    output = torch.empty_like(base)
++    if base.numel():
++        _exact_lora_add_kernel[(triton.cdiv(base.numel(), 1024),)](
++            base,
++            delta,
++            output,
++            base.numel(),
++            scales,
++            1024,
++            enable_fp_fusion=False,
++        )
++    return output
++
++
++@triton.jit
++def _exact_lora_silu_mul_kernel(
++    base,
++    delta,
++    output,
++    rows,
++    width: tl.constexpr,
++    scales: tl.constexpr,
++    block: tl.constexpr,
++):
++    row = tl.program_id(0)
++    cols = tl.program_id(1) * block + tl.arange(0, block)
++    valid = (row < rows) & (cols < width)
++    gate_offsets = row * (2 * width) + cols
++    up_offsets = gate_offsets + width
++
++    gate_delta = tl.load(delta + gate_offsets, valid, other=0).to(tl.float32)
++    up_delta = tl.load(delta + up_offsets, valid, other=0).to(tl.float32)
++    for index in tl.static_range(len(scales)):
++        gate_delta = (gate_delta * scales[index]).to(tl.bfloat16).to(tl.float32)
++        up_delta = (up_delta * scales[index]).to(tl.bfloat16).to(tl.float32)
++
++    gate_base = tl.load(base + gate_offsets, valid, other=0).to(tl.float32)
++    up_base = tl.load(base + up_offsets, valid, other=0).to(tl.float32)
++    gate = (gate_base + gate_delta).to(tl.bfloat16).to(tl.float32)
++    up = (up_base + up_delta).to(tl.bfloat16).to(tl.float32)
++    activated = round_bf16_to_fp32(gate * tl.sigmoid(gate))
++    tl.store(output + row * width + cols, activated * up, valid)
++
++
++def exact_lora_silu_mul(
++    base: torch.Tensor, delta: torch.Tensor, scales: tuple[float, ...]
++) -> torch.Tensor:
++    """Apply exact BF16 LoRA addition and rounded SwiGLU in one kernel."""
++    if not (
++        base.is_cuda
++        and delta.is_cuda
++        and base.device == delta.device
++        and base.dtype == delta.dtype == torch.bfloat16
++        and base.shape == delta.shape
++        and base.is_contiguous()
++        and delta.is_contiguous()
++        and base.ndim >= 2
++        and base.shape[-1] > 0
++        and base.shape[-1] % 2 == 0
++        and base.numel() > 0
++    ):
++        raise RuntimeError("invalid input for exact_lora_silu_mul")
++    width = base.shape[-1] // 2
++    rows = base.numel() // base.shape[-1]
++    output_shape = (*base.shape[:-1], width)
++    output = torch.empty(output_shape, dtype=base.dtype, device=base.device)
++    _exact_lora_silu_mul_kernel[(rows, triton.cdiv(width, 1024))](
++        base,
++        delta,
++        output,
++        rows,
++        width,
++        scales,
++        1024,
++        enable_fp_fusion=False,
++    )
++    return output
++
++@triton.jit
++def _exact_lora_gate_add_kernel(
++    base,
++    delta,
++    residual,
++    gate,
++    indices,
++    output,
++    hidden_size,
++    stride_base_row,
++    stride_delta_row,
++    stride_residual_row,
++    stride_gate_row,
++    stride_indices,
++    stride_output_row,
++    scales: tl.constexpr,
++    GATE_IS_BF16: tl.constexpr,
++    BLOCK_N: tl.constexpr,
++):
++    row = tl.program_id(0)
++    columns = tl.program_id(1) * BLOCK_N + tl.arange(0, BLOCK_N)
++    valid = columns < hidden_size
++    index = tl.load(indices + row * stride_indices)
++
++    delta_value = tl.load(
++        delta + row * stride_delta_row + columns, valid, other=0
++    ).to(tl.float32)
++    for scale_index in tl.static_range(len(scales)):
++        delta_value = (
++            delta_value * scales[scale_index]
++        ).to(tl.bfloat16).to(tl.float32)
++
++    base_value = tl.load(
++        base + row * stride_base_row + columns, valid, other=0
++    ).to(tl.float32)
++    projected = round_bf16_to_fp32(base_value + delta_value)
++
++    gate_value = tl.load(
++        gate + index * stride_gate_row + columns, valid, other=0
++    ).to(tl.float32)
++    if GATE_IS_BF16:
++        gated = round_bf16_to_fp32(gate_value * projected)
++    else:
++        gated = mul_rn_f32(gate_value, projected)
++
++    residual_value = tl.load(
++        residual + row * stride_residual_row + columns, valid, other=0
++    ).to(tl.float32)
++    tl.store(
++        output + row * stride_output_row + columns,
++        residual_value + gated,
++        valid,
++    )
++
++
++
++_EXACT_LORA_GATE_BENCHMARK_DONE = False
++
++
++def _maybe_run_exact_lora_gate_microbenchmark(
++    base: torch.Tensor,
++    delta: torch.Tensor,
++    residual: torch.Tensor,
++    gate: torch.Tensor,
++    indices: torch.Tensor,
++    scales: tuple[float, ...],
++) -> None:
++    """One-shot CUDA Event attribution on real model activations, opt-in by env."""
++    global _EXACT_LORA_GATE_BENCHMARK_DONE
++    if _EXACT_LORA_GATE_BENCHMARK_DONE:
++        return
++
++    import json
++    import os
++    import pathlib
++    import statistics
++
++    output_path = os.environ.get("SGLANG_EXACT_LORA_GATE_MICROBENCH_PATH")
++    if os.environ.get("SGLANG_EXACT_LORA_GATE_MICROBENCH") != "1" or not output_path:
++        return
++    _EXACT_LORA_GATE_BENCHMARK_DONE = True
++
++    from sglang.kernels.ops.diffusion.modulate.indexed_modulation_triton import (
++        indexed_gate_bf16_,
++        indexed_gate_fp32_,
++    )
++
++    rows = min(4096, base.shape[0])
++    sample_base = base[:rows]
++    sample_delta = delta[:rows]
++    sample_residual = residual[:rows]
++    sample_indices = indices[:rows]
++    reference_residual = sample_residual.clone()
++    candidate_residual = sample_residual.clone()
++    original_residual = sample_residual.clone()
++    gate_fn = indexed_gate_bf16_ if gate.dtype == torch.bfloat16 else indexed_gate_fp32_
++
++    projected = exact_lora_add(sample_base, sample_delta, scales)
++    if gate.dtype == torch.bfloat16:
++        expected = indexed_gate_bf16_(
++            sample_residual.clone(), gate, projected, sample_indices
++        )
++    else:
++        expected = indexed_gate_fp32_(
++            sample_residual.clone(), gate, projected, sample_indices
++        )
++    actual = exact_lora_gate_add(
++        sample_base,
++        sample_delta,
++        sample_residual,
++        gate,
++        sample_indices,
++        scales,
++        inplace=False,
++    )
++    torch.cuda.synchronize(base.device)
++    if not torch.equal(expected, actual):
++        raise RuntimeError("real activation exact LoRA gate check failed")
++
++    def reference_inplace():
++        projected_value = exact_lora_add(sample_base, sample_delta, scales)
++        return gate_fn(
++            reference_residual, gate, projected_value, sample_indices
++        )
++
++    def candidate_inplace():
++        return exact_lora_gate_add(
++            sample_base,
++            sample_delta,
++            candidate_residual,
++            gate,
++            sample_indices,
++            scales,
++            inplace=True,
++        )
++
++    def timed(fn, work):
++        work.copy_(original_residual)
++        torch.cuda.synchronize(base.device)
++        for _ in range(2):
++            fn()
++        torch.cuda.synchronize(base.device)
++        work.copy_(original_residual)
++        torch.cuda.synchronize(base.device)
++        start = torch.cuda.Event(enable_timing=True)
++        end = torch.cuda.Event(enable_timing=True)
++        start.record()
++        for _ in range(8):
++            fn()
++        end.record()
++        end.synchronize()
++        return start.elapsed_time(end) / 8.0
++
++    measurements = {"reference_two_kernels_ms": [], "fused_one_kernel_ms": []}
++    funcs = {
++        "reference_two_kernels_ms": (reference_inplace, reference_residual),
++        "fused_one_kernel_ms": (candidate_inplace, candidate_residual),
++    }
++    for round_index in range(3):
++        names = list(funcs)
++        if round_index % 2:
++            names.reverse()
++        for name in names:
++            fn, work = funcs[name]
++            measurements[name].append(timed(fn, work))
++
++    result = {
++        "source": "4096-row slice of real FC2 activations from the first opt-in H3 request",
++        "full_shape": list(base.shape),
++        "measured_shape": [rows, base.shape[1]],
++        "gate_dtype": str(gate.dtype),
++        "scales": list(scales),
++        "exact_output_match": True,
++        "rounds": 3,
++        "repeats_per_round": 8,
++        "per_round_ms_per_call": measurements,
++        "median_ms_per_call": {
++            name: statistics.median(values) for name, values in measurements.items()
++        },
++    }
++    result["median_reduction_pct"] = 100.0 * (
++        1.0
++        - result["median_ms_per_call"]["fused_one_kernel_ms"]
++        / result["median_ms_per_call"]["reference_two_kernels_ms"]
++    )
++    destination = pathlib.Path(output_path)
++    destination.parent.mkdir(parents=True, exist_ok=True)
++    if destination.exists():
++        raise FileExistsError(f"refusing to overwrite {destination}")
++    destination.write_text(json.dumps(result, indent=2) + "\n")
++
++
++def exact_lora_gate_add(
++    base: torch.Tensor,
++    delta: torch.Tensor,
++    residual: torch.Tensor,
++    gate: torch.Tensor,
++    indices: torch.Tensor,
++    scales: tuple[float, ...],
++    *,
++    inplace: bool = False,
++) -> torch.Tensor:
++    """Fuse exact BF16 LoRA addition with H3's indexed gated residual."""
++    if not (
++        base.is_cuda
++        and delta.is_cuda
++        and residual.is_cuda
++        and gate.is_cuda
++        and indices.is_cuda
++        and base.device == delta.device == residual.device == gate.device == indices.device
++        and base.dtype == delta.dtype == residual.dtype == torch.bfloat16
++        and gate.dtype in (torch.bfloat16, torch.float32)
++        and base.shape == delta.shape == residual.shape
++        and base.ndim == 2
++        and base.shape[0] == indices.numel()
++        and gate.ndim == 2
++        and gate.shape[1] == base.shape[1]
++        and indices.ndim == 1
++        and indices.dtype in (torch.int32, torch.int64)
++        and base.is_contiguous()
++        and delta.is_contiguous()
++        and residual.is_contiguous()
++        and gate.stride(-1) == 1
++        and base.shape[1] > 0
++    ):
++        raise RuntimeError("invalid input for exact_lora_gate_add")
++
++    _maybe_run_exact_lora_gate_microbenchmark(
++        base, delta, residual, gate, indices, scales
++    )
++    output = residual if inplace else torch.empty_like(residual)
++    rows, hidden_size = base.shape
++    if rows == 0:
++        return output
++
++    block_n = min(2048, triton.next_power_of_2(hidden_size))
++    _exact_lora_gate_add_kernel[(rows, triton.cdiv(hidden_size, block_n))](
++        base,
++        delta,
++        residual,
++        gate,
++        indices,
++        output,
++        hidden_size,
++        base.stride(0),
++        delta.stride(0),
++        residual.stride(0),
++        gate.stride(0),
++        indices.stride(0),
++        output.stride(0),
++        scales,
++        gate.dtype == torch.bfloat16,
++        block_n,
++        num_warps=4,
++        enable_fp_fusion=False,
++    )
++    return output
+diff --git a/python/sglang/multimodal_gen/runtime/layers/lora/linear.py b/python/sglang/multimodal_gen/runtime/layers/lora/linear.py
+index fbd513379d..cf54d21534 100644
+--- a/python/sglang/multimodal_gen/runtime/layers/lora/linear.py
++++ b/python/sglang/multimodal_gen/runtime/layers/lora/linear.py
+@@ -87,6 +87,14 @@ def _request_allows_lossless() -> bool:
+     return quality is not None and quality_allows(quality, "lossless")
+ 
+ 
++def _request_allows_experimental_lora_delta_in_gemm() -> bool:
++    """Request-local opt-in for this numerically different LoRA path."""
++    context = get_forward_context_or_none()
++    forward_batch = None if context is None else context.forward_batch
++    sampling_params = getattr(forward_batch, "sampling_params", None)
++    return bool(getattr(sampling_params, "experimental_lora_delta_in_gemm", False))
++
++
+ def _can_add_lora_delta_in_gemm(
+     out: torch.Tensor, lora_A: torch.Tensor, lora_B: torch.Tensor
+ ) -> bool:
+@@ -94,7 +102,14 @@ def _can_add_lora_delta_in_gemm(
+         return False
+     if lora_A.dim() == 3 and lora_A.shape[0] != lora_B.shape[0]:
+         return False
+-    return lora_A.dim() in (2, 3) and out.is_contiguous() and _request_allows_lossless()
++    return (
++        lora_A.dim() in (2, 3)
++        and out.is_contiguous()
++        and (
++            _request_allows_lossless()
++            or _request_allows_experimental_lora_delta_in_gemm()
++        )
++    )
+ 
+ 
+ def _add_lora_delta_in_gemm(
+@@ -268,6 +283,36 @@ class BaseLayerWithLoRA(nn.Module):
+             return _add_lora_delta_in_gemm(out, x_lora, lora_A, lora_B, scale)
+ 
+         delta = _compute_lora_delta(x_lora, lora_A, lora_B)
++        context = get_forward_context_or_none()
++        forward_batch = None if context is None else context.forward_batch
++        sampling_params = getattr(forward_batch, "sampling_params", None)
++        request_enabled = bool(getattr(sampling_params, "exact_lora_epilogue", False))
++        if (
++            (
++                request_enabled
++                or os.environ.get("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "0") == "1"
++            )
++            and not _request_allows_lossless()
++            and not torch.is_grad_enabled()
++            and out.is_cuda
++            and out.device == delta.device
++            and out.dtype == delta.dtype == torch.bfloat16
++            and out.shape == delta.shape
++            and out.is_contiguous()
++            and delta.is_contiguous()
++        ):
++            from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
++                exact_lora_add,
++            )
++
++            scales = []
++            if self.lora_alpha != self.lora_rank:
++                scales.append(self.lora_alpha / self.lora_rank)
++            if self.strength != 1.0:
++                scales.append(self.strength)
++            if runtime_lora_scale != 1.0:
++                scales.append(runtime_lora_scale)
++            return exact_lora_add(out, delta, tuple(scales))
+         delta = self._scale_lora_delta(delta, runtime_lora_scale)
+         return out + delta.to(dtype=out.dtype)
+ 
+@@ -873,6 +918,76 @@ class ColumnParallelLinearWithLoRA(BaseLayerWithLoRA):
+         output_bias = self.base_layer.bias if self.base_layer.skip_bias_add else None
+         return output, output_bias
+ 
++    def try_exact_lora_silu_mul(
++        self, input_: torch.Tensor
++    ) -> torch.Tensor | None:
++        """Fuse this H3 FC1 LoRA epilogue with rounded SwiGLU when requested."""
++        context = get_forward_context_or_none()
++        forward_batch = None if context is None else context.forward_batch
++        sampling_params = getattr(forward_batch, "sampling_params", None)
++        if not (
++            getattr(sampling_params, "exact_lora_epilogue", False)
++            and getattr(
++                sampling_params, "experimental_exact_lora_silu_fusion", False
++            )
++            and not _request_allows_lossless()
++            and not torch.is_grad_enabled()
++            and not torch.compiler.is_compiling()
++            and input_.is_cuda
++            and input_.dtype == torch.bfloat16
++            and input_.is_contiguous()
++            and not self.disable_lora
++            and not self.merged
++            and not self.has_lora_output_offset
++            and self.lora_A is not None
++            and self.lora_B is not None
++            and len(self._active_lora_list()) == 1
++            and not self.base_layer.gather_output
++            and not self.base_layer.skip_bias_add
++            and self.base_layer.bias is None
++        ):
++            return None
++
++        runtime_lora_scale = self._runtime_lora_scale()
++        if runtime_lora_scale == 0.0:
++            return None
++
++        output = self.base_layer.quant_method.apply(
++            self.base_layer, input_, bias=None
++        )
++        lora_A, lora_B = self.lora_A, self.lora_B
++        if lora_A is None or lora_B is None:
++            return None
++        if isinstance(lora_B, DTensor):
++            lora_B = lora_B.to_local()
++            lora_A = lora_A.to_local()
++        lora_A = self.slice_lora_a_weights(lora_A.to(device=input_.device))
++        lora_B = self.slice_lora_b_weights(lora_B.to(device=input_.device))
++        delta = _compute_lora_delta(input_.to(dtype=lora_A.dtype), lora_A, lora_B)
++        if not (
++            output.is_cuda
++            and output.dtype == torch.bfloat16
++            and output.is_contiguous()
++            and output.shape == delta.shape
++            and delta.dtype == torch.bfloat16
++            and delta.is_contiguous()
++            and output.shape[-1] % 2 == 0
++        ):
++            return None
++
++        scales = []
++        if self.lora_alpha != self.lora_rank:
++            scales.append(self.lora_alpha / self.lora_rank)
++        if self.strength != 1.0:
++            scales.append(self.strength)
++        if runtime_lora_scale != 1.0:
++            scales.append(runtime_lora_scale)
++        from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
++            exact_lora_silu_mul,
++        )
++
++        return exact_lora_silu_mul(output, delta, tuple(scales))
++
+     def slice_lora_b_weights(self, B: torch.Tensor) -> torch.Tensor:
+         tp_rank = get_tp_rank()
+         shard_size = self.base_layer.output_partition_sizes[0]
+@@ -939,6 +1054,127 @@ class QKVParallelLinearWithLoRA(ColumnParallelLinearWithLoRA):
+ 
+ 
+ class RowParallelLinearWithLoRA(BaseLayerWithLoRA):
++    def can_try_exact_lora_gate_add(
++        self,
++        input_: torch.Tensor,
++        residual: torch.Tensor,
++        gate: torch.Tensor,
++        indices: torch.Tensor,
++    ) -> bool:
++        context = get_forward_context_or_none()
++        forward_batch = None if context is None else context.forward_batch
++        sampling_params = getattr(forward_batch, "sampling_params", None)
++        return bool(
++            getattr(sampling_params, "exact_lora_epilogue", False)
++            and getattr(
++                sampling_params, "experimental_exact_lora_gate_fusion", False
++            )
++            and not _request_allows_lossless()
++            and not torch.is_grad_enabled()
++            and not torch.compiler.is_compiling()
++            and input_.is_cuda
++            and input_.dtype == torch.bfloat16
++            and input_.ndim == 2
++            and input_.is_contiguous()
++            and residual.is_cuda
++            and residual.device == input_.device
++            and residual.dtype == torch.bfloat16
++            and residual.ndim == 2
++            and residual.shape[0] == input_.shape[0]
++            and residual.shape[1]
++            == getattr(self.base_layer, "output_size_per_partition", None)
++            and residual.is_contiguous()
++            and gate.is_cuda
++            and gate.device == input_.device
++            and gate.dtype in (torch.bfloat16, torch.float32)
++            and gate.ndim == 2
++            and gate.shape[1] == residual.shape[1]
++            and gate.stride(-1) == 1
++            and indices.is_cuda
++            and indices.device == input_.device
++            and indices.dtype in (torch.int32, torch.int64)
++            and indices.ndim == 1
++            and indices.numel() == input_.shape[0]
++            and not self.disable_lora
++            and not self.merged
++            and not self.has_lora_output_offset
++            and self.lora_A is not None
++            and self.lora_B is not None
++            and self.lora_A.ndim == self.lora_B.ndim == 2
++            and len(self._active_lora_list()) == 1
++            and getattr(self.base_layer, "tp_size", None) == 1
++            and not self.base_layer.skip_bias_add
++            and self.base_layer.bias is None
++            and self._runtime_lora_scale() != 0.0
++        )
++
++    def try_exact_lora_gate_add(
++        self,
++        input_: torch.Tensor,
++        residual: torch.Tensor,
++        gate: torch.Tensor,
++        indices: torch.Tensor,
++    ) -> torch.Tensor | None:
++        if not self.can_try_exact_lora_gate_add(input_, residual, gate, indices):
++            return None
++
++        if self.base_layer.input_is_parallel:
++            input_parallel = input_
++        else:
++            input_parallel = split_tensor_along_last_dim(
++                input_, num_partitions=self.base_layer.tp_size
++            )[0].contiguous()
++
++        runtime_lora_scale = self._runtime_lora_scale()
++        output = self.base_layer.quant_method.apply(
++            self.base_layer,
++            input_parallel,
++            bias=None,
++        )
++        lora_A, lora_B = self.lora_A, self.lora_B
++        if isinstance(lora_B, DTensor):
++            lora_B = lora_B.to_local()
++            lora_A = lora_A.to_local()
++        lora_A = self.slice_lora_a_weights(
++            lora_A.to(device=input_.device, non_blocking=True)
++        )
++        lora_B = self.slice_lora_b_weights(
++            lora_B.to(device=input_.device, non_blocking=True)
++        )
++        delta = _compute_lora_delta(
++            input_parallel.to(dtype=lora_A.dtype), lora_A, lora_B
++        )
++        if not (
++            output.is_cuda
++            and output.dtype == delta.dtype == torch.bfloat16
++            and output.is_contiguous()
++            and delta.is_contiguous()
++            and output.shape == delta.shape == residual.shape
++        ):
++            return None
++
++        scales = []
++        if self.lora_alpha != self.lora_rank:
++            scales.append(self.lora_alpha / self.lora_rank)
++        if self.strength != 1.0:
++            scales.append(self.strength)
++        if runtime_lora_scale != 1.0:
++            scales.append(runtime_lora_scale)
++
++        from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
++            exact_lora_gate_add,
++        )
++
++        return exact_lora_gate_add(
++            output,
++            delta,
++            residual,
++            gate,
++            indices,
++            tuple(scales),
++            inplace=True,
++        )
++
+     def forward(self, input_: torch.Tensor):
+         if self.disable_lora or (self.merged and not self.has_lora_output_offset):
+             return self.base_layer(input_)
+diff --git a/python/sglang/multimodal_gen/runtime/models/dits/minimax_h3.py b/python/sglang/multimodal_gen/runtime/models/dits/minimax_h3.py
+index bfcf9afed2..d79654337d 100644
+--- a/python/sglang/multimodal_gen/runtime/models/dits/minimax_h3.py
++++ b/python/sglang/multimodal_gen/runtime/models/dits/minimax_h3.py
+@@ -88,6 +88,7 @@ from sglang.multimodal_gen.runtime.layers.usp import _ring_attention_varlen
+ from sglang.multimodal_gen.runtime.loader.utils import get_param_names_mapping
+ from sglang.multimodal_gen.runtime.managers.forward_context import (
+     get_forward_context,
++    get_forward_context_or_none,
+ )
+ from sglang.multimodal_gen.runtime.managers.memory_managers.layerwise_offload import (
+     LayerwiseOffloadableModuleMixin,
+@@ -1466,6 +1467,24 @@ class MiniMaxH3MLP(nn.Module):
+             quant_config.get_name() == "gguf"
+         )
+ 
++    def _try_exact_lora_silu_fusion(
++        self, x: torch.Tensor | tuple[torch.Tensor, ...]
++    ) -> torch.Tensor | None:
++        if not isinstance(x, torch.Tensor) or not x.is_cuda:
++            return None
++        context = get_forward_context_or_none()
++        forward_batch = None if context is None else context.forward_batch
++        sampling_params = getattr(forward_batch, "sampling_params", None)
++        if not (
++            getattr(sampling_params, "exact_lora_epilogue", False)
++            and getattr(
++                sampling_params, "experimental_exact_lora_silu_fusion", False
++            )
++        ):
++            return None
++        method = getattr(self.fc1, "try_exact_lora_silu_mul", None)
++        return None if method is None else method(x)
++
+     def forward(self, x: torch.Tensor) -> torch.Tensor:
+         if not isinstance(x, tuple) and x.device.type == "mps":
+             out = torch.empty_like(x)
+@@ -1479,14 +1498,60 @@ class MiniMaxH3MLP(nn.Module):
+                 torch.mps.synchronize()
+                 torch.mps.empty_cache()
+             return out
+-        hidden, _ = self.fc1(x)
+-        if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
+-            out, _ = self.fc2(silu_mul_mxfp8(hidden))
+-            return out
+-        hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
++        hidden = self._try_exact_lora_silu_fusion(x)
++        if hidden is None:
++            hidden, _ = self.fc1(x)
++            if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
++                out, _ = self.fc2(silu_mul_mxfp8(hidden))
++                return out
++            hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
+         out, _ = self.fc2(hidden)
+         return out
+ 
++    def forward_with_gate(
++        self,
++        x: torch.Tensor | tuple[torch.Tensor, ...],
++        residual: torch.Tensor,
++        gate: torch.Tensor,
++        indices: torch.Tensor,
++    ) -> tuple[torch.Tensor, bool]:
++        context = get_forward_context_or_none()
++        forward_batch = None if context is None else context.forward_batch
++        sampling_params = getattr(forward_batch, "sampling_params", None)
++        if not (
++            isinstance(x, torch.Tensor)
++            and x.is_cuda
++            and x.dtype == _BF16_DTYPE
++            and getattr(sampling_params, "quality", None) == "exact"
++            and getattr(sampling_params, "exact_lora_epilogue", False)
++            and getattr(
++                sampling_params, "experimental_exact_lora_gate_fusion", False
++            )
++            and callable(getattr(self.fc2, "can_try_exact_lora_gate_add", None))
++            and callable(getattr(self.fc2, "try_exact_lora_gate_add", None))
++        ):
++            return self.forward(x), False
++
++        hidden = self._try_exact_lora_silu_fusion(x)
++        if hidden is None:
++            hidden, _ = self.fc1(x)
++            if _accepts_mxfp8_input(self.fc2) and can_use_silu_mul_mxfp8(hidden):
++                out, _ = self.fc2(silu_mul_mxfp8(hidden))
++                return out, False
++            hidden = _silu_mul(hidden, reuse_input=self.reuse_fc1_activation)
++
++        if not self.fc2.can_try_exact_lora_gate_add(
++            hidden, residual, gate, indices
++        ):
++            out, _ = self.fc2(hidden)
++            return out, False
++
++        out = self.fc2.try_exact_lora_gate_add(hidden, residual, gate, indices)
++        if out is None:
++            out, _ = self.fc2(hidden)
++            return out, False
++        return out, True
++
+ 
+ class MiniMaxH3AdalnProj(nn.Module):
+     """SiLU + zero-init linear over unique condition embeddings.
+@@ -1744,14 +1809,13 @@ class MiniMaxH3DiTBlock(nn.Module):
+                 _, h_fp8, h_scales = indexed_scale_shift_mxfp8_(
+                     h, shift_mlp, scale_mlp, combined_indices, keep_bf16=False
+                 )
+-                h = self.mlp((h_fp8, h_scales))
++                mlp_input = (h_fp8, h_scales)
+             else:
+-                h = _modulate_scale_shift(
++                mlp_input = _modulate_scale_shift(
+                     h, shift_mlp, scale_mlp, combined_indices, dtype=_BF16_DTYPE
+                 )
+-                h = self.mlp(h)
+         else:
+-            h = _modulate_rmsnorm_scale_shift(
++            mlp_input = _modulate_rmsnorm_scale_shift(
+                 x,
+                 self.norm2,
+                 shift_mlp,
+@@ -1760,9 +1824,28 @@ class MiniMaxH3DiTBlock(nn.Module):
+                 dtype=_BF16_DTYPE,
+                 fused=MINIMAX_H3_NORM_MODULATE.is_enabled(self),
+             )
+-            h = self.mlp(h)
+-        # `residual` is block-local here (see above), so this stays in-place
+-        # even while Cache-DiT is attached.
++        gate_fusion_requested = False
++        if not torch.compiler.is_compiling():
++            context = get_forward_context_or_none()
++            forward_batch = None if context is None else context.forward_batch
++            sampling_params = getattr(forward_batch, "sampling_params", None)
++            gate_fusion_requested = bool(
++                getattr(sampling_params, "exact_lora_epilogue", False)
++                and getattr(
++                    sampling_params, "experimental_exact_lora_gate_fusion", False
++                )
++            )
++        if gate_fusion_requested:
++            h, gate_fused = self.mlp.forward_with_gate(
++                mlp_input,
++                residual,
++                gate_mlp,
++                combined_indices,
++            )
++            if gate_fused:
++                return h
++        else:
++            h = self.mlp(mlp_input)
+         return _modulate_gate(
+             residual,
+             gate_mlp,
+diff --git a/python/sglang/multimodal_gen/runtime/pipelines_core/stages/encode_while_decoding.py b/python/sglang/multimodal_gen/runtime/pipelines_core/stages/encode_while_decoding.py
+index ad64b850d0..622bcd156f 100644
+--- a/python/sglang/multimodal_gen/runtime/pipelines_core/stages/encode_while_decoding.py
++++ b/python/sglang/multimodal_gen/runtime/pipelines_core/stages/encode_while_decoding.py
+@@ -18,6 +18,7 @@ from sglang.multimodal_gen.runtime.pipelines_core.schedule_batch import Req
+ from sglang.multimodal_gen.runtime.platforms import current_platform
+ from sglang.multimodal_gen.runtime.server_args import ServerArgs
+ from sglang.multimodal_gen.runtime.utils.logging_utils import CYAN, RESET, init_logger
++from sglang.multimodal_gen.runtime.utils.profiler import maybe_record_function
+ 
+ logger = init_logger(__name__)
+ 
+@@ -90,14 +91,16 @@ class EncodeWhileDecoding:
+             )
+             for chunk in frames.split(chunk_frames, dim=2):
+                 if self._finish_frames is not None:
+-                    chunk = self._finish_frames(chunk)
++                    with maybe_record_function("H3.output.frame_postprocess"):
++                        chunk = self._finish_frames(chunk)
+                 chunk = chunk[0]
+                 if self._encoder is None:
+                     self._encoder = self._open(chunk)
+                     if self._encoder is None:
+                         self._failed = True
+                         return
+-                self._encoder.write(chunk)
++                with maybe_record_function("H3.output.enqueue_video_chunk"):
++                    self._encoder.write(chunk)
+         except Exception:
+             self._fail()
+ 
+@@ -106,19 +109,20 @@ class EncodeWhileDecoding:
+ 
+         height, width = int(frames.shape[-2]), int(frames.shape[-1])
+         os.makedirs(os.path.dirname(self.save_file_path) or ".", exist_ok=True)
+-        return CudaVideoEncoder.open(
+-            self.save_file_path,
+-            device=frames.device,
+-            height=height,
+-            width=width,
+-            fps=self._batch.fps,
+-            num_frames=self._batch.num_frames or int(frames.shape[1]),
+-            audio=self._audio,
+-            audio_sample_rate=self._audio_sample_rate,
+-            output_compression=self._batch.output_compression,
+-            x264_preset=self._batch.x264_preset,
+-            max_queued_frames=_STREAMED_VIDEO_QUEUE_BYTES // (3 * height * width),
+-        )
++        with maybe_record_function("H3.output.audio_to_wav_and_encoder_open"):
++            return CudaVideoEncoder.open(
++                self.save_file_path,
++                device=frames.device,
++                height=height,
++                width=width,
++                fps=self._batch.fps,
++                num_frames=self._batch.num_frames or int(frames.shape[1]),
++                audio=self._audio,
++                audio_sample_rate=self._audio_sample_rate,
++                output_compression=self._batch.output_compression,
++                x264_preset=self._batch.x264_preset,
++                max_queued_frames=_STREAMED_VIDEO_QUEUE_BYTES // (3 * height * width),
++            )
+ 
+     def finish(self) -> list[str] | None:
+         """The saved path, or None when the worker has to save the frames instead."""
+diff --git a/python/sglang/multimodal_gen/runtime/pipelines_core/stages/model_specific_stages/minimax_h3/stages/decoding.py b/python/sglang/multimodal_gen/runtime/pipelines_core/stages/model_specific_stages/minimax_h3/stages/decoding.py
+index 95335800c3..ea744d8874 100644
+--- a/python/sglang/multimodal_gen/runtime/pipelines_core/stages/model_specific_stages/minimax_h3/stages/decoding.py
++++ b/python/sglang/multimodal_gen/runtime/pipelines_core/stages/model_specific_stages/minimax_h3/stages/decoding.py
+@@ -2,8 +2,13 @@
+ from __future__ import annotations
+ 
+ import functools
++import hashlib
++import json
++import os
++import re
+ from collections.abc import Mapping
+-from contextlib import contextmanager, nullcontext
++from contextlib import ExitStack, contextmanager, nullcontext
++from dataclasses import asdict, is_dataclass
+ 
+ import torch
+ 
+@@ -42,6 +47,7 @@ from sglang.multimodal_gen.runtime.utils.precision import (
+     resolve_decode_precision,
+     resolve_precision,
+ )
++from sglang.multimodal_gen.runtime.utils.profiler import maybe_record_function
+ from sglang.multimodal_gen.runtime.utils.torch_compile import (
+     ActiveTargetCompiledCallable,
+ )
+@@ -260,6 +266,134 @@ def _minimax_h3_decoder_task(batch: Req) -> str | None:
+     return task_value
+ 
+ 
++@contextmanager
++def _temporary_experimental_vae_batching(video_vae, sampling_params):
++    """Apply bounded per-request tile/window caps, then restore the VAE."""
++    previous = {}
++    try:
++        for attribute, request_field in (
++            ("decoder_tile_batch", "experimental_vae_tile_batch"),
++            ("window_batch", "experimental_vae_window_batch"),
++        ):
++            value = getattr(sampling_params, request_field, None)
++            if value is None:
++                continue
++            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 4:
++                raise ValueError(f"{request_field} must be an integer from 1 to 4")
++            if not hasattr(video_vae, attribute):
++                raise ValueError(f"video_vae does not expose {attribute}")
++            previous[attribute] = getattr(video_vae, attribute)
++            setattr(video_vae, attribute, value)
++        yield
++    finally:
++        for attribute, value in previous.items():
++            setattr(video_vae, attribute, value)
++
++
++def _jsonable_config(value):
++    if value is None or isinstance(value, (str, int, float, bool)):
++        return value
++    if is_dataclass(value):
++        return _jsonable_config(asdict(value))
++    if isinstance(value, Mapping):
++        return {str(key): _jsonable_config(item) for key, item in value.items()}
++    if isinstance(value, (list, tuple)):
++        return [_jsonable_config(item) for item in value]
++    return str(value)
++
++
++def _maybe_export_profile_latents(batch: Req, server_args: ServerArgs) -> None:
++    """Export only tensor payloads for one explicitly profiled replay request."""
++    output_root = os.getenv("SGLANG_H3_LATENT_DUMP_DIR")
++    if not output_root or not getattr(batch, "profile_all_stages", False):
++        return
++
++    request_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", str(batch.request_id))
++    output_dir = os.path.join(output_root, request_id)
++    os.makedirs(output_dir, exist_ok=True)
++    tensor_path = os.path.join(output_dir, "latents.pt")
++    temporary_tensor_path = tensor_path + ".tmp"
++    tensors = {
++        "video_latent": batch.latents.detach().cpu().contiguous(),
++        "audio_latent": batch.audio_latents.detach().cpu().contiguous(),
++    }
++    torch.save(tensors, temporary_tensor_path)
++    os.replace(temporary_tensor_path, tensor_path)
++
++    pipeline_config = server_args.pipeline_config
++    video_config = pipeline_config.vae_config
++    audio_config = pipeline_config.audio_vae_config
++    sampling = batch.sampling_params
++    scalar_fields = (
++        "height",
++        "width",
++        "num_frames",
++        "fps",
++        "num_inference_steps",
++        "seed",
++        "quality",
++        "task",
++        "output_mode",
++        "output_compression",
++        "x264_preset",
++    )
++    from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.constants import (
++        MINIMAX_H3_DENOISE_STATE_EXTRA_KEY,
++    )
++
++    metadata = {
++        "request_id": str(batch.request_id),
++        "task": _minimax_h3_decoder_task(batch),
++        "model_path": str(server_args.model_path),
++        "model_variant": str(getattr(server_args, "model_variant", None)),
++        "source_revision": os.getenv("SGLANG_H3_SOURCE_REVISION"),
++        "prompt_sha256": hashlib.sha256(
++            str(getattr(batch, "prompt", "")).encode("utf-8")
++        ).hexdigest(),
++        "sampling": {
++            name: _jsonable_config(getattr(sampling, name, None))
++            for name in scalar_fields
++        },
++        "fps": int(getattr(batch, "fps", 24)),
++        "num_frames": int(getattr(batch, "num_frames", batch.latents.shape[2])),
++        "output_compression": _jsonable_config(
++            getattr(batch, "output_compression", None)
++        ),
++        "x264_preset": _jsonable_config(getattr(batch, "x264_preset", None)),
++        "video_latent": {
++            "shape": list(batch.latents.shape),
++            "dtype": str(batch.latents.dtype),
++        },
++        "audio_latent": {
++            "shape": list(batch.audio_latents.shape),
++            "dtype": str(batch.audio_latents.dtype),
++        },
++        "video_vae_config": _jsonable_config(video_config.arch_config),
++        "audio_vae_config": _jsonable_config(audio_config.arch_config),
++        "denoise_state": _jsonable_config(
++            getattr(batch, "extra", {}).get(MINIMAX_H3_DENOISE_STATE_EXTRA_KEY)
++        ),
++        "component_weight_paths": _jsonable_config(
++            getattr(server_args, "component_weights_paths", {})
++        ),
++        "software": {"torch": str(torch.__version__), "cuda": torch.version.cuda},
++        "tensor_file": os.path.basename(tensor_path),
++        "tensor_file_sha256": None,
++    }
++    with open(tensor_path, "rb") as tensor_file:
++        metadata["tensor_file_sha256"] = hashlib.sha256(tensor_file.read()).hexdigest()
++    config_bytes = json.dumps(
++        metadata, sort_keys=True, separators=(",", ":"), default=str
++    ).encode("utf-8")
++    metadata["metadata_sha256"] = hashlib.sha256(config_bytes).hexdigest()
++    metadata_path = os.path.join(output_dir, "metadata.json")
++    temporary_metadata_path = metadata_path + ".tmp"
++    with open(temporary_metadata_path, "w", encoding="utf-8") as metadata_file:
++        json.dump(metadata, metadata_file, indent=2, sort_keys=True, default=str)
++        metadata_file.write("\n")
++    os.replace(temporary_metadata_path, metadata_path)
++
++
+ class MiniMaxH3DecodingStage(DecodingStage):
+     def __init__(self, video_vae, audio_vae) -> None:
+         super().__init__(vae=video_vae, component_name="video_vae")
+@@ -267,6 +401,21 @@ class MiniMaxH3DecodingStage(DecodingStage):
+         self.audio_vae = audio_vae
+         self._compiled_audio_vae_decode = ActiveTargetCompiledCallable()
+ 
++    @contextmanager
++    def _profiled_declared_component(self, component_name: str, module):
++        """Separate residency preparation from decode work in profiler traces."""
++        with ExitStack() as stack:
++            with maybe_record_function(
++                f"H3.{component_name}.component_prepare"
++            ):
++                selected = stack.enter_context(
++                    self.use_declared_component(
++                        component_name=component_name,
++                        module=module,
++                    )
++                )
++            yield selected
++
+     @property
+     def role_affinity(self) -> RoleType:
+         return RoleType.DECODER
+@@ -318,21 +467,21 @@ class MiniMaxH3DecodingStage(DecodingStage):
+         audio_latent: torch.Tensor,
+         server_args: ServerArgs,
+     ) -> dict:
+-        with self.use_declared_component(
+-            component_name="audio_vae",
+-            module=self.audio_vae,
++        with self._profiled_declared_component(
++            component_name="audio_vae", module=self.audio_vae
+         ) as audio_vae:
+             assert audio_vae is not None
+             self.audio_vae = audio_vae
+             if audio_vae.training:
+                 audio_vae.eval()
+             audio_arch_config = server_args.pipeline_config.audio_vae_config.arch_config
+-            audio_decode_latent = _reverse_normalize_latents(
+-                audio_latent,
+-                mean_values=audio_arch_config.latents_mean,
+-                std_values=audio_arch_config.latents_std,
+-                name="audio_vae",
+-            )
++            with maybe_record_function("H3.audio.reverse_normalize"):
++                audio_decode_latent = _reverse_normalize_latents(
++                    audio_latent,
++                    mean_values=audio_arch_config.latents_mean,
++                    std_values=audio_arch_config.latents_std,
++                    name="audio_vae",
++                )
+             audio_vae_dtype = resolve_precision(
+                 server_args, "audio_vae", precision_attr="audio_vae_precision"
+             )
+@@ -349,15 +498,17 @@ class MiniMaxH3DecodingStage(DecodingStage):
+                 else nullcontext()
+             )
+             with _deterministic_audio_decode_context(), autocast_context:
+-                audio_decode = self._get_vae_decode_fn(
+-                    audio_vae,
+-                    server_args,
+-                    decode_fn=audio_vae.decode,
+-                    compiled_callable=self._compiled_audio_vae_decode,
+-                )
+-                waveform = _required_tensor(
+-                    audio_decode(audio_decode_latent), "audio_vae.decode"
+-                )
++                with maybe_record_function("H3.audio.decode_callable_setup"):
++                    audio_decode = self._get_vae_decode_fn(
++                        audio_vae,
++                        server_args,
++                        decode_fn=audio_vae.decode,
++                        compiled_callable=self._compiled_audio_vae_decode,
++                    )
++                with maybe_record_function("H3.audio.vae_decode"):
++                    waveform = _required_tensor(
++                        audio_decode(audio_decode_latent), "audio_vae.decode"
++                    )
+             return {
+                 "waveform": waveform,
+                 "sample_rate": int(audio_vae.sample_rate),
+@@ -435,22 +586,24 @@ class MiniMaxH3DecodingStage(DecodingStage):
+ 
+         if self.video_vae is None:
+             raise RuntimeError("MiniMax H3 tasks require the video_vae output decoder")
++        with maybe_record_function("H3.latent_export"):
++            _maybe_export_profile_latents(batch, server_args)
+         batch_size = int(visual_latent.shape[0])
+         audio_waveform, audio_sample_rate = self._decode_replica_audio(
+             audio_latent, server_args
+         )
+-        output_audio_waveform = _canonical_output_audio_waveform(
+-            audio_waveform, batch_size=batch_size
+-        )
++        with maybe_record_function("H3.audio.canonicalize"):
++            output_audio_waveform = _canonical_output_audio_waveform(
++                audio_waveform, batch_size=batch_size
++            )
+         streamed_output_path = streamed_video_output_path(
+             batch, server_args, batch_size
+         )
+ 
+         visual_frames = None
+         output_file_paths = None
+-        with self.use_declared_component(
+-            component_name="video_vae",
+-            module=self.video_vae,
++        with self._profiled_declared_component(
++            component_name="video_vae", module=self.video_vae
+         ) as selected_video_vae:
+             if selected_video_vae is None:
+                 raise RuntimeError("video_vae became unavailable during decode")
+@@ -458,28 +611,33 @@ class MiniMaxH3DecodingStage(DecodingStage):
+             if selected_video_vae.training:
+                 selected_video_vae.eval()
+             visual_arch_config = server_args.pipeline_config.vae_config.arch_config
+-            visual_decode_latent = _reverse_normalize_latents(
+-                visual_latent,
+-                mean_values=visual_arch_config.latents_mean,
+-                std_values=visual_arch_config.latents_std,
+-                name="video_vae",
+-            )
++            with maybe_record_function("H3.video.reverse_normalize"):
++                visual_decode_latent = _reverse_normalize_latents(
++                    visual_latent,
++                    mean_values=visual_arch_config.latents_mean,
++                    std_values=visual_arch_config.latents_std,
++                    name="video_vae",
++                )
+             video_vae_dtype = resolve_decode_precision(server_args, "video_vae")
+             visual_autocast_enabled = autocast_enabled_for_device(
+                 visual_latent, video_vae_dtype, server_args.disable_autocast
+             )
+             if visual_autocast_enabled:
+-                selected_video_vae.prepare_decoder_autocast_weights(video_vae_dtype)
++                with maybe_record_function("H3.video.autocast_weight_prepare"):
++                    selected_video_vae.prepare_decoder_autocast_weights(
++                        video_vae_dtype
++                    )
+             with autocast_context(
+                 video_vae_dtype,
+                 server_args.disable_autocast,
+                 enabled=visual_autocast_enabled,
+             ):
+-                video_decode = self._get_vae_decode_fn(
+-                    selected_video_vae,
+-                    server_args,
+-                    decode_fn=selected_video_vae.decode_base,
+-                )
++                with maybe_record_function("H3.video.decode_callable_setup"):
++                    video_decode = self._get_vae_decode_fn(
++                        selected_video_vae,
++                        server_args,
++                        decode_fn=selected_video_vae.decode_base,
++                    )
+                 finish_frames = functools.partial(
+                     self._finish_visual_frames,
+                     batch,
+@@ -498,14 +656,29 @@ class MiniMaxH3DecodingStage(DecodingStage):
+                     )
+                     decode_kwargs["on_frames"] = stream
+                 try:
+-                    with (
+-                        use_vae_fast_path(
+-                            selected_video_vae,
+-                            quality_allows(batch.sampling_params.quality, "lossless"),
+-                        ),
+-                        set_forward_context(current_timestep=0, attn_metadata=None),
++                    fast_path_override = getattr(
++                        batch.sampling_params, "experimental_vae_fast_path", None
++                    )
++                    if fast_path_override is not None and not isinstance(
++                        fast_path_override, bool
+                     ):
+-                        decoded = video_decode(visual_decode_latent, **decode_kwargs)
++                        raise ValueError("experimental_vae_fast_path must be a bool")
++                    fast_path_enabled = (
++                        quality_allows(batch.sampling_params.quality, "lossless")
++                        if fast_path_override is None
++                        else fast_path_override
++                    )
++                    with _temporary_experimental_vae_batching(
++                        selected_video_vae, batch.sampling_params
++                    ):
++                        with (
++                            use_vae_fast_path(selected_video_vae, fast_path_enabled),
++                            set_forward_context(current_timestep=0, attn_metadata=None),
++                        ):
++                            with maybe_record_function("H3.video.vae_decode"):
++                                decoded = video_decode(
++                                    visual_decode_latent, **decode_kwargs
++                                )
+                     if stream is not None:
+                         output_file_paths = stream.finish()
+                 except BaseException:
+@@ -514,13 +687,15 @@ class MiniMaxH3DecodingStage(DecodingStage):
+                     raise
+                 if output_file_paths is None:
+                     # callbacks borrow slices of decoded; only the final output owns it
+-                    visual_frames = finish_frames(decoded, runtime_owned=True)
++                    with maybe_record_function("H3.video.revert_crop_cast"):
++                        visual_frames = finish_frames(decoded, runtime_owned=True)
+                 del decoded
+ 
+         if visual_frames is not None:
+-            visual_frames = server_args.pipeline_config.post_decoding(
+-                visual_frames, server_args
+-            )
++            with maybe_record_function("H3.video.post_decoding"):
++                visual_frames = server_args.pipeline_config.post_decoding(
++                    visual_frames, server_args
++                )
+         return OutputBatch(
+             output=visual_frames,
+             output_file_paths=output_file_paths,
+diff --git a/python/sglang/multimodal_gen/test/unit/test_exact_lora_epilogue.py b/python/sglang/multimodal_gen/test/unit/test_exact_lora_epilogue.py
+new file mode 100644
+index 0000000000..c5c4faee76
+--- /dev/null
++++ b/python/sglang/multimodal_gen/test/unit/test_exact_lora_epilogue.py
+@@ -0,0 +1,131 @@
++# SPDX-License-Identifier: Apache-2.0
++from types import SimpleNamespace
++
++import pytest
++import torch
++
++from sglang.multimodal_gen.runtime.layers.lora.linear import (
++    LinearWithLoRA,
++    _can_add_lora_delta_in_gemm,
++)
++from sglang.multimodal_gen.runtime.managers.forward_context import set_forward_context
++
++
++@pytest.mark.parametrize("enabled", [False, True])
++def test_experimental_lora_delta_in_gemm_is_request_scoped(enabled):
++    out = torch.empty((8, 96), dtype=torch.bfloat16)
++    lora_a = torch.empty((16, 192), dtype=torch.bfloat16)
++    lora_b = torch.empty((96, 16), dtype=torch.bfloat16)
++    batch = SimpleNamespace(
++        sampling_params=SimpleNamespace(
++            quality="exact", experimental_lora_delta_in_gemm=enabled
++        )
++    )
++    with set_forward_context(0, None, batch):
++        actual = _can_add_lora_delta_in_gemm(out, lora_a, lora_b)
++    assert actual is enabled
++
++
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA required")
++@pytest.mark.parametrize("stacked", [False, True])
++@pytest.mark.parametrize("dtype", [torch.bfloat16, torch.float32])
++@pytest.mark.parametrize(
++    "alpha, strength, scale",
++    [(16, 1.0, 1.0), (8, 0.7, 0.6), (32, -1.3, 0.25), (16, 0.0, 1.0)],
++)
++def test_integrated_exact_chain(monkeypatch, stacked, dtype, alpha, strength, scale):
++    torch.manual_seed(1101)
++    base = torch.nn.Linear(192, 96, dtype=torch.bfloat16, device="cuda")
++    layer = LinearWithLoRA(base, lora_rank=16, lora_alpha=alpha)
++    a_shape = (3, 16, 192) if stacked else (16, 192)
++    b_shape = (3, 32, 16) if stacked else (96, 16)
++    a = torch.randn(a_shape, device="cuda", dtype=dtype) * 0.05
++    b = torch.randn(b_shape, device="cuda", dtype=dtype) * 0.05
++    layer.set_lora_weights(a, b, strength=strength, merge_weights=False)
++    x = torch.randn(257, 192, device="cuda", dtype=torch.bfloat16)
++    batch = SimpleNamespace(
++        sampling_params=SimpleNamespace(quality="exact"),
++        runtime_lora_scale=scale,
++    )
++    with torch.inference_mode(), set_forward_context(0, None, batch):
++        out = base(x)
++        snapshot = out.clone()
++        monkeypatch.setenv("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "0")
++        expected = layer._add_lora_delta(out, x, scale)
++        monkeypatch.setenv("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "1")
++        actual = layer._add_lora_delta(out, x, scale)
++    assert torch.equal(actual.view(torch.int16), expected.view(torch.int16))
++    assert torch.equal(out, snapshot)  # Do not overwrite an aliased base result.
++    assert actual.data_ptr() != out.data_ptr()
++
++
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA required")
++def test_compiled_lora_forward_uses_opt_in_epilogue(monkeypatch):
++    torch.manual_seed(1301)
++    base = torch.nn.Linear(192, 96, dtype=torch.bfloat16, device="cuda")
++    layer = LinearWithLoRA(base, lora_rank=16, lora_alpha=8)
++    a = torch.randn(16, 192, device="cuda", dtype=torch.bfloat16) * 0.05
++    b = torch.randn(96, 16, device="cuda", dtype=torch.bfloat16) * 0.05
++    layer.set_lora_weights(a, b, strength=0.7, merge_weights=False)
++    x = torch.randn(257, 192, device="cuda", dtype=torch.bfloat16)
++    batch = SimpleNamespace(
++        sampling_params=SimpleNamespace(quality="exact", exact_lora_epilogue=True),
++        runtime_lora_scale=0.6,
++    )
++    with torch.inference_mode(), set_forward_context(0, None, batch):
++        monkeypatch.setenv("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "0")
++        expected = layer(x)
++        monkeypatch.setenv("SGLANG_DIFFUSION_EXACT_LORA_EPILOGUE", "1")
++        actual = layer(x)
++    assert torch.equal(actual[0].view(torch.int16), expected[0].view(torch.int16))
++
++
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA required")
++@pytest.mark.parametrize("n", [0, 1, 1023, 1024, 1025, 65539])
++@pytest.mark.parametrize("scales", [(), (0.7,), (0.5, 0.7, 0.6), (-1.3, 0.25)])
++def test_rounding_and_mask(n, scales):
++    from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import exact_lora_add
++
++    torch.manual_seed(42)
++    a = torch.randn(n, device="cuda", dtype=torch.bfloat16)
++    b = torch.randn_like(a)
++    ref = b
++    for scale in scales:
++        ref = ref * scale
++    ref = a + ref
++    actual = exact_lora_add(a, b, scales)
++    assert torch.equal(actual.view(torch.int16), ref.view(torch.int16))
++
++
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA required")
++def test_special_values():
++    from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import exact_lora_add
++
++    values = [0.0, -0.0, float("inf"), -float("inf"), 1e38, -1e38, 1e-38, -1e-38]
++    a = torch.tensor(values, device="cuda", dtype=torch.bfloat16)
++    b = a.flip(0)
++    for scale in [0.7, 0.0, -1.3]:
++        expected = a + b * scale
++        actual = exact_lora_add(a, b, (scale,))
++        assert torch.equal(actual.view(torch.int16), expected.view(torch.int16))
++
++
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA required")
++@pytest.mark.parametrize("scales", [(), (0.7,), (0.5, 0.7, 0.6), (-1.3, 0.25)])
++def test_exact_lora_silu_mul_matches_two_pass_chain(scales):
++    from sglang.kernels.ops.activation.activation import (
++        silu_and_mul_with_activation_rounding,
++    )
++    from sglang.multimodal_gen.runtime.layers.lora.exact_epilogue import (
++        exact_lora_add,
++        exact_lora_silu_mul,
++    )
++
++    torch.manual_seed(5151)
++    base = torch.randn((19, 256), device="cuda", dtype=torch.bfloat16)
++    delta = torch.randn_like(base)
++    expected = silu_and_mul_with_activation_rounding(
++        exact_lora_add(base, delta, scales)
++    )
++    actual = exact_lora_silu_mul(base, delta, scales)
++    assert torch.equal(actual.view(torch.int16), expected.view(torch.int16))
+diff --git a/python/sglang/multimodal_gen/test/unit/test_minimax_h3_vae_fast_path.py b/python/sglang/multimodal_gen/test/unit/test_minimax_h3_vae_fast_path.py
+index ae9875e8be..3f5d30015c 100644
+--- a/python/sglang/multimodal_gen/test/unit/test_minimax_h3_vae_fast_path.py
++++ b/python/sglang/multimodal_gen/test/unit/test_minimax_h3_vae_fast_path.py
+@@ -17,6 +17,9 @@ from sglang.multimodal_gen.configs.pipeline_configs.minimax_h3 import (
+     MiniMaxH3PipelineConfig,
+ )
+ from sglang.multimodal_gen.runtime.models.vaes import minimax_h3_vae_cuda_opt
++from sglang.multimodal_gen.runtime.pipelines_core.stages.model_specific_stages.minimax_h3.stages.decoding import (
++    _temporary_experimental_vae_batching,
++)
+ from sglang.multimodal_gen.runtime.models.vaes.fast_path_gate import (
+     VaeFastPathGate,
+     use_vae_fast_path,
+@@ -271,3 +274,27 @@ def test_denorm_kernel_runs_in_place_only_on_owned_frames(
+             f"test denorm owned={runtime_owned} fast path is not bit-exact"
+             in caplog.text
+         )
++
++
++def test_experimental_decode_caps_restore_after_exception():
++    vae = SimpleNamespace(decoder_tile_batch=1, window_batch=1)
++    params = SimpleNamespace(
++        experimental_vae_tile_batch=2, experimental_vae_window_batch=3
++    )
++    with pytest.raises(RuntimeError, match="decode failed"):
++        with _temporary_experimental_vae_batching(vae, params):
++            assert (vae.decoder_tile_batch, vae.window_batch) == (2, 3)
++            raise RuntimeError("decode failed")
++    assert (vae.decoder_tile_batch, vae.window_batch) == (1, 1)
++
++
++@pytest.mark.parametrize("invalid", [True, 0, 5, 1.5])
++def test_experimental_decode_caps_reject_invalid_values_and_restore(invalid):
++    vae = SimpleNamespace(decoder_tile_batch=1, window_batch=1)
++    params = SimpleNamespace(
++        experimental_vae_tile_batch=2, experimental_vae_window_batch=invalid
++    )
++    with pytest.raises(ValueError, match="experimental_vae_window_batch"):
++        with _temporary_experimental_vae_batching(vae, params):
++            pass
++    assert (vae.decoder_tile_batch, vae.window_batch) == (1, 1)
+diff --git a/python/sglang/multimodal_gen/test/unit/test_video_api_profiling.py b/python/sglang/multimodal_gen/test/unit/test_video_api_profiling.py
+index 5bc588c289..62e90994af 100644
+--- a/python/sglang/multimodal_gen/test/unit/test_video_api_profiling.py
++++ b/python/sglang/multimodal_gen/test/unit/test_video_api_profiling.py
+@@ -3,6 +3,7 @@ from dataclasses import fields
+ from types import SimpleNamespace
+ from unittest.mock import patch
+ 
++from sglang.multimodal_gen.configs.sample.minimax_h3 import MiniMaxH3SamplingParams
+ from sglang.multimodal_gen.configs.sample.ltx_2 import LTX23SamplingParams
+ from sglang.multimodal_gen.configs.sample.ltx_2_5 import LTX25SamplingParams
+ from sglang.multimodal_gen.configs.sample.sampling_params import SamplingParams
+@@ -14,7 +15,10 @@ from sglang.multimodal_gen.runtime.entrypoints.openai.realtime.realtime_adapter
+     RealtimeChunkInputs,
+     build_realtime_sampling_params,
+ )
+-from sglang.multimodal_gen.runtime.entrypoints.openai.utils import request_model_kwargs
++from sglang.multimodal_gen.runtime.entrypoints.openai.utils import (
++    get_declared_request_extra_fields,
++    request_model_kwargs,
++)
+ from sglang.multimodal_gen.runtime.entrypoints.openai.video_api import (
+     _build_video_sampling_params,
+     create_video,
+@@ -69,6 +73,31 @@ def test_video_api_forwards_profiling_options():
+     assert kwargs["quality"] == "high"
+ 
+ 
++def test_minimax_h3_exact_lora_epilogue_is_model_specific():
++    request = VideoGenerationsRequest(
++        prompt="test",
++        extra_body={
++            "exact_lora_epilogue": True,
++            "experimental_exact_lora_silu_fusion": True,
++            "experimental_exact_lora_gate_fusion": True,
++        },
++    )
++    h3_fields = get_declared_request_extra_fields(MiniMaxH3SamplingParams, "video")
++    assert "exact_lora_epilogue" in h3_fields
++    assert "experimental_exact_lora_silu_fusion" in h3_fields
++    assert "experimental_exact_lora_gate_fusion" in h3_fields
++    assert request_model_kwargs(
++        request,
++        MiniMaxH3SamplingParams,
++        "video",
++    ) == {
++        "exact_lora_epilogue": True,
++        "experimental_exact_lora_silu_fusion": True,
++        "experimental_exact_lora_gate_fusion": True,
++    }
++    assert request_model_kwargs(request, SamplingParams, "video") == {}
++
++
+ def test_ltx25_video_extensions_remain_model_specific():
+     field_values = {
+         "use_diffusion_decoder": True,

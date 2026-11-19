@@ -18,6 +18,7 @@ from sglang.multimodal_gen.runtime.pipelines_core.schedule_batch import Req
 from sglang.multimodal_gen.runtime.platforms import current_platform
 from sglang.multimodal_gen.runtime.server_args import ServerArgs
 from sglang.multimodal_gen.runtime.utils.logging_utils import CYAN, RESET, init_logger
+from sglang.multimodal_gen.runtime.utils.profiler import maybe_record_function
 
 logger = init_logger(__name__)
 
@@ -90,14 +91,16 @@ class EncodeWhileDecoding:
             )
             for chunk in frames.split(chunk_frames, dim=2):
                 if self._finish_frames is not None:
-                    chunk = self._finish_frames(chunk)
+                    with maybe_record_function("H3.output.frame_postprocess"):
+                        chunk = self._finish_frames(chunk)
                 chunk = chunk[0]
                 if self._encoder is None:
                     self._encoder = self._open(chunk)
                     if self._encoder is None:
                         self._failed = True
                         return
-                self._encoder.write(chunk)
+                with maybe_record_function("H3.output.enqueue_video_chunk"):
+                    self._encoder.write(chunk)
         except Exception:
             self._fail()
 
@@ -106,19 +109,20 @@ class EncodeWhileDecoding:
 
         height, width = int(frames.shape[-2]), int(frames.shape[-1])
         os.makedirs(os.path.dirname(self.save_file_path) or ".", exist_ok=True)
-        return CudaVideoEncoder.open(
-            self.save_file_path,
-            device=frames.device,
-            height=height,
-            width=width,
-            fps=self._batch.fps,
-            num_frames=self._batch.num_frames or int(frames.shape[1]),
-            audio=self._audio,
-            audio_sample_rate=self._audio_sample_rate,
-            output_compression=self._batch.output_compression,
-            x264_preset=self._batch.x264_preset,
-            max_queued_frames=_STREAMED_VIDEO_QUEUE_BYTES // (3 * height * width),
-        )
+        with maybe_record_function("H3.output.audio_to_wav_and_encoder_open"):
+            return CudaVideoEncoder.open(
+                self.save_file_path,
+                device=frames.device,
+                height=height,
+                width=width,
+                fps=self._batch.fps,
+                num_frames=self._batch.num_frames or int(frames.shape[1]),
+                audio=self._audio,
+                audio_sample_rate=self._audio_sample_rate,
+                output_compression=self._batch.output_compression,
+                x264_preset=self._batch.x264_preset,
+                max_queued_frames=_STREAMED_VIDEO_QUEUE_BYTES // (3 * height * width),
+            )
 
     def finish(self) -> list[str] | None:
         """The saved path, or None when the worker has to save the frames instead."""

@@ -1,0 +1,21 @@
+{
+  "prompt": "A medium close-up of one person facing the camera, clearly saying \"Good morning, the weather is beautiful today\" once, with natural mouth movement and a quiet background.",
+  "seed": 1202,
+  "num_inference_steps": 8,
+  "flow_shift": 12,
+  "quality": "exact",
+  "task": "t2va",
+  "conditions": [],
+  "target": {
+    "short_edge": 768,
+    "aspect_ratio": "16:9",
+    "duration_seconds": 5.0
+  },
+  "audio_flow_shift": 3,
+  "exact_lora_epilogue": true,
+  "experimental_exact_lora_silu_fusion": false,
+  "profile": false,
+  "num_profiled_timesteps": 0,
+  "profile_all_stages": false,
+  "perf_dump_path": "/home/chx/projects/sglang-h3-exact-lora-20261029/experiments/minimax-h3-sm89-kernel-20261030/results/x16-five-arm-attribution-20261031/speech-seed1202-D/perf.json"
+}

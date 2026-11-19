@@ -515,6 +515,7 @@ class CudaVideoEncoder:
         self._chunk_frames = chunk_frames
         self._wav_path = wav_path
         self._frames_queued = 0
+        self._frames_written = 0
         self._error: BaseException | None = None
         self._finished = False
         self._queue: queue.Queue = queue.Queue(maxsize=queued_chunks)
@@ -634,14 +635,19 @@ class CudaVideoEncoder:
                     del item
                     count = int(chunk.shape[0])
                     copy_stream.wait_event(ready)
-                    with torch.cuda.stream(copy_stream):
-                        buffer.tensor[:count].copy_(chunk, non_blocking=True)
-                    copy_stream.synchronize()
-                    # the copy is done, so the allocator may hand this block out again
-                    del chunk, ready
-                    # write() copies into the pipe; sendfile would only lend it these
-                    # pages, and the next chunk overwrites them before ffmpeg reads
-                    _write_all(stdin.fileno(), staged[: count * frame_bytes])
+                    with maybe_record_function(
+                        f"VIDEO_CHUNK frames {self._frames_written}-"
+                        f"{self._frames_written + count} host_stage+ffmpeg_stdin"
+                    ):
+                        with torch.cuda.stream(copy_stream):
+                            buffer.tensor[:count].copy_(chunk, non_blocking=True)
+                        copy_stream.synchronize()
+                        # the copy is done, so the allocator may hand this block out again
+                        del chunk, ready
+                        # write() copies into the pipe; sendfile would only lend it these
+                        # pages, and the next chunk overwrites them before ffmpeg reads
+                        _write_all(stdin.fileno(), staged[: count * frame_bytes])
+                    self._frames_written += count
         except BaseException as exc:
             self._error = exc
             while self._queue.get() is not None:

@@ -3,6 +3,7 @@ from dataclasses import fields
 from types import SimpleNamespace
 from unittest.mock import patch
 
+from sglang.multimodal_gen.configs.sample.minimax_h3 import MiniMaxH3SamplingParams
 from sglang.multimodal_gen.configs.sample.ltx_2 import LTX23SamplingParams
 from sglang.multimodal_gen.configs.sample.ltx_2_5 import LTX25SamplingParams
 from sglang.multimodal_gen.configs.sample.sampling_params import SamplingParams
@@ -14,7 +15,10 @@ from sglang.multimodal_gen.runtime.entrypoints.openai.realtime.realtime_adapter 
     RealtimeChunkInputs,
     build_realtime_sampling_params,
 )
-from sglang.multimodal_gen.runtime.entrypoints.openai.utils import request_model_kwargs
+from sglang.multimodal_gen.runtime.entrypoints.openai.utils import (
+    get_declared_request_extra_fields,
+    request_model_kwargs,
+)
 from sglang.multimodal_gen.runtime.entrypoints.openai.video_api import (
     _build_video_sampling_params,
     create_video,
@@ -67,6 +71,31 @@ def test_video_api_forwards_profiling_options():
     assert kwargs["num_profiled_timesteps"] == 3
     assert kwargs["profile_all_stages"] is False
     assert kwargs["quality"] == "high"
+
+
+def test_minimax_h3_exact_lora_epilogue_is_model_specific():
+    request = VideoGenerationsRequest(
+        prompt="test",
+        extra_body={
+            "exact_lora_epilogue": True,
+            "experimental_exact_lora_silu_fusion": True,
+            "experimental_exact_lora_gate_fusion": True,
+        },
+    )
+    h3_fields = get_declared_request_extra_fields(MiniMaxH3SamplingParams, "video")
+    assert "exact_lora_epilogue" in h3_fields
+    assert "experimental_exact_lora_silu_fusion" in h3_fields
+    assert "experimental_exact_lora_gate_fusion" in h3_fields
+    assert request_model_kwargs(
+        request,
+        MiniMaxH3SamplingParams,
+        "video",
+    ) == {
+        "exact_lora_epilogue": True,
+        "experimental_exact_lora_silu_fusion": True,
+        "experimental_exact_lora_gate_fusion": True,
+    }
+    assert request_model_kwargs(request, SamplingParams, "video") == {}
 
 
 def test_ltx25_video_extensions_remain_model_specific():
