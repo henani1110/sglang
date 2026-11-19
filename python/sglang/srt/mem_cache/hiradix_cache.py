@@ -642,6 +642,8 @@ class HiRadixCache(RadixCache):
         else:
             return 0
 
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV write_queued node=%s tokens=%d", node.id, len(host_indices))
         return len(host_indices)
 
     def write_backup_storage(self, node: TreeNode):
@@ -721,6 +723,8 @@ class HiRadixCache(RadixCache):
             # no need to sync across TP workers as batch forwarding is synced
             for ack_id in ack_list:
                 end_node = self.ongoing_load_back.pop(ack_id)
+                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+                    logger.info("REPRO_KV load_done node=%s", ack_id)
                 self.dec_lock_ref(end_node)
 
         # ACK until all events are processed
@@ -931,6 +935,8 @@ class HiRadixCache(RadixCache):
 
     def _evict_backuped(self, node: TreeNode):
         # GPU -> CPU demotion: no BlockRemoved since block is still reachable via load_back
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV evict_backed node=%s tokens=%d", node.id, len(node.value))
         num_evicted = self.cache_controller.evict_device(node.value)
         assert num_evicted > 0
         self.evictable_size_ -= num_evicted
@@ -1052,6 +1058,8 @@ class HiRadixCache(RadixCache):
             )
             self.metrics_collector.increment_load_back_num_tokens(len(device_indices))
 
+        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+            logger.info("REPRO_KV load_queued node=%s tokens=%d", last_hit_node.id, len(device_indices))
         return device_indices
 
     def init_load_back(

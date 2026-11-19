@@ -2504,6 +2504,8 @@ class Scheduler(
             # Release KV for removed running requests before filtering them out.
             for remove_ct, idx in enumerate(sorted(remove_indices, reverse=True)):
                 req: Req = running_reqs[idx]
+                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
+                    logger.info("REPRO_KV policy_pause rid=%s output_tokens=%d", req.rid, len(req.output_ids))
                 release_kv_cache(req, self.tree_cache, is_insert=False)
                 req.reset_for_retract()
 

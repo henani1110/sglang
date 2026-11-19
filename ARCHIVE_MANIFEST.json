@@ -1,0 +1,15 @@
+{
+  "directory": "/home/chx/projects/tokenflow-repro-historical",
+  "base_sha": "37df93d1a7ccbe32620304e4d27c6d8e71cfef9a",
+  "files": [
+    "python/sglang/bench_serving.py",
+    "python/sglang/srt/managers/schedule_policy.py",
+    "python/sglang/srt/managers/scheduler.py",
+    "python/sglang/srt/mem_cache/hiradix_cache.py",
+    "repro/scripts/instrument.py",
+    "repro/scripts/launch.sh",
+    "repro/scripts/replay.py",
+    "repro/scripts/smoke_stream.py"
+  ],
+  "scope": "Modified tracked source and reproduction scripts/docs/configs. Model weights, logs, raw results and large artifacts remain on server."
+}
