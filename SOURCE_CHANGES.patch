@@ -1,0 +1,79 @@
+diff --git a/python/sglang/bench_serving.py b/python/sglang/bench_serving.py
+index 0687c5399..973ef2f3f 100644
+--- a/python/sglang/bench_serving.py
++++ b/python/sglang/bench_serving.py
+@@ -86,7 +86,7 @@ def save_request_outputs(outputs: List["RequestFuncOutput"], output_path: str) -
+     path = Path(output_path).expanduser()
+     path.parent.mkdir(parents=True, exist_ok=True)
+ 
+-    temp_path = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
++    temp_path = path.with_name(f".{path.stem}.{uuid.uuid4().hex}.tmp{path.suffix}")
+     try:
+         _serialize_request_outputs(temp_path, outputs)
+         os.replace(temp_path, path)
+diff --git a/python/sglang/srt/managers/schedule_policy.py b/python/sglang/srt/managers/schedule_policy.py
+index 1265e5035..8e6f4b019 100644
+--- a/python/sglang/srt/managers/schedule_policy.py
++++ b/python/sglang/srt/managers/schedule_policy.py
+@@ -1289,6 +1289,8 @@ class PrefillAdder:
+                     self._get_running_request_total_token_offset(running_req)
+                 )
+                 release_counter += 1
++                if os.environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++                    logger.info("REPRO_KV preempt rid=%s output_tokens=%d", running_req.rid, len(running_req.output_ids))
+                 self.running_batch.release_req(
+                     i, len(self.running_batch.reqs) - release_counter, server_args
+                 )
+diff --git a/python/sglang/srt/managers/scheduler.py b/python/sglang/srt/managers/scheduler.py
+index d4550fe92..9176dac03 100644
+--- a/python/sglang/srt/managers/scheduler.py
++++ b/python/sglang/srt/managers/scheduler.py
+@@ -2454,7 +2454,7 @@ class Scheduler(
+ 
+         self._apply_offload_reschedule_decision(decision)
+ 
+-        if _KV_OFFLOAD_POLICY_DEBUG_LOG:
++        if _KV_OFFLOAD_POLICY_DEBUG_LOG and (self.running_batch.reqs or self.waiting_queue):
+             logger.info(
+                 "[KV Offload Policy] tick=%d point=%s running=%d resume=%d terms=%s",
+                 self.schedule_tick,
+diff --git a/python/sglang/srt/mem_cache/hiradix_cache.py b/python/sglang/srt/mem_cache/hiradix_cache.py
+index e3002d1a5..7a112f1a4 100644
+--- a/python/sglang/srt/mem_cache/hiradix_cache.py
++++ b/python/sglang/srt/mem_cache/hiradix_cache.py
+@@ -642,6 +642,8 @@ class HiRadixCache(RadixCache):
+         else:
+             return 0
+ 
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV write_queued node=%s tokens=%d", node.id, len(host_indices))
+         return len(host_indices)
+ 
+     def write_backup_storage(self, node: TreeNode):
+@@ -721,6 +723,8 @@ class HiRadixCache(RadixCache):
+             # no need to sync across TP workers as batch forwarding is synced
+             for ack_id in ack_list:
+                 end_node = self.ongoing_load_back.pop(ack_id)
++                if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++                    logger.info("REPRO_KV load_done node=%s", ack_id)
+                 self.dec_lock_ref(end_node)
+ 
+         # ACK until all events are processed
+@@ -931,6 +935,8 @@ class HiRadixCache(RadixCache):
+ 
+     def _evict_backuped(self, node: TreeNode):
+         # GPU -> CPU demotion: no BlockRemoved since block is still reachable via load_back
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV evict_backed node=%s tokens=%d", node.id, len(node.value))
+         num_evicted = self.cache_controller.evict_device(node.value)
+         assert num_evicted > 0
+         self.evictable_size_ -= num_evicted
+@@ -1052,6 +1058,8 @@ class HiRadixCache(RadixCache):
+             )
+             self.metrics_collector.increment_load_back_num_tokens(len(device_indices))
+ 
++        if __import__("os").environ.get("TOKENFLOW_REPRO_TRACE") == "1":
++            logger.info("REPRO_KV load_queued node=%s tokens=%d", last_hit_node.id, len(device_indices))
+         return device_indices
+ 
+     def init_load_back(

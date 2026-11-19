@@ -2454,7 +2454,7 @@ class Scheduler(
 
         self._apply_offload_reschedule_decision(decision)
 
-        if _KV_OFFLOAD_POLICY_DEBUG_LOG:
+        if _KV_OFFLOAD_POLICY_DEBUG_LOG and (self.running_batch.reqs or self.waiting_queue):
             logger.info(
                 "[KV Offload Policy] tick=%d point=%s running=%d resume=%d terms=%s",
                 self.schedule_tick,
