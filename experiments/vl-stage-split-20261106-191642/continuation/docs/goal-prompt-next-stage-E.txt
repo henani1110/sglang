@@ -1,0 +1,30 @@
+/goal 完成下一阶段 E：研究并验证“单卡图文共服务下，内容风险感知的视觉 token 预算与文本/图文双期限联合控制”。只有前一阶段 D Goal 已标记 complete 后才执行；如果 D 仍 active，先继续 D，不要创建重复 Goal。任务未完成就持续推进；不要因效果阈值、置信区间、资源/墙钟估算、会话结束或一般可修复故障而停掉 Goal。
+
+模型请在 Goal UI 中选择 GPT‑6 Luna、Max reasoning（Luna Max）；prompt 本身不能切换当前线程模型。
+
+开始和每次恢复先阅读 `/Users/chenhanxi/Desktop/infra/AGENTS.md` 与 `/Users/chenhanxi/Desktop/infra/LEARNING_AND_RESEARCH_JOURNAL.md`，检查当前 Goal、D 的最终分析与归档、资源状态和工作区方案。沿用并只读保留 A/B/C/D 证据，不重跑、不覆盖。先读：
+- `reproduction_runs/vl-stage-split-20261106-191642/可行性与收敛建议.md`
+- `reproduction_runs/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/`
+- `reproduction_runs/vl-stage-split-20261106-191642/continuation/docs/formal-analysis-method.md`
+- `ai_infra_3gpu_research/视觉编码干扰_后续研究/视觉编码与Prefill拆步实验方案.md`
+
+## 研究问题
+
+在一张 GPU 上同时服务持续文本 decode 与开放环到达的图像请求时，能否将图像/查询的内容风险（决定安全视觉预算下界）与实时文本 decode slack、图像 TTFT slack（决定可用预算和 E/P 放置）结合，在保留稠密图像任务答案质量的同时提高联合 SLO goodput？把 D 的 N、A、S 当作已测系统/调度基线。不要把一般视觉 token pruning、一般 E/P 拆分或一般 SLO 感知策略写成新颖性；先对照 SieveServe、DuetInfer、TriInfer、QoServe、TEVA 等相关工作，并把与每篇论文、代码及硬件 workload 的差异写清楚。将“单卡上持续文本流与图像开放环请求同一时段共服务”作为需验证的差异假设，而非文献不存在的断言。
+
+## 固定环境和位置
+
+- 只用 `chx-gpu-4090-2` GPU0 RTX 4090（负载 PCIe Gen4 ×16）；GPU1 RTX 4090（负载 PCIe Gen4 ×4）不参与。
+- 沿用已验证的 Qwen3-VL-2B-Instruct revision、vLLM 0.33.0 基线与分析环境；所有新数据、模型权重/缓存、trace、输出均放 SSD `/media/chx/Win10`，本地保存可复核副本。
+- 复用 `/home/chx/project/vl-stage-split-20261106-191642`、`/media/chx/Win10/vl-stage-split-20261106-191642` 和本地 `reproduction_runs/vl-stage-split-20261106-191642`；E 新建独立目录、manifest、seed 和结果，不改写 A/B/C/D。
+
+## 连续执行工作
+
+1. **文献和实现复核**：以论文、官方文档和作者代码为主来源，核对 SieveServe QCR/DIG 等内容预算方法、GeoPrune 的 Qwen3-VL token ranking、近期相关调度器和代码/版本兼容状态。GeoPrune 是 fixed-budget token ranking 的首选候选；尝试忠实适配其方法到现有模型。尝试以相同 token 后端加入 SieveServe 的内容预算；若模型接口或公开代码不支持原样复现，把控制器明确标为 `SieveServe-inspired`，逐项记下差异，不冒称复现。完成可复核的相关工作表和精确研究假设。
+2. **数据与答案质量集**：准备并冻结 600 个有许可、来源与 SHA-256 的标注图文样本，POPE、GQA、TextVQA、DocVQA、ChartQA 各 120 个。按 512/768 processor grid 运行 full-token 与压缩输入的离线配对质量评估，使用各数据集官方评分。质量集与在线到达 traces 分离；保存抽样 seed、prompt、标签、预处理、评分代码及逐例结果。
+3. **实现与完整性校验**：在预先冻结的接口中做视觉 token 保留/删除，校验 processor grid、M-RoPE/position ID、image token 顺序、KV 状态和完整 response。记录实际保留 token、GPU E/P CUDA-event、CPU dispatch、H2D、排队和 API 分段时延。发生错误时保留材料、诊断并修复后继续，不能把无效结果记为成功。
+4. **预注册在线矩阵**：8 个 load cells = 512/768 image grid × 2/6 条活跃 192-token 文本 lane × uniform/burst 图像开放环到达。5 臂：N 原生基线；A 为 D 冻结期限策略；B-fixed 使用 GeoPrune 候选 ranking 加固定 keep ratio（按独立校准集内容臂的平均保留量匹配）；B-content 使用相同 token ranking，仅按查询复杂度/稠密风险分配视觉预算（对照 SieveServe QCR/DIG，必要时标为 SieveServe-inspired）；B-joint 在 B-content 的安全预算范围内，再按实时 D/I slack 调预算并在可执行时选 N/S。每臂 12 个配对 trace seed，共 8×5×12=480 个正式 run。每 run 60 秒 warmup + 180 秒 measurement；同 seed 各臂使用完全相同的请求、图像和计划到达时间；按块平衡运行顺序、下一块反序。32 GPU 小时仅是测量时间估计，不是任务上限。先用独立校准 seed 冻结所有阈值、估计器与策略参数，留出 seed 不调参。
+5. **指标与分析**：主报联合文本 30 ms 最大间隔 / 图像 55 ms TTFT goodput；同时报告 25/45 ms 与 40/75 ms 敏感性，文本最大 gap 与图像 TTFT P50/P95/P99、质量保留、各类完成/错误/超时率、最长饥饿、实际 token 数、E/P GPU 时间及阶段开销。推断以 seed 为配对单位做 bootstrap，视觉质量按样本配对给区间；分别报告鲁棒与稠密信息任务，解释收益和退化状态。不把请求/Token 数当独立样本，也不以 16-token 固定输出的 D 结果推断答案质量。
+6. **可复现交付**：输出中文研究报告、研究问题与限制、文献对照、预注册方案、完整 run manifest、原始 trace、配置/seed/补丁/失败记录、分析代码与结果、SVG 图表、资源账本、文件 SHA-256 清单。将完整包写入本地与 SSD，逐文件校验 SHA-256；抽取副本执行校验，再检查 task-owned 服务/进程/端口退出、GPU0 回到桌面基线、GPU1 未受影响、SSD 可用空间。最后按模板追加主日志 `[事实]/[观察]/[推断]/[猜想]/[问题]/[决定]`，更新实验方案和可行性报告。
+
+不设置效果、SLO、准确率、CI、证据覆盖率、GPU/墙钟、会话或普通失败次数停止门槛。OOM、Xid、外部进程占卡、磁盘或服务异常时，只安全结束当前批次并释放本任务资源，保存 checkpoint 与失败证据，先诊断修复或验证等价采集方式，再续跑缺失部分；保留全部失败原始材料。只有用户明确取消整个研究时才取消 Goal。所有结论如实反映结果，不把阴性或混合结果当成跳过余下计划的理由。

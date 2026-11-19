@@ -1,0 +1,198 @@
+{
+  "run_id": "vl-stage-split-20261106-191642",
+  "manifest_revision": "v4",
+  "updated_utc": "2026-11-07T11:21:33+00:00",
+  "status": "A_B_C_complete_D_planned_not_started",
+  "completion_scope": "A/B/C data, analysis and evidence packaging are complete. D is a separate next-stage plan and has not been executed.",
+  "stop_gate_policy": "Scientific thresholds, evidence ratios, GPU-time estimates, wall-clock estimates and session windows are analysis/scheduling information only; they do not stop the research task or skip planned work. Individual batches may be safely stopped for diagnosis, then resumed.",
+  "historical_initial_plan": {
+    "initial_gate_result": "A originally stopped after a probe-overhead gate failure; this decision was superseded by the continuous-completion plan.",
+    "initial_gpu_cap_minutes": 120,
+    "initial_wall_cap_hours": 4,
+    "initial_manifest": "artifacts/run-manifest-initial-A-stop.json"
+  },
+  "host": {
+    "ssh_alias": "chx-gpu-4090-2",
+    "hostname": "flyvideo-MS-7E06",
+    "gpu0_model": "RTX 4090",
+    "gpu0_uuid": "GPU-7d51d535-c0d2-577a-2a08-d6fbdd9b93a8",
+    "gpu0_loaded_link": "PCIe Gen4 x16",
+    "gpu1_model": "RTX 4090",
+    "gpu1_uuid": "GPU-321a3dbc-a3ed-3f07-3b13-31dd67f143b0",
+    "gpu1_loaded_link": "PCIe Gen4 x4 (user-provided fact)",
+    "gpu1_used_for_this_run": false
+  },
+  "storage": {
+    "project": "/home/chx/project/vl-stage-split-20261106-191642",
+    "ssd_run": "/media/chx/Win10/vl-stage-split-20261106-191642",
+    "ssd_device": "/dev/nvme0n1p3",
+    "mount_type": "NTFS fuseblk",
+    "available_gib_initial": 209,
+    "model_source": "/media/chx/Win10/vl-encode-pilot-20261106-085428/models/Qwen3-VL-2B-Instruct (read-only reuse)",
+    "dataset_on_ssd": true,
+    "new_torch_hf_triton_cache_on_ssd": true
+  },
+  "model": {
+    "repository": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "dtype": "bfloat16",
+    "safetensors_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0"
+  },
+  "software": {
+    "vllm": "0.33.0",
+    "vllm_commit": "4ba787ec9959e566d3b587a796dff07673324da5",
+    "python": "3.11.13",
+    "pytorch": "2.14.0+cu130",
+    "transformers": "5.20.2",
+    "driver": "580.178.04"
+  },
+  "stage_results": {
+    "A": {
+      "status": "completed_with_probe_overhead_limitation",
+      "R_minus_T_block_gate": "passed in all 12 default-config blocks across the original and two buffered pairs",
+      "probe_overhead_gate": "failed; no single probe version passed both T and R arms",
+      "probe_overhead_by_pair": {
+        "initial_default_light": {
+          "T_abs_diff_ms": 0.562,
+          "T_limit_ms": 1.0,
+          "T_pass": true,
+          "R_abs_diff_ms": 5.559,
+          "R_limit_ms": 1.471,
+          "R_pass": false
+        },
+        "buffered128": {
+          "T_abs_diff_ms": 1.69,
+          "T_limit_ms": 1.0,
+          "T_pass": false,
+          "R_abs_diff_ms": 0.503,
+          "R_limit_ms": 1.211,
+          "R_pass": true
+        },
+        "buffered512": {
+          "T_abs_diff_ms": 0.072,
+          "T_limit_ms": 1.0,
+          "T_pass": true,
+          "R_abs_diff_ms": 4.953,
+          "R_limit_ms": 1.238,
+          "R_pass": false
+        }
+      },
+      "buffered_alignment": {
+        "buffered128": {
+          "R_mixed_step_joined": 16,
+          "R_total": 16,
+          "visual_forward_found": 16,
+          "max_gap_engine_api_token_id_joins": 16,
+          "full_text_requests_engine_sequence_match": 128,
+          "full_text_requests_api_sequence_match": 128
+        },
+        "buffered512": {
+          "R_mixed_step_joined": 16,
+          "R_total": 16,
+          "visual_forward_found": 16,
+          "max_gap_engine_api_token_id_joins": 16,
+          "full_text_requests_engine_sequence_match": 128,
+          "full_text_requests_api_sequence_match": 128
+        }
+      },
+      "decision": "A evidence retained; probe-overhead criterion is reported as a measurement limitation, not a stop gate; B and C were continued and completed."
+    },
+    "B": {
+      "status": "completed",
+      "valid_baseline_episodes": 1,
+      "valid_split_episodes": 3,
+      "split_semantics": "Each S episode observed encoder-only E step, at least one concurrent text D step, later image P, and one visual forward.",
+      "output_token_ids_equal_in_diagnostic_samples": true,
+      "cancellation_path_checked": true,
+      "report": "results/B-semantic-analysis.md",
+      "raw_evidence": "continuation/raw/B-evidence.tar.gz"
+    },
+    "C": {
+      "status": "completed",
+      "calibration_episodes": 108,
+      "selected_F": {
+        "prefill_interval": 2,
+        "lm_budget": 1024
+      },
+      "main_cells": 48,
+      "valid_episodes": 576,
+      "invalid_main_episodes": 0,
+      "strategies": [
+        "N",
+        "F",
+        "S",
+        "U"
+      ],
+      "episodes_per_strategy": 144,
+      "mechanism_counts": {
+        "N_F_U_same_step_E_and_image_P": "144/144 each",
+        "S_encoder_only_E_then_text_D_then_image_P": "144/144",
+        "one_visual_forward_correct_shape": "144/144 each"
+      },
+      "limitations": [
+        "The C runner used globally randomized order instead of the planned within-block balanced order; rank sensitivity is descriptive and does not replace balanced randomization.",
+        "F/N image output token IDs exactly matched in 108/144 pairs, not 144/144.",
+        "S/N text output token IDs matched in 143/144 pairs; U/N matched in all 144/144 pairs.",
+        "The 16-token image output is truncated and is not a visual-answer quality evaluation."
+      ],
+      "report_markdown": "results/C-main-analysis.md",
+      "report_json": "results/C-main-analysis.json",
+      "output_divergence_review": "results/C-output-divergence-review.md",
+      "raw_evidence": "continuation/raw/C-evidence.tar.gz",
+      "raw_evidence_sha256": "a17a3d385e31f14a4705a019475030c46228156a46cf1ec8e041e7bfc3a48b70",
+      "previous_archive_preserved_as": "continuation/raw/C-evidence-preanalysis.tar.gz"
+    }
+  },
+  "next_stage_D": {
+    "status": "planned_not_started",
+    "topic": "Request-level N/S deadline-aware selective split; F remains a fixed global baseline and U a burst admission ablation.",
+    "plan": "视觉编码与Prefill拆步实验方案.md section 6",
+    "goal_prompt": "continuation/docs/goal-prompt.txt",
+    "estimated_formal_gpu_hours": 28.8,
+    "estimate_is_stop_condition": false,
+    "adaptive_rule": {
+      "actions": [
+        "N",
+        "S"
+      ],
+      "fixed_baselines": [
+        "F",
+        "U"
+      ],
+      "feasibility_order": "Choose N when both predicted slacks are nonnegative; otherwise choose S when both are nonnegative.",
+      "fallback_cost": "J(a)=max(0,-D_slack(a))/30ms + max(0,-I_slack(a))/55ms; ties choose N.",
+      "predictors": [
+        "E_hat",
+        "P_hat",
+        "D_slack",
+        "I_slack"
+      ]
+    }
+  },
+  "final_resource_scan": {
+    "checked_utc": "2026-11-07T11:19:20Z",
+    "gpu0_memory_mib": 782,
+    "gpu1_memory_mib": 45,
+    "experiment_processes_found": false,
+    "port_8271_listening": false,
+    "ssd_available_reported": "208G",
+    "note": "GPU display/remote-desktop processes remain at baseline; no experiment process was found."
+  },
+  "files": {
+    "plan": "视觉编码与Prefill拆步实验方案.md",
+    "research_report": "可行性与收敛建议.md",
+    "run_readme": "README.md",
+    "checksums": "SHA256SUMS.txt",
+    "A_report": "results/A-async-analysis.md",
+    "B_report": "results/B-semantic-analysis.md",
+    "C_report": "results/C-main-analysis.md",
+    "C_divergence_review": "results/C-output-divergence-review.md",
+    "C_analyzer": "continuation/scripts/analyze_c_main.py",
+    "D_goal_prompt": "continuation/docs/goal-prompt.txt"
+  },
+  "integrity": {
+    "C_remote_local_sha256_verified": true,
+    "C_sha256": "a17a3d385e31f14a4705a019475030c46228156a46cf1ec8e041e7bfc3a48b70",
+    "complete_run_archive": "../vl-stage-split-20261106-191642-complete.tar.gz (created after finalizing this manifest and checksum list)"
+  }
+}

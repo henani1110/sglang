@@ -1,0 +1,11 @@
+Remote to local buffered archive verification (SHA-256)
+
+Remote /tmp/vl-stage-split-A-buffered-archive.tar.gz
+Local  artifacts/archive-tars/vl-stage-split-A-buffered-archive.tar.gz
+7e229d6816a678f58833c0c3272382ca8838b0b7d9b03484a1af363c00c37d34
+
+Remote /tmp/vl-stage-split-A-buffered512-archive.tar.gz
+Local  artifacts/archive-tars/vl-stage-split-A-buffered512-archive.tar.gz
+8e162085848e8a188618dfdf6ec270b52f0ca8659d124703ef9ae523093332a1
+
+For each archive, the remote and local SHA-256 values matched before extraction.

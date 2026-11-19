@@ -1,0 +1,75 @@
+{
+  "frozen_at": "2026-11-06T10:55+08:00",
+  "gpu_time_budget_minutes": 120,
+  "formal_replay_limit": 16,
+  "model": {
+    "repo": "Qwen/Qwen3-4B",
+    "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "dtype": "bfloat16"
+  },
+  "server": {
+    "source_repo": "/home/chx/projects/sglang",
+    "source_commit": "46caa54562a97e71d9b937c62875c90b39274b0d",
+    "tp_size": 1,
+    "context_length": 8192,
+    "max_running_requests": 8,
+    "max_total_tokens": 32768,
+    "max_prefill_tokens": 8192,
+    "prefill_max_requests": 8,
+    "mem_fraction_static": 0.75,
+    "schedule_policy": "fcfs",
+    "attention_backend": "triton",
+    "decode_attention_backend": "triton",
+    "kv_cache_dtype": "bfloat16",
+    "radix_cache_disabled": true,
+    "cuda_graph_prefill": "disabled",
+    "cuda_graph_decode": "disabled",
+    "chunk_sizes": [
+      512,
+      2048
+    ]
+  },
+  "workload": {
+    "seed": 40902026,
+    "requests_per_trace": 40,
+    "short_requests": 32,
+    "short_input_tokens": 512,
+    "long_requests": 8,
+    "long_input_tokens": 6144,
+    "output_tokens": 256,
+    "arrival_rate_per_second": 2.0,
+    "uniform_trace_sha256": "376df245a38ca5e3ac72a7be6df6d40892898960aeb1cb42c7b81a0be965325b",
+    "long_bursts_trace_sha256": "6fb7c5250a3e9c25a585bccaa676bc1efd1fe020e6835ccc19554f3acfd6a236"
+  },
+  "slo": {
+    "short_ttft_s": 1.0,
+    "long_ttft_s": 3.0,
+    "per_request_output_interval_p95_ms": 50.0,
+    "output_interval_semantics": "token intervals; preflight SSE events each added exactly one token"
+  },
+  "preflight": {
+    "chunk_512_concurrent_smoke": "4/4 complete",
+    "chunk_2048_uniform": "40/40 complete",
+    "chunk_2048_long_bursts": "40/40 complete",
+    "uniform_goodput_rps_at_slo": 1.7488951734,
+    "long_bursts_goodput_rps_at_slo": 1.1078621036,
+    "uniform_send_lateness_p95_ms": 1.5277089,
+    "long_bursts_send_lateness_p95_ms": 1.0584665,
+    "long_ttft_with_concurrent_output": "8/8 in both shapes",
+    "uniform_output_interval_p95_p99_ms": [
+      12.8812184,
+      40.7584497
+    ],
+    "long_bursts_output_interval_p95_p99_ms": [
+      14.5523759,
+      42.5651659
+    ],
+    "decision": "Keep 2 requests/s and the proposed SLO. Both shapes drain, sender lateness is well below 50 ms, and concentrated arrivals reduce SLO goodput."
+  },
+  "execution_order": [
+    "GPU0 pass 1: chunk 512 uniform, long bursts; then chunk 2048 uniform, long bursts",
+    "GPU1 pass 1: chunk 2048 long bursts, uniform; then chunk 512 long bursts, uniform",
+    "GPU1 pass 2: chunk 512 uniform, long bursts; then chunk 2048 uniform, long bursts",
+    "GPU0 pass 2: chunk 2048 long bursts, uniform; then chunk 512 long bursts, uniform"
+  ]
+}

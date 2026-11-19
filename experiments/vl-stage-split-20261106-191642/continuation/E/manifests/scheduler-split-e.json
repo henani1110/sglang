@@ -1,0 +1,13 @@
+{
+  "diff_path": "patches/scheduler_split_e.diff",
+  "diff_sha256": "9ebfa33cd75364ba2f75ded29033735d88ff44512c652b0ed5686260ae926b28",
+  "mode": "E-isolated-D-validated-S-split",
+  "output_path": "overlay/vllm/v1/core/sched/scheduler.py",
+  "output_sha256": "b670172131dd7004d2065643331cd771eac734efa1ed6368f7cf48d84e66f3c3",
+  "schema_version": 1,
+  "scope": "N remains unchanged when VL_STAGE_SPLIT_MODE is unset or not S; optional VL_PILOT_BACKLOG_SNAPSHOT emits count-only state by nonblocking UDP and never activates content pruning",
+  "snapshot_path": "source_snapshot/scheduler_before_e_split.py",
+  "source_path": "vllm/v1/core/sched/scheduler.py",
+  "source_sha256": "d76cc22257550972137df9c893505d0bd0f5d482374691e6eca4372772de501a",
+  "split_condition": "one new image request, one encoder input, only in-flight text decode"
+}

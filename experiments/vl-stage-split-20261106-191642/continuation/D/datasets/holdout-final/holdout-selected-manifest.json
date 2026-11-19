@@ -1,0 +1,1188 @@
+{
+  "dataset_id": "D-holdout-32-curated-v1",
+  "images": [
+    {
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825079.jpg",
+      "image_id": "holdout-01",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 416471,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-01.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-01.png",
+          "sha256": "7b12dd0c76405fbb4c7c8d5e2f881b0d100d2bd39cc9ecf328e31e0ed888ec7b",
+          "width": 512
+        },
+        "768": {
+          "bytes": 890960,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-01.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-01.png",
+          "sha256": "92d92e43af59481be585daf590800bdd65c1dad5bd5fe0b36c684f7671d2cf21",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 1036967,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-00-d0e12317a547.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-00-d0e12317a547.jpg",
+      "source_download_sha256": "d0e12317a54708bda376a8ed136b54c7d03e1c3b3251ed740a08d2c0978e006a",
+      "source_image_id": "cc0-00-d0e12317a547",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\"$10,000\" Kelly, Chicago, from the Old Judge series (N172) for Old Judge Cigarettes MET DP825079.jpg"
+    },
+    {
+      "artist_credit": "Creator:Shamardan ibn Abi 'l Khayr",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_Lion%22,_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg",
+      "image_id": "holdout-02",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 295873,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-02.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-02.png",
+          "sha256": "681e201ba0979dc38b36eb4782a0e516f8126e196b9feb22d7c947f871fa84ee",
+          "width": 512
+        },
+        "768": {
+          "bytes": 620552,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-02.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-02.png",
+          "sha256": "bce288485b4606797bee05098447a55c394498a7597989c256a55c60486f0da9",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 2624764,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-01-f7be9b25783d.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-01-f7be9b25783d.jpg",
+      "source_download_sha256": "f7be9b25783d7e7512e8e99c90aceb3781e47a5202a5b78734690b9e9fb1bbeb",
+      "source_image_id": "cc0-01-f7be9b25783d",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" A Lion\", Folio from a Dispersed Nuzhatnama-i ‘Ala’i of Shahmardan ibn Abi’l Khayr MET 18892.jpg"
+    },
+    {
+      "artist_credit": "Exchanges Photos",
+      "description": "\"...common values that bind them in harmony.\"",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22...common_values_that_bind_them_in_harmony.%22_(12677533805).png",
+      "image_id": "holdout-03",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%22...common_values_that_bind_them_in_harmony.%22_%2812677533805%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 176983,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-03.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-03.png",
+          "sha256": "886ba2ba9ef62c1c1e880293c9874d7c8153e24eeea7bda2529a1bc63d56b8e1",
+          "width": 512
+        },
+        "768": {
+          "bytes": 345291,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-03.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-03.png",
+          "sha256": "05ae56c719c8dd0896ba0c2b934ae1b91e47c252af6b1528ed79ebe6a4fe714a",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 878416,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-02-74dec2e614c6.png",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-02-74dec2e614c6.png",
+      "source_download_sha256": "74dec2e614c6fe245905c15d1245eccccff4f063f7b6f35280ff4781278ae75e",
+      "source_image_id": "cc0-02-74dec2e614c6",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\"...common values that bind them in harmony.\" (12677533805).png"
+    },
+    {
+      "artist_credit": "Percy Benzie Abery",
+      "description": "Abstract: \" Arbour tree\" Aston on Clun",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Arbour_tree%22_Aston_on_Clun_(1294200).jpg",
+      "image_id": "holdout-04",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/%22_Arbour_tree%22_Aston_on_Clun_%281294200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 234864,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-04.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-04.png",
+          "sha256": "4960fc6b4ab6667be049cdc93111b21be795988ca480b54f6159b33d8b775828",
+          "width": 512
+        },
+        "768": {
+          "bytes": 481960,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-04.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-04.png",
+          "sha256": "b65b07cb558455827fff9a6afa0ea918af084fd5c4f736f40b3e0fe0ddad65fa",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 183433,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-03-5ef75aaf062c.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-03-5ef75aaf062c.jpg",
+      "source_download_sha256": "5ef75aaf062c312d5fa24255ddf054d834d48e94f4db9212fa629924d8838932",
+      "source_image_id": "cc0-03-5ef75aaf062c",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" Arbour tree\" Aston on Clun (1294200).jpg"
+    },
+    {
+      "artist_credit": "Axxter99",
+      "description": "!Khwa ttu",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Khwa_ttu.jpg",
+      "image_id": "holdout-05",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/%21Khwa_ttu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 442105,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-05.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-05.png",
+          "sha256": "b8da69d467bffc50a37ce2794ce669931eed947c1a39a225b83d4c1239563f43",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1012572,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-05.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-05.png",
+          "sha256": "b8750c357d31d581a86ec68d838c000280b45431c34b7f316742d129cd089aea",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 3181496,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-06-79495392e2c8.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-06-79495392e2c8.jpg",
+      "source_download_sha256": "79495392e2c86ee5490adc5226a5f9b3d59b3d362a3346dac130f59d6a86b393",
+      "source_image_id": "cc0-06-79495392e2c8",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:!Khwa ttu.jpg"
+    },
+    {
+      "artist_credit": "Daderot",
+      "description": "Exhibit 1941 Lincoln Continental Coupe (Automobile Driving Museum) in El Segundo, California, USA.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01972.jpg",
+      "image_id": "holdout-06",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 434068,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-06.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-06.png",
+          "sha256": "3edbca8dfebefceb4852629a7d39853b3a4e9dbfa3e80dfb6a11b0a3aa8f5eee",
+          "width": 512
+        },
+        "768": {
+          "bytes": 909084,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-06.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-06.png",
+          "sha256": "ed5f435fa122bb0bb0c6c77bdf40d1cb4a13ff5fb48086ddb82b522ab47e3951",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 1961331,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-07-1462caaaf9e1.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-07-1462caaaf9e1.jpg",
+      "source_download_sha256": "1462caaaf9e149a7c6be9b7fdc4ee461837f9ddd5ada6596de227b4f47bd4785",
+      "source_image_id": "cc0-07-1462caaaf9e1",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01972.jpg"
+    },
+    {
+      "artist_credit": "Chobanoglu",
+      "description": "The photographer Irina Chobanova",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Irinka_1943.jpg",
+      "image_id": "holdout-07",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/%21Irinka_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 448686,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-07.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-07.png",
+          "sha256": "fb2ab885cadc5928ef49b12199d82272340f563288891da76c70532199a64eb0",
+          "width": 512
+        },
+        "768": {
+          "bytes": 988926,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-07.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-07.png",
+          "sha256": "093651f3000eecf340a6dc154ecf574abe80e9724c29921892c9b7be6d05bbc6",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 1803944,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-08-a899491636a3.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-08-a899491636a3.jpg",
+      "source_download_sha256": "a899491636a3e78df22f9756a43b0493a671b10d414041217442304f83d985f0",
+      "source_image_id": "cc0-08-a899491636a3",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:!Irinka 1943.jpg"
+    },
+    {
+      "artist_credit": "Frze",
+      "description": "Russisch-Orthodoxe Kirche, Dresden\nZwiebeltürme",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!_Russisch-Orthodoxe_Kirche_(Dresden)_Zwiebelt%C3%BCrme.JPG",
+      "image_id": "holdout-08",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 359075,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-08.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-08.png",
+          "sha256": "a6aa75818f0836791010f6574d01bf3cf7e064e7660d2b80710f4fb6eeb7ea8c",
+          "width": 512
+        },
+        "768": {
+          "bytes": 735805,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-08.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-08.png",
+          "sha256": "d51fc62d76e0d613231d9b9687015b2a50a62726636e0b3fe36f3502a3ac4787",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 1307887,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-09-aa4f074784e8.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-09-aa4f074784e8.jpg",
+      "source_download_sha256": "aa4f074784e8c53fc657ce371e0868ea38aee2e109c4ecc77e73ad05df46f506",
+      "source_image_id": "cc0-09-aa4f074784e8",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:! Russisch-Orthodoxe Kirche (Dresden) Zwiebeltürme.JPG"
+    },
+    {
+      "artist_credit": "Attributed to   Kesu Kalan",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%27Umar_Walks_around_Fulad_Castle,_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22,_Folio_from_a_Hamzanama_(The_Adventures_of_Hamza)_MET_sf23-264-2b.jpg",
+      "image_id": "holdout-09",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 572374,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-09.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-09.png",
+          "sha256": "15d130ea974d4423784d2339d5534928fc89a9ef185273aa9a60803621611738",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1217162,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-09.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-09.png",
+          "sha256": "87128b0ac903cca2246b8d32328f49140775c091e92aee92580fcae72fb1f873",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 322987,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-11-1d4867509d57.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-11-1d4867509d57.jpg",
+      "source_download_sha256": "1d4867509d57a1995c14261f9d1aefc44f5ac4e00cb78b5ca27392bb570aa9d0",
+      "source_image_id": "cc0-11-1d4867509d57",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET sf23-264-2b.jpg"
+    },
+    {
+      "artist_credit": "Thomas W. Whiffen",
+      "description": "\" A garden? with group outside a thatch building in the background. \"",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_garden%3F_with_group_outside_a_thatch_building_in_the_background._%22.png",
+      "image_id": "holdout-10",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/%22_A_garden%3F_with_group_outside_a_thatch_building_in_the_background._%22.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 297542,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-10.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-10.png",
+          "sha256": "7700e930d98a5c72529023a9717e5e646126fe666fb46750b2534061f5f06d1a",
+          "width": 512
+        },
+        "768": {
+          "bytes": 630508,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-10.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-10.png",
+          "sha256": "ddd073825b3271e21a899a409f3cce1a2acdc10f6e2595b34dcec3dcd5238763",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 766350,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-12-391fcf7adff7.png",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-12-391fcf7adff7.png",
+      "source_download_sha256": "391fcf7adff769dd3d93703e42b4acbd2fb9e6dda6ab2552d94208aa64f946f2",
+      "source_image_id": "cc0-12-391fcf7adff7",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" A garden? with group outside a thatch building in the background. \".png"
+    },
+    {
+      "artist_credit": "Léon Auguste",
+      "description": "Lieu : Sienne\n Lieu : Sienne, Italie\nMission : 1913 - Balkans, Italie -  Jean Brunhes et Auguste Léon - (septembre - 23 octobre)\nThème : Religion\nThème : Habitat / Architecture\nThème : Nature / Environnement\nSous-thème : Eglise\nSous-thème : Christianisme\nSous-thème : Cerisier\nSous-thème : Verger\nSous-thème : Panorama d'agglomération\nSous-thème : Végétation / botanique\nSous-thème : Olivier\nSous-thème : Architecture religieuse\nLégende d'origine : Italie, Sienne, Vue de l'Ouest de la ville avec la petite Eglise des Innocents à g. et un cerisier\nProcédé : Autochrome\nSupport : Verre\nDénomination : Autochrome\nFormat d'origine : Horizontal\n \nAppartenance actuelle : Département des Hauts-de-Seine, musée Albert-Kahn",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Eglise_des_Innocents_%22_vue_de_l%27ouest_-_A2586.jpg",
+      "image_id": "holdout-11",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/%22_Eglise_des_Innocents_%22_vue_de_l%27ouest_-_A2586.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 563639,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-11.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-11.png",
+          "sha256": "38791a63864c3f4d70cfeba7f531816fcd7f13a38f6422b7bf3218a645a67957",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1237463,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-11.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-11.png",
+          "sha256": "4dfb257f17e6d1ab540dfe216c0ec664f5a0b5e6fbf4606e9b1cd82fc214878e",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 5045468,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-13-abb3cc2b706f.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-13-abb3cc2b706f.jpg",
+      "source_download_sha256": "abb3cc2b706f3bb30adc94c9dcde0c41c5a84d75c37ac5facee79a74b60c9b57",
+      "source_image_id": "cc0-13-abb3cc2b706f",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" Eglise des Innocents \" vue de l'ouest - A2586.jpg"
+    },
+    {
+      "artist_credit": "Seiichi Miyashita",
+      "description": "crosses with religious architectures",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Cross_with_Religious_Architecture_%22.jpg",
+      "image_id": "holdout-12",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/%22_Cross_with_Religious_Architecture_%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 586180,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-12.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-12.png",
+          "sha256": "9d182c885fcf18cffdb3da2a6e1d73f612b0e8303af14a9a9d600ab98b2bc561",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1257901,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-12.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-12.png",
+          "sha256": "6d430849dfa2131c66e9cf47cabd21eab238349dd6651fd8ce104922b2f99e37",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 3874973,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-16-f36c6c24da3f.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-16-f36c6c24da3f.jpg",
+      "source_download_sha256": "f36c6c24da3fb48bf46d2ecedae9ed01582c4f68870822890233f67ae20e956b",
+      "source_image_id": "cc0-16-f36c6c24da3f",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" Cross with Religious Architecture \".jpg"
+    },
+    {
+      "artist_credit": "Cette photo a été prise par André ALLIOT",
+      "description": "Sculpture de Nicolas Lavarenne exposée au château de la Napoule.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg",
+      "image_id": "holdout-13",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 700680,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-13.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-13.png",
+          "sha256": "acb6e1de896b7ef242ade96fc236e2afbe1b97899fcd57343b80e656904d4c62",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1558368,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-13.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-13.png",
+          "sha256": "0a8a6dfcb7a16dbbc549a6f71c17e88a2b46eed0bcd9024c88cb16f761fb656f",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 3980439,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-17-e798fbbd08cd.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-17-e798fbbd08cd.jpg",
+      "source_download_sha256": "e798fbbd08cd1cf822d54c91695105e0c6056ff6acd44e448bc0fa92b3f9bd1d",
+      "source_image_id": "cc0-17-e798fbbd08cd",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\" Grand Travers \" de Nicolas Lavarenne.jpg"
+    },
+    {
+      "artist_credit": "Axxter99",
+      "description": "!Khwa ttu",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Khwa_ttu_1.jpg",
+      "image_id": "holdout-14",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/%21Khwa_ttu_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 579008,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-14.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-14.png",
+          "sha256": "7f4ba5e326e8624b995e0d5fb4e0c9bef50728caf32c9513a8792cd6d1e7e147",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1374008,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-14.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-14.png",
+          "sha256": "95187ae781fadb09e7a7013ebaedc4eb9bd021dc9c141e4688caf23a9efa99b9",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 2130609,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-19-2b2cb79d1452.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-19-2b2cb79d1452.jpg",
+      "source_download_sha256": "2b2cb79d1452c0788c16538c992cf164a5aa36a40f371de9e29b55a01db63bf5",
+      "source_image_id": "cc0-19-2b2cb79d1452",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:!Khwa ttu 1.jpg"
+    },
+    {
+      "artist_credit": "RaAr2010",
+      "description": "Oud bord uit de periode van het RVV 1966.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22(Brom)fietsers_richting_Poeldijk_oversteken%22_(10522505706).jpg",
+      "image_id": "holdout-15",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/%22%28Brom%29fietsers_richting_Poeldijk_oversteken%22_%2810522505706%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 535325,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-15.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-15.png",
+          "sha256": "3e5a8fdae6a38f3fbb299eaf72129fb2d20a267e898c3b1f6d9b90145e771fed",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1133683,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-15.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-15.png",
+          "sha256": "914dd029541e6527ad41d2a84d0b6267cbb9f2d1dbc8891f3dfe0a19863d69cf",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 2346396,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-21-65657cc12c60.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-21-65657cc12c60.jpg",
+      "source_download_sha256": "65657cc12c6090dcdd5652ce24d85f0b7ff636bc84bc51cc56c666481c5eb87b",
+      "source_image_id": "cc0-21-65657cc12c60",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\"(Brom)fietsers richting Poeldijk oversteken\" (10522505706).jpg"
+    },
+    {
+      "artist_credit": "01x07x2022000",
+      "description": "Defurovy Lažany: náměstí, v době sběru objemného a nebezpečného odpadu z domácností.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg",
+      "image_id": "holdout-16",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/%21Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 369718,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-16.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-16.png",
+          "sha256": "cdfc7b7819163c76ea9ede89a0b0c20686d02e82cd675757338af20010485976",
+          "width": 512
+        },
+        "768": {
+          "bytes": 823639,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-16.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-16.png",
+          "sha256": "935cb817428e899a911a3f059f1cd311ea9679320540351fab58633b63b6ce65",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 2584806,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-22-9075b5c9f3ff.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-22-9075b5c9f3ff.jpg",
+      "source_download_sha256": "9075b5c9f3ff9789b60113ed48fa76af2878da0575fe182f3aceebe96f847755",
+      "source_image_id": "cc0-22-9075b5c9f3ff",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:!Defurovy Lažany - náměstí.jpg"
+    },
+    {
+      "artist_credit": "Bright estrellas",
+      "description": "Закат в Истанбуле",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg",
+      "image_id": "holdout-17",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 380852,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-17.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-17.png",
+          "sha256": "8af78f338c0c120ef094ff602c8108794339c96ffc0fde4e5f9c6ab48af9ae83",
+          "width": 512
+        },
+        "768": {
+          "bytes": 850193,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-17.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-17.png",
+          "sha256": "ec87b9612526197314a870ec9263b4b6173f4af0b95b369ed9ebc99d0c79fd5a",
+          "width": 768
+        }
+      },
+      "search_phrase": null,
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 2291042,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-26-d8c95254b483.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-26-d8c95254b483.jpg",
+      "source_download_sha256": "d8c95254b4834e04ef33fa7b8bad041bd64b3f13ed6aa4b0d9a74c5ba632e9b6",
+      "source_image_id": "cc0-26-d8c95254b483",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:\"\"Истанбул\"\".jpg"
+    },
+    {
+      "artist_credit": "Syced",
+      "description": "Food at udon restaurant in Ebisu",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Food_at_udon_restaurant_in_Ebisu.jpg",
+      "image_id": "holdout-18",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Food_at_udon_restaurant_in_Ebisu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 395595,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-18.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-18.png",
+          "sha256": "64fdfde2d73f9aa79967994794e9a7f98941a238b4fb9e4af5b5a45687b146f1",
+          "width": 512
+        },
+        "768": {
+          "bytes": 831031,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-18.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-18.png",
+          "sha256": "de326818bb2b8a7bc1f35c1e25c8e0edfa2b9360ee8ea5b692357f3b7c8857e6",
+          "width": 768
+        }
+      },
+      "search_phrase": "food",
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 222865,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-27-321b1421e6ef.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-27-321b1421e6ef.jpg",
+      "source_download_sha256": "321b1421e6efa31fab360173c60bd68ae61c764f920131dfd7c1969fc0aba523",
+      "source_image_id": "cc0-27-321b1421e6ef",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:Food at udon restaurant in Ebisu.jpg"
+    },
+    {
+      "artist_credit": "Syced",
+      "description": "Ishigaki food",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Ishigaki_food_2.jpg",
+      "image_id": "holdout-19",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Ishigaki_food_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 556099,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-19.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-19.png",
+          "sha256": "4186fa2e0780740fc0fd28316e25de56c4e90d80bdd8ab90f9009b9d3c1c2738",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1160794,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-19.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-19.png",
+          "sha256": "2335781797619d6ba5e124e723b8580d65e184bf3cfc6bcd189f02ec0a4e59ef",
+          "width": 768
+        }
+      },
+      "search_phrase": "food",
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 375699,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-28-eaf3affddfa5.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-28-eaf3affddfa5.jpg",
+      "source_download_sha256": "eaf3affddfa55748fa95edce06171861dd99341d5fa42273d84f2b638c8a408e",
+      "source_image_id": "cc0-28-eaf3affddfa5",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:Ishigaki food 2.jpg"
+    },
+    {
+      "artist_credit": "Mary Bloom, American Kennel Club",
+      "description": "Montage showing the coat variation of the dog. Clockwise from the left: the Vizsla, the giant Schnauzer, the Cocker spaniel, and the Bichon frise.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Dog_coat_variation.png",
+      "image_id": "holdout-20",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 488132,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-20.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-20.png",
+          "sha256": "4d64dcd8c36a0576fbdd59bedeafe6cf08ae9e194ec09f430749b7cb420ac3ac",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1006427,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-20.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-20.png",
+          "sha256": "d99800b0de940ce5b38a84449b9a7a9ffc57532b931dc31e363ece7187279097",
+          "width": 768
+        }
+      },
+      "search_phrase": "dog",
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 1582856,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-30-1f298b4e7825.png",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-30-1f298b4e7825.png",
+      "source_download_sha256": "1f298b4e782586f48a6405c2fd61357c8e985e8f67bc1b06f004b675d670c3c6",
+      "source_image_id": "cc0-30-1f298b4e7825",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:Dog coat variation.png"
+    },
+    {
+      "artist_credit": "Wilfredor",
+      "description": "Building in Paulista Avenue, São Paulo, Brazil",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Building_in_Paulista_Avenue_09.jpg",
+      "image_id": "holdout-21",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Building_in_Paulista_Avenue_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 484892,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-21.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-21.png",
+          "sha256": "7cb9ef7cac8dea96febd3d17558206d94f8b3a52615ba33effd24fbc56543c47",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1077711,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-21.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-21.png",
+          "sha256": "f9e89eac412eb5fe8b06a12eb274f63a5e216903399dbc9cbd2a1f0f068eeffc",
+          "width": 768
+        }
+      },
+      "search_phrase": "building",
+      "source_collection": "commons-cc0",
+      "source_download_bytes": 474115,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-31-ff8889385b2a.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-31-ff8889385b2a.jpg",
+      "source_download_sha256": "ff8889385b2a69564570da142acd29f8935e6fb33e41ec85abe08122fb67a2b5",
+      "source_image_id": "cc0-31-ff8889385b2a",
+      "source_manifest_sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+      "title": "File:Building in Paulista Avenue 09.jpg"
+    },
+    {
+      "artist_credit": "Anonymous  Unknown author",
+      "description": "",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Textile_Design_Met_DP889358.jpg",
+      "image_id": "holdout-22",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Textile_Design_Met_DP889358.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 561149,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-22.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-22.png",
+          "sha256": "973e711e67d1d7625125eaa45a5945d025bab3b306af1b5caf4f8203cbafa3bb",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1212591,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-22.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-22.png",
+          "sha256": "999be6ead36fab1b5c158ec0befdd355ad826a22c8730907d292648818b94472",
+          "width": 768
+        }
+      },
+      "search_phrase": "textile",
+      "source_collection": "commons-cc0-expansion",
+      "source_download_bytes": 603339,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-00-17f3d1beff40.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-00-17f3d1beff40.jpg",
+      "source_download_sha256": "17f3d1beff401c5d413ef38975609e24f0b28500d24a5cd4ad656951582afa56",
+      "source_image_id": "cc0-00-17f3d1beff40",
+      "source_manifest_sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+      "title": "File:Textile Design Met DP889358.jpg"
+    },
+    {
+      "artist_credit": "Evan-Amos",
+      "description": "A pulp basket of blueberries from a organic farm co-op program.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Blueberries-In-Pack.jpg",
+      "image_id": "holdout-23",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Blueberries-In-Pack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 412034,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-23.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-23.png",
+          "sha256": "a8d132f7338194523761d2ad7dcd81d48036510605c880212bcfe3b7e59cf734",
+          "width": 512
+        },
+        "768": {
+          "bytes": 936215,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-23.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-23.png",
+          "sha256": "4c61b9aef9da2606e6b9e850c71a7ff50e196f600e0f5f0add4dc52938de477e",
+          "width": 768
+        }
+      },
+      "search_phrase": "fruit",
+      "source_collection": "commons-cc0-expansion",
+      "source_download_bytes": 349869,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-01-47c3980d0d1b.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-01-47c3980d0d1b.jpg",
+      "source_download_sha256": "47c3980d0d1ba64dafe6561012ba14b643403f24c2e38a368cab063a613263c2",
+      "source_image_id": "cc0-01-47c3980d0d1b",
+      "source_manifest_sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+      "title": "File:Blueberries-In-Pack.jpg"
+    },
+    {
+      "artist_credit": "W.carter",
+      "description": "Tree with red apples 'Särsö' in Barkedal, Lysekil Municipality, Sweden. The apples ripened early and were unusually red on the side facing south and the camera, caused by the uncharacteristically many hours of sunlight during the hot summer of 2018.",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg",
+      "image_id": "holdout-24",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Tree_with_red_apples_in_Barkedal_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 660785,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-24.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-24.png",
+          "sha256": "bf5210c505aaae351e48d282b8cd3969859ef7cb3bd6eca02f3aa0de5eb79284",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1511331,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-24.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-24.png",
+          "sha256": "89551eee5cb0af4c788ecaa8b259532e09c10e7df075fffb81e90dd12d66ed2a",
+          "width": 768
+        }
+      },
+      "search_phrase": "tree",
+      "source_collection": "commons-cc0-expansion",
+      "source_download_bytes": 950307,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-03-0aee8fef71a4.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-03-0aee8fef71a4.jpg",
+      "source_download_sha256": "0aee8fef71a40be8981a08bf649764478f8b12e0a0bbc88e77692b05ca358ab3",
+      "source_image_id": "cc0-03-0aee8fef71a4",
+      "source_manifest_sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+      "title": "File:Tree with red apples in Barkedal 4.jpg"
+    },
+    {
+      "artist_credit": "Wilfredor",
+      "description": "Spanish Hall of Ambras Castle, Innsbruck, Tyrol, Austria",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Spanish_Hall_of_Ambras_Castle,_Innsbruck_(inside)-2024-02-06.jpg",
+      "image_id": "holdout-25",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Spanish_Hall_of_Ambras_Castle%2C_Innsbruck_%28inside%29-2024-02-06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 577498,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-25.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-25.png",
+          "sha256": "c198269c009d5dc07566115ee80942cb8a303c24a2c9e64f86b95c5526073520",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1291185,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-25.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-25.png",
+          "sha256": "08979ff26f41a3e7a2e5cfa19eed4db6872ab57227e3a0c1a80a406f22c9635f",
+          "width": 768
+        }
+      },
+      "search_phrase": "castle",
+      "source_collection": "commons-cc0-expansion",
+      "source_download_bytes": 498444,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-04-75ad201ec925.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-04-75ad201ec925.jpg",
+      "source_download_sha256": "75ad201ec92572f21c620b73710c477d43ada2b6d387c7fd832b4ab591c7d13b",
+      "source_image_id": "cc0-04-75ad201ec925",
+      "source_manifest_sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+      "title": "File:Spanish Hall of Ambras Castle, Innsbruck (inside)-2024-02-06.jpg"
+    },
+    {
+      "artist_credit": "Pingnova",
+      "description": "Stalls displaying woven wares such as kawm (Hmong woven baskets) at Hmongtown Marketplace, East Building.\n This photo depicts the \"B\" area of the Hmongtown Marketplace East Building, with stalls B1–B51. Most prominent are stalls B1–B14 grouped in the middle of the space, which primarily sell woven baskets (kawm) and traditional Hmong tools. The sides of stalls B14 and B1 are most visible in this photo.\n \nThe photographer stands at the top of the East Building stairs, facing north.  Behind the photographer is the colliqually named \"main entry hallway\".",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Hmongtown_Marketplace_East_Building_weaving_booth.jpg",
+      "image_id": "holdout-26",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Hmongtown_Marketplace_East_Building_weaving_booth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 614946,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-26.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-26.png",
+          "sha256": "6426c3182b1d3d9e1a6bf693cff7845b3efadac07ea5975c711ddf6abea327cc",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1389534,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-26.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-26.png",
+          "sha256": "62bcc9d4ede6b6098dab40e91fd288353858b26f00c67853147548c3d12ddddf",
+          "width": 768
+        }
+      },
+      "search_phrase": "market",
+      "source_collection": "commons-cc0-expansion",
+      "source_download_bytes": 573307,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-05-a9b3268618cb.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-05-a9b3268618cb.jpg",
+      "source_download_sha256": "a9b3268618cb60dcd18667d9c8244bd6f5d4749d56abf7e80624897e7ba34149",
+      "source_image_id": "cc0-05-a9b3268618cb",
+      "source_manifest_sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+      "title": "File:Hmongtown Marketplace East Building weaving booth.jpg"
+    },
+    {
+      "artist_credit": "L'Estrange, Robert Augustus Henry",
+      "description": "L'Estrange, Robert Augustus Henry (ca. 1898) Flower farm - possibly Ireland. [Image]",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Flower_farm_-_possibly_Ireland.jpg",
+      "image_id": "holdout-27",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Flower_farm_-_possibly_Ireland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 278336,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-27.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-27.png",
+          "sha256": "3730e176dab5c5ce28f5c19cf66e0c4ff4a18a4a6f8ef03d746771905b438de8",
+          "width": 512
+        },
+        "768": {
+          "bytes": 638729,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-27.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-27.png",
+          "sha256": "93e3b8a4df03a0b39ea2a75ed7446947a19f8f305091fc591a0221b116637cae",
+          "width": 768
+        }
+      },
+      "search_phrase": "farm",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 366390,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-00-317f4daebbee.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-00-317f4daebbee.jpg",
+      "source_download_sha256": "317f4daebbeeb9d3967abc1487182303e17dc153aaa329af538ee09f8d8ed71e",
+      "source_image_id": "cc0-00-317f4daebbee",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:Flower farm - possibly Ireland.jpg"
+    },
+    {
+      "artist_credit": "AdinaVoicu",
+      "description": "Portrait of a black tabby and white cat with Dominant Blue Eyes (DBE)",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Tabby_cat_with_blue_eyes-3336579.jpg",
+      "image_id": "holdout-28",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 407409,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-28.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-28.png",
+          "sha256": "59897087450c56eab21b698b4508d69d7787af0f466f1c33dd735725f221c7e6",
+          "width": 512
+        },
+        "768": {
+          "bytes": 881221,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-28.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-28.png",
+          "sha256": "35b73370064b97f67735b4e1c41770670ea9d71eba1fe7550969745af5f7f205",
+          "width": 768
+        }
+      },
+      "search_phrase": "cat",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 327284,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-01-3e46fb5858d3.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-01-3e46fb5858d3.jpg",
+      "source_download_sha256": "3e46fb5858d3f67ea55df2b30707c265ec98f0a8c7831dad376229c2d04d07ac",
+      "source_image_id": "cc0-01-3e46fb5858d3",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:Tabby cat with blue eyes-3336579.jpg"
+    },
+    {
+      "artist_credit": "Jebulon",
+      "description": "Equestrian statue of Marcus Nonius Balbus the Younger, donated  by the inhabitants of Nuceria, from Herculanum forum. Marble, ca. 50 CE",
+      "description_url": "https://commons.wikimedia.org/wiki/File:M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png",
+      "image_id": "holdout-29",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 218976,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-29.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-29.png",
+          "sha256": "1be4867399f8e1e0dd206c526b8aedec1b576100cf2c5dde7d0cba85c14611bc",
+          "width": 512
+        },
+        "768": {
+          "bytes": 467131,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-29.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-29.png",
+          "sha256": "ac8f2609542a8e8ae4b17b4bddf9221549b5ab9d6c0a2aec9a4dd7d5350ebf2d",
+          "width": 768
+        }
+      },
+      "search_phrase": "statue",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 1192741,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-02-e7f9295a6e19.png",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-02-e7f9295a6e19.png",
+      "source_download_sha256": "e7f9295a6e19e2c84cafccaeecd783ac4dfa4b249c0d49bb072b9b2620785f2c",
+      "source_image_id": "cc0-02-e7f9295a6e19",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:M.Nonius Balbus Nuceria equestrian Statue MANN.png"
+    },
+    {
+      "artist_credit": "Vivant Denon",
+      "description": "",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait,_head_of_a_man_Met_DP890234.jpg",
+      "image_id": "holdout-30",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Portrait%2C_head_of_a_man_Met_DP890234.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 454270,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-30.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-30.png",
+          "sha256": "133bf9cf228d87a5536adf4386abf7395a29afb2dcd08a8fd6a06bd0048d94bf",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1026230,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-30.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-30.png",
+          "sha256": "e8bb4700a430e6936338b464ab99c9c87421f1090e4a6520cb436d1048436650",
+          "width": 768
+        }
+      },
+      "search_phrase": "portrait",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 541903,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-03-76b40df2d44a.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-03-76b40df2d44a.jpg",
+      "source_download_sha256": "76b40df2d44a6517e167560e70e9c2ec6581c1b681a6a2f10af8786127e9f1ad",
+      "source_image_id": "cc0-03-76b40df2d44a",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:Portrait, head of a man Met DP890234.jpg"
+    },
+    {
+      "artist_credit": "Anonymous  Unknown author",
+      "description": "",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg",
+      "image_id": "holdout-31",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 263749,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-31.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-31.png",
+          "sha256": "0577fb6aa4c61f93f2a68ddcb42e177c8104457421b717b2477314ea3e0ed0a0",
+          "width": 512
+        },
+        "768": {
+          "bytes": 625906,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-31.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-31.png",
+          "sha256": "f285d6624102ea48ff2eeda4c9528b83358bbe66a2c95abf7288a91c1df7c9e6",
+          "width": 768
+        }
+      },
+      "search_phrase": "portrait",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 640830,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-04-1d2cf14d6ab5.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-04-1d2cf14d6ab5.jpg",
+      "source_download_sha256": "1d2cf14d6ab5ee9878544736cc24f847be5157dcbcfe8947efc22fcc3f66c8b7",
+      "source_image_id": "cc0-04-1d2cf14d6ab5",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:Portrait of a Woman Holding a Book MET ep48.187.734.bw.R.jpg"
+    },
+    {
+      "artist_credit": "anonymous",
+      "description": "",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_Met_DP890858.jpg",
+      "image_id": "holdout-32",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Portrait_of_a_Man_Met_DP890858.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "processed": {
+        "512": {
+          "bytes": 475263,
+          "height": 512,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-32.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/512/holdout-32.png",
+          "sha256": "00799623a292b8f025b35d0091b69afa9a64244ef83238b18ea8b8910ad58ac3",
+          "width": 512
+        },
+        "768": {
+          "bytes": 1101921,
+          "height": 768,
+          "local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-32.png",
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/images/768/holdout-32.png",
+          "sha256": "fd3592e053ef6e19e0c7d236bb6beaa1d744ae78e1d9ac5a9f1d235cdf689c22",
+          "width": 768
+        }
+      },
+      "search_phrase": "portrait",
+      "source_collection": "commons-cc0-expansion-2",
+      "source_download_bytes": 707867,
+      "source_download_local_path": "reproduction_runs/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-05-225b40a6fb76.jpg",
+      "source_download_remote_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-05-225b40a6fb76.jpg",
+      "source_download_sha256": "225b40a6fb765a52698ef07eec7a3ca794924cdb4de615688c56311bf7b566da",
+      "source_image_id": "cc0-05-225b40a6fb76",
+      "source_manifest_sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5",
+      "title": "File:Portrait of a Man Met DP890858.jpg"
+    }
+  ],
+  "license_policy": "each source row has CC0/CC-Zero LicenseShortName and CC0 1.0 LicenseUrl",
+  "processor_grids": [
+    512,
+    768
+  ],
+  "required_count": 32,
+  "schema_version": 1,
+  "search_topic_counts": {
+    "building": 1,
+    "castle": 1,
+    "cat": 1,
+    "dog": 1,
+    "farm": 1,
+    "food": 2,
+    "fruit": 1,
+    "market": 1,
+    "portrait": 3,
+    "statue": 1,
+    "textile": 1,
+    "tree": 1,
+    "uncategorized": 17
+  },
+  "selected_count": 32,
+  "selection_note": "visually reviewed contact sheets; removed repeated Old Judge, Lincoln, church, Irinka, lion-art, and near-identical Hamzanama images; retained all acquisition attempts separately",
+  "source_manifests": {
+    "commons-cc0": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e",
+    "commons-cc0-expansion": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc",
+    "commons-cc0-expansion-2": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5"
+  },
+  "status": "complete",
+  "unique_source_download_sha256": 32
+}

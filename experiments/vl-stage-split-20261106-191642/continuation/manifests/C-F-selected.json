@@ -1,0 +1,1230 @@
+{
+  "method": "One global fixed native configuration selected on independent calibration episodes. Sort by pooled 30ms text-gap/55ms TTFT joint pass rate, then text-gap P95, image TTFT pass rate, then closeness to default interval=1/budget=2048.",
+  "grid": {
+    "prefill_interval": [
+      1,
+      2,
+      3
+    ],
+    "lm_budget": [
+      512,
+      1024,
+      2048
+    ],
+    "load_groups": [
+      [
+        512,
+        2
+      ],
+      [
+        512,
+        6
+      ],
+      [
+        768,
+        2
+      ],
+      [
+        768,
+        6
+      ]
+    ],
+    "episodes_per_profile": 12
+  },
+  "selected_F": {
+    "prefill_interval": 2,
+    "lm_budget": 1024
+  },
+  "profiles": [
+    {
+      "prefill_interval": 2,
+      "lm_budget": 1024,
+      "episodes": 12,
+      "joint_passes": 10,
+      "joint_rate": 0.8333333333333334,
+      "text_gap_p95_ms": 25.972814599999996,
+      "image_ttft_passes": 10,
+      "image_ttft_pass_rate": 0.8333333333333334,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.239988,
+          "image_ttft_ms": 46.849873,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 11.747055,
+          "image_ttft_ms": 29.752969,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 11.696606,
+          "image_ttft_ms": 28.879812,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 13.465286,
+          "image_ttft_ms": 46.832051,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 12.281468,
+          "image_ttft_ms": 30.642942,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 12.010251,
+          "image_ttft_ms": 30.587806,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 23.812817,
+          "image_ttft_ms": 69.394223,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 22.865242,
+          "image_ttft_ms": 50.920175,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 28.555443,
+          "image_ttft_ms": 50.079845,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 22.201636,
+          "image_ttft_ms": 67.373508,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 23.064134,
+          "image_ttft_ms": 51.914511,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 23.859755,
+          "image_ttft_ms": 51.944888,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 1,
+      "lm_budget": 512,
+      "episodes": 12,
+      "joint_passes": 10,
+      "joint_rate": 0.8333333333333334,
+      "text_gap_p95_ms": 27.4690923,
+      "image_ttft_passes": 10,
+      "image_ttft_pass_rate": 0.8333333333333334,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.768356,
+          "image_ttft_ms": 46.321808,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 27.230127,
+          "image_ttft_ms": 38.952054,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.761161,
+          "image_ttft_ms": 38.81137,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 13.093647,
+          "image_ttft_ms": 46.773672,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 11.404758,
+          "image_ttft_ms": 30.880725,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.431404,
+          "image_ttft_ms": 30.604484,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 20.495529,
+          "image_ttft_ms": 71.624198,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 20.601895,
+          "image_ttft_ms": 53.591521,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 20.468418,
+          "image_ttft_ms": 53.581439,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 20.867595,
+          "image_ttft_ms": 73.017308,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 20.540296,
+          "image_ttft_ms": 54.437982,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 20.567133,
+          "image_ttft_ms": 54.36961,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 1,
+      "lm_budget": 1024,
+      "episodes": 12,
+      "joint_passes": 10,
+      "joint_rate": 0.8333333333333334,
+      "text_gap_p95_ms": 28.622685450000002,
+      "image_ttft_passes": 10,
+      "image_ttft_pass_rate": 0.8333333333333334,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.55867,
+          "image_ttft_ms": 45.322179,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 27.647446,
+          "image_ttft_ms": 39.407537,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.49971,
+          "image_ttft_ms": 38.947179,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 13.032233,
+          "image_ttft_ms": 48.081841,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 11.57423,
+          "image_ttft_ms": 30.904022,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.335856,
+          "image_ttft_ms": 30.839792,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 22.694183,
+          "image_ttft_ms": 68.545023,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 28.680623,
+          "image_ttft_ms": 50.991251,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 28.575282,
+          "image_ttft_ms": 50.036214,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 24.009274,
+          "image_ttft_ms": 65.583189,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 23.481775,
+          "image_ttft_ms": 51.968053,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 24.117125,
+          "image_ttft_ms": 52.288798,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 3,
+      "lm_budget": 1024,
+      "episodes": 12,
+      "joint_passes": 10,
+      "joint_rate": 0.8333333333333334,
+      "text_gap_p95_ms": 29.7762695,
+      "image_ttft_passes": 10,
+      "image_ttft_pass_rate": 0.8333333333333334,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.761255,
+          "image_ttft_ms": 47.028315,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 12.015392,
+          "image_ttft_ms": 29.793509,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 11.867804,
+          "image_ttft_ms": 30.058991,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 12.999986,
+          "image_ttft_ms": 48.511005,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 11.722832,
+          "image_ttft_ms": 31.003733,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.529961,
+          "image_ttft_ms": 31.067755,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 23.234694,
+          "image_ttft_ms": 69.467783,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 23.339779,
+          "image_ttft_ms": 51.100805,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 23.61188,
+          "image_ttft_ms": 51.078335,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 30.684072,
+          "image_ttft_ms": 65.522734,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 28.060617,
+          "image_ttft_ms": 52.034239,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 29.033522,
+          "image_ttft_ms": 52.097393,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 3,
+      "lm_budget": 2048,
+      "episodes": 12,
+      "joint_passes": 9,
+      "joint_rate": 0.75,
+      "text_gap_p95_ms": 28.73365265,
+      "image_ttft_passes": 9,
+      "image_ttft_pass_rate": 0.75,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 29.571411,
+          "image_ttft_ms": 56.96423,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 27.463099,
+          "image_ttft_ms": 39.179138,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.510198,
+          "image_ttft_ms": 39.273713,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 18.77276,
+          "image_ttft_ms": 54.998684,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 11.998768,
+          "image_ttft_ms": 30.880362,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.947022,
+          "image_ttft_ms": 30.879582,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 23.8339,
+          "image_ttft_ms": 69.521502,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 23.526461,
+          "image_ttft_ms": 51.049705,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 28.048214,
+          "image_ttft_ms": 50.124487,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 24.499754,
+          "image_ttft_ms": 65.383136,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 24.318739,
+          "image_ttft_ms": 52.091258,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 24.039729,
+          "image_ttft_ms": 52.137229,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 2,
+      "lm_budget": 2048,
+      "episodes": 12,
+      "joint_passes": 9,
+      "joint_rate": 0.75,
+      "text_gap_p95_ms": 32.21440019999999,
+      "image_ttft_passes": 9,
+      "image_ttft_pass_rate": 0.75,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.263833,
+          "image_ttft_ms": 46.790089,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 11.454347,
+          "image_ttft_ms": 29.792595,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.290655,
+          "image_ttft_ms": 38.991574,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 36.982733,
+          "image_ttft_ms": 65.143136,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 27.638318,
+          "image_ttft_ms": 40.171596,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 27.655864,
+          "image_ttft_ms": 39.883464,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 22.26201,
+          "image_ttft_ms": 67.762895,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 23.612928,
+          "image_ttft_ms": 51.138265,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 23.835618,
+          "image_ttft_ms": 50.101324,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 19.880618,
+          "image_ttft_ms": 66.126808,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 23.691472,
+          "image_ttft_ms": 51.776061,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 28.313037,
+          "image_ttft_ms": 51.893798,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 1,
+      "lm_budget": 2048,
+      "episodes": 12,
+      "joint_passes": 8,
+      "joint_rate": 0.6666666666666666,
+      "text_gap_p95_ms": 33.0201248,
+      "image_ttft_passes": 8,
+      "image_ttft_pass_rate": 0.6666666666666666,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 29.538194,
+          "image_ttft_ms": 56.853948,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 27.421282,
+          "image_ttft_ms": 39.226791,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.706201,
+          "image_ttft_ms": 39.269457,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 37.275818,
+          "image_ttft_ms": 65.165406,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 27.276923,
+          "image_ttft_ms": 39.460135,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 27.550732,
+          "image_ttft_ms": 39.734359,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 23.37535,
+          "image_ttft_ms": 69.240177,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 23.330926,
+          "image_ttft_ms": 51.07728,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 23.423496,
+          "image_ttft_ms": 51.160012,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 23.551625,
+          "image_ttft_ms": 64.810034,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 24.262071,
+          "image_ttft_ms": 52.075017,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 23.705757,
+          "image_ttft_ms": 51.705821,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 3,
+      "lm_budget": 512,
+      "episodes": 12,
+      "joint_passes": 6,
+      "joint_rate": 0.5,
+      "text_gap_p95_ms": 29.02244665,
+      "image_ttft_passes": 6,
+      "image_ttft_pass_rate": 0.5,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.236833,
+          "image_ttft_ms": 46.744116,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 11.999588,
+          "image_ttft_ms": 29.972557,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.480065,
+          "image_ttft_ms": 39.239402,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 13.661359,
+          "image_ttft_ms": 46.264157,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 12.021845,
+          "image_ttft_ms": 30.616522,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.708892,
+          "image_ttft_ms": 30.519664,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 30.484895,
+          "image_ttft_ms": 85.361092,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 27.540342,
+          "image_ttft_ms": 66.223423,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 27.825898,
+          "image_ttft_ms": 66.283392,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 18.886773,
+          "image_ttft_ms": 80.410337,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 20.618444,
+          "image_ttft_ms": 64.871745,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 27.635332,
+          "image_ttft_ms": 67.577772,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    },
+    {
+      "prefill_interval": 2,
+      "lm_budget": 512,
+      "episodes": 12,
+      "joint_passes": 6,
+      "joint_rate": 0.5,
+      "text_gap_p95_ms": 29.6503546,
+      "image_ttft_passes": 6,
+      "image_ttft_pass_rate": 0.5,
+      "episode_metrics": [
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-00",
+          "max_text_gap_ms": 13.429377,
+          "image_ttft_ms": 46.395977,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-01",
+          "max_text_gap_ms": 11.734491,
+          "image_ttft_ms": 28.790441,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D2-attempt0-F-02",
+          "max_text_gap_ms": 11.763497,
+          "image_ttft_ms": 29.809693,
+          "load": {
+            "image_size": 512,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-00",
+          "max_text_gap_ms": 12.881415,
+          "image_ttft_ms": 48.035346,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-01",
+          "max_text_gap_ms": 11.775647,
+          "image_ttft_ms": 30.553636,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L512-D6-attempt0-F-02",
+          "max_text_gap_ms": 11.757652,
+          "image_ttft_ms": 30.611985,
+          "load": {
+            "image_size": 512,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-00",
+          "max_text_gap_ms": 30.818845,
+          "image_ttft_ms": 80.358974,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-01",
+          "max_text_gap_ms": 28.248705,
+          "image_ttft_ms": 61.009021,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D2-attempt0-F-02",
+          "max_text_gap_ms": 28.062362,
+          "image_ttft_ms": 61.855197,
+          "load": {
+            "image_size": 768,
+            "text_streams": 2
+          },
+          "trial_seed": 2
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-00",
+          "max_text_gap_ms": 19.034927,
+          "image_ttft_ms": 75.29361,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 0
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-01",
+          "max_text_gap_ms": 28.694317,
+          "image_ttft_ms": 62.07445,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 1
+        },
+        {
+          "episode_id": "C-cal-L768-D6-attempt0-F-02",
+          "max_text_gap_ms": 27.790385,
+          "image_ttft_ms": 62.300208,
+          "load": {
+            "image_size": 768,
+            "text_streams": 6
+          },
+          "trial_seed": 2
+        }
+      ]
+    }
+  ],
+  "calibration_episode_total": 108,
+  "created_utc": "2026-11-07T10:14:51Z"
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "component": "vllm.vl_pilot_hook.record_stage_cuda_event",
+  "source_sha256": "34221e50b43a8c72b50baa0f56d34e391988ae2086ed9d67520cd882bcdf2189",
+  "patched_sha256": "841eaec63fb05cdbfbe27f5e52b7be69803a218d4993ca9bae9a9dd4a6000ea3",
+  "source_provenance": "copy of D overlay's async measurement hook; D files were not modified",
+  "change": "append stage CUDA events and bounded diagnostics with process provenance; map visual encoder event hashes to all scheduled request IDs; log KV block allocation and runtime page geometry; expose an opt-in nonblocking local UDP scheduler-backlog snapshot; flush worker traces and write summaries per process"
+}

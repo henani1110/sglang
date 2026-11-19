@@ -1,0 +1,1437 @@
+{
+  "status": "in_progress",
+  "source": "Wikimedia Commons API, Category:CC-Zero",
+  "api": "https://commons.wikimedia.org/w/api.php",
+  "retrieved_utc": "2026-11-07T13:00:33.688433+00:00",
+  "collection_seed": 20261107,
+  "required_count": 32,
+  "candidate_count": 40,
+  "selected_count": 27,
+  "license_rule": "per-file LicenseShortName CC0/CC-Zero and LicenseUrl contains /publicdomain/zero/1.0",
+  "images": [
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, from the Old Judge series (N172) for Old Judge Cigarettes MET DP825079.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825079.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 3528,
+      "width": 1575,
+      "height": 2713,
+      "bytes": 1036967,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-00-d0e12317a547",
+      "retrieved_utc": "2026-11-07T12:36:42.837370+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-00-d0e12317a547.jpg",
+      "source_download_sha256": "d0e12317a54708bda376a8ed136b54c7d03e1c3b3251ed740a08d2c0978e006a",
+      "source_download_bytes": 1036967,
+      "raw_decoded_size": [
+        1575,
+        2713
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          569,
+          1575,
+          2144
+        ]
+      },
+      "perceptual_hash_average_8x8": "efc7c7c785010719",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-00-d0e12317a547.png",
+          "sha256": "7b12dd0c76405fbb4c7c8d5e2f881b0d100d2bd39cc9ecf328e31e0ed888ec7b",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-00-d0e12317a547.png",
+          "sha256": "92d92e43af59481be585daf590800bdd65c1dad5bd5fe0b36c684f7671d2cf21",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" A Lion\", Folio from a Dispersed Nuzhatnama-i ‘Ala’i of Shahmardan ibn Abi’l Khayr MET 18892.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_Lion%22,_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg/3840px-%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1522,
+      "width": 4000,
+      "height": 2973,
+      "bytes": 3459459,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Creator:Shamardan ibn Abi 'l Khayr",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "early 17 th  century date QS:P571,+1650-00-00T00:00:00Z/7,P4241,Q40719727",
+      "image_id": "cc0-01-f7be9b25783d",
+      "retrieved_utc": "2026-11-07T12:36:46.870006+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-01-f7be9b25783d.jpg",
+      "source_download_sha256": "f7be9b25783d7e7512e8e99c90aceb3781e47a5202a5b78734690b9e9fb1bbeb",
+      "source_download_bytes": 2624764,
+      "raw_decoded_size": [
+        3840,
+        2854
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          493,
+          0,
+          3347,
+          2854
+        ]
+      },
+      "perceptual_hash_average_8x8": "e3ff93018083b1ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-01-f7be9b25783d.png",
+          "sha256": "681e201ba0979dc38b36eb4782a0e516f8126e196b9feb22d7c947f871fa84ee",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-01-f7be9b25783d.png",
+          "sha256": "bce288485b4606797bee05098447a55c394498a7597989c256a55c60486f0da9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"...common values that bind them in harmony.\" (12677533805).png",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22...common_values_that_bind_them_in_harmony.%22_(12677533805).png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%22...common_values_that_bind_them_in_harmony.%22_%2812677533805%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%22...common_values_that_bind_them_in_harmony.%22_%2812677533805%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1248,
+      "width": 1837,
+      "height": 1119,
+      "bytes": 878416,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Exchanges Photos",
+      "description": "\"...common values that bind them in harmony.\"",
+      "date_time_original": "2014-02-21 15:46",
+      "image_id": "cc0-02-74dec2e614c6",
+      "retrieved_utc": "2026-11-07T12:36:49.870368+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-02-74dec2e614c6.png",
+      "source_download_sha256": "74dec2e614c6fe245905c15d1245eccccff4f063f7b6f35280ff4781278ae75e",
+      "source_download_bytes": 878416,
+      "raw_decoded_size": [
+        1837,
+        1119
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          359,
+          0,
+          1478,
+          1119
+        ]
+      },
+      "perceptual_hash_average_8x8": "005fff1804d4b4bf",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-02-74dec2e614c6.png",
+          "sha256": "886ba2ba9ef62c1c1e880293c9874d7c8153e24eeea7bda2529a1bc63d56b8e1",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-02-74dec2e614c6.png",
+          "sha256": "05ae56c719c8dd0896ba0c2b934ae1b91e47c252af6b1528ed79ebe6a4fe714a",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" Arbour tree\" Aston on Clun (1294200).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Arbour_tree%22_Aston_on_Clun_(1294200).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/%22_Arbour_tree%22_Aston_on_Clun_%281294200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/%22_Arbour_tree%22_Aston_on_Clun_%281294200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2865,
+      "width": 1000,
+      "height": 1399,
+      "bytes": 183433,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Percy Benzie Abery",
+      "description": "Abstract: \" Arbour tree\" Aston on Clun",
+      "date_time_original": "192-?",
+      "image_id": "cc0-03-5ef75aaf062c",
+      "retrieved_utc": "2026-11-07T12:36:52.573391+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-03-5ef75aaf062c.jpg",
+      "source_download_sha256": "5ef75aaf062c312d5fa24255ddf054d834d48e94f4db9212fa629924d8838932",
+      "source_download_bytes": 183433,
+      "raw_decoded_size": [
+        1000,
+        1399
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          199,
+          1000,
+          1199
+        ]
+      },
+      "perceptual_hash_average_8x8": "fff7632706060000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-03-5ef75aaf062c.png",
+          "sha256": "4960fc6b4ab6667be049cdc93111b21be795988ca480b54f6159b33d8b775828",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-03-5ef75aaf062c.png",
+          "sha256": "b65b07cb558455827fff9a6afa0ea918af084fd5c4f736f40b3e0fe0ddad65fa",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, late 1880s - from the Old Judge series (N172) for Old Judge Cigarettes MET DP825078 (cropped).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_late_1880s_-_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825078_(cropped).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/%22%2410%2C000%22_Kelly%2C_Chicago%2C_late_1880s_-_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/%22%2410%2C000%22_Kelly%2C_Chicago%2C_late_1880s_-_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2729,
+      "width": 1332,
+      "height": 1775,
+      "bytes": 624046,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-04-73d269a0e77e",
+      "retrieved_utc": "2026-11-07T12:36:59.005016+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-04-73d269a0e77e.jpg",
+      "source_download_sha256": "73d269a0e77e1424d311df70e72cc0d5e0510f5cb1f0a9be041c37e3e7264cdd",
+      "source_download_bytes": 624046,
+      "raw_decoded_size": [
+        1332,
+        1775
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          221,
+          1332,
+          1553
+        ]
+      },
+      "perceptual_hash_average_8x8": "fbffefef8b08001e",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-04-73d269a0e77e.png",
+          "sha256": "ef67b2a21abd34103e474012422e13495422d797894372678eb84846b6ecb4cc",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-04-73d269a0e77e.png",
+          "sha256": "a0dad0509809b87a03ecd8403e819157adacef78df8567f972f0c0a5278bf9f9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, from the Old Judge series (N172) for Old Judge Cigarettes MET DP825078.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825078.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 3508,
+      "width": 1599,
+      "height": 2739,
+      "bytes": 1138650,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-05-43e5614c6476",
+      "retrieved_utc": "2026-11-07T12:38:04.913413+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-05-43e5614c6476.jpg",
+      "source_download_sha256": "43e5614c64765af6a227c122a64d94b32a9d561e353c9934efaf678fceb6a7ae",
+      "source_download_bytes": 1138650,
+      "raw_decoded_size": [
+        1599,
+        2739
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          570,
+          1599,
+          2169
+        ]
+      },
+      "perceptual_hash_average_8x8": "e3fbefef8b818894",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-05-43e5614c6476.png",
+          "sha256": "b646f6745f193ae9fcad91b40aeaf692fe000dd341b04c332395a155c5de233c",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-05-43e5614c6476.png",
+          "sha256": "8f726f2b47cd402daa56a77216867dd9ffa21a503d8b0a3699e33164dea54470",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Khwa ttu.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Khwa_ttu.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/%21Khwa_ttu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%21Khwa_ttu.jpg/3840px-%21Khwa_ttu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4624,
+      "height": 3468,
+      "bytes": 5871391,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Axxter99",
+      "description": "!Khwa ttu",
+      "date_time_original": "Taken on 22 January 2023, 11:40:45",
+      "image_id": "cc0-06-79495392e2c8",
+      "retrieved_utc": "2026-11-07T12:38:08.819696+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-06-79495392e2c8.jpg",
+      "source_download_sha256": "79495392e2c86ee5490adc5226a5f9b3d59b3d362a3346dac130f59d6a86b393",
+      "source_download_bytes": 3181496,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "0007ff4f2bfefca0",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-06-79495392e2c8.png",
+          "sha256": "b8da69d467bffc50a37ce2794ce669931eed947c1a39a225b83d4c1239563f43",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-06-79495392e2c8.png",
+          "sha256": "b8750c357d31d581a86ec68d838c000280b45431c34b7f316742d129cd089aea",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01972.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01972.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg/3840px-%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1714,
+      "width": 4077,
+      "height": 3412,
+      "bytes": 8326387,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Daderot",
+      "description": "Exhibit 1941 Lincoln Continental Coupe (Automobile Driving Museum) in El Segundo, California, USA.",
+      "date_time_original": "2018-05-16",
+      "image_id": "cc0-07-1462caaaf9e1",
+      "retrieved_utc": "2026-11-07T12:38:12.523407+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-07-1462caaaf9e1.jpg",
+      "source_download_sha256": "1462caaaf9e149a7c6be9b7fdc4ee461837f9ddd5ada6596de227b4f47bd4785",
+      "source_download_bytes": 1961331,
+      "raw_decoded_size": [
+        3840,
+        3214
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          313,
+          0,
+          3527,
+          3214
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffffffe381808001",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-07-1462caaaf9e1.png",
+          "sha256": "3edbca8dfebefceb4852629a7d39853b3a4e9dbfa3e80dfb6a11b0a3aa8f5eee",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-07-1462caaaf9e1.png",
+          "sha256": "ed5f435fa122bb0bb0c6c77bdf40d1cb4a13ff5fb48086ddb82b522ab47e3951",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Irinka 1943.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Irinka_1943.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/%21Irinka_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/%21Irinka_1943.jpg/3840px-%21Irinka_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1362,
+      "width": 4593,
+      "height": 3054,
+      "bytes": 3000725,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Chobanoglu",
+      "description": "The photographer Irina Chobanova",
+      "date_time_original": "2024-05-10",
+      "image_id": "cc0-08-a899491636a3",
+      "retrieved_utc": "2026-11-07T12:38:15.879784+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-08-a899491636a3.jpg",
+      "source_download_sha256": "a899491636a3e78df22f9756a43b0493a671b10d414041217442304f83d985f0",
+      "source_download_bytes": 1803944,
+      "raw_decoded_size": [
+        3840,
+        2553
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          643,
+          0,
+          3196,
+          2553
+        ]
+      },
+      "perceptual_hash_average_8x8": "1f9f1f1f0f0f0f0f",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-08-a899491636a3.png",
+          "sha256": "fb2ab885cadc5928ef49b12199d82272340f563288891da76c70532199a64eb0",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-08-a899491636a3.png",
+          "sha256": "093651f3000eecf340a6dc154ecf574abe80e9724c29921892c9b7be6d05bbc6",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:! Russisch-Orthodoxe Kirche (Dresden) Zwiebeltürme.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!_Russisch-Orthodoxe_Kirche_(Dresden)_Zwiebelt%C3%BCrme.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG/3840px-%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4000,
+      "height": 3000,
+      "bytes": 432539,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Frze",
+      "description": "Russisch-Orthodoxe Kirche, Dresden\nZwiebeltürme",
+      "date_time_original": "2014-01-29 12:39:44",
+      "image_id": "cc0-09-aa4f074784e8",
+      "retrieved_utc": "2026-11-07T12:38:19.201252+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-09-aa4f074784e8.jpg",
+      "source_download_sha256": "aa4f074784e8c53fc657ce371e0868ea38aee2e109c4ecc77e73ad05df46f506",
+      "source_download_bytes": 1307887,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffff8f8f8c000000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-09-aa4f074784e8.png",
+          "sha256": "a6aa75818f0836791010f6574d01bf3cf7e064e7660d2b80710f4fb6eeb7ea8c",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-09-aa4f074784e8.png",
+          "sha256": "d51fc62d76e0d613231d9b9687015b2a50a62726636e0b3fe36f3502a3ac4787",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:! Russisch-Orthodoxe Kirche (Dresden) Glockenturm.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!_Russisch-Orthodoxe_Kirche_(Dresden)_Glockenturm.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Glockenturm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Glockenturm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1770,
+      "width": 3069,
+      "height": 2653,
+      "bytes": 225615,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Frze",
+      "description": "Russisch-Orthodoxe Kirche, Dresden",
+      "date_time_original": "2014-01-29 12:37:48",
+      "image_id": "cc0-10-461339a79b83",
+      "retrieved_utc": "2026-11-07T12:38:22.244869+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-10-461339a79b83.jpg",
+      "source_download_sha256": "461339a79b83ec3efa58502ac9246a9329fe04d8c0532e00b3ff150d9d6e2cd3",
+      "source_download_bytes": 225615,
+      "raw_decoded_size": [
+        3069,
+        2653
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          208,
+          0,
+          2861,
+          2653
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffffefe7c3810000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-10-461339a79b83.png",
+          "sha256": "7a7c32f09c78c5a4d696f77d8c6a72137463754a443781901096c701fd6aa462",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-10-461339a79b83.png",
+          "sha256": "433e9cecd6c6a29553658b4c0b94da1f8a59fc4f69892f5cce14366edceed22c",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET sf23-264-2b.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%27Umar_Walks_around_Fulad_Castle,_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22,_Folio_from_a_Hamzanama_(The_Adventures_of_Hamza)_MET_sf23-264-2b.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 1200,
+      "height": 900,
+      "bytes": 322987,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Attributed to   Kesu Kalan",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "circa 1570 date QS:P571,+1570-00-00T00:00:00Z/9,P1480,Q5727902",
+      "image_id": "cc0-11-1d4867509d57",
+      "retrieved_utc": "2026-11-07T12:48:35.211051+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-11-1d4867509d57.jpg",
+      "source_download_sha256": "1d4867509d57a1995c14261f9d1aefc44f5ac4e00cb78b5ca27392bb570aa9d0",
+      "source_download_bytes": 322987,
+      "raw_decoded_size": [
+        1200,
+        900
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          150,
+          0,
+          1050,
+          900
+        ]
+      },
+      "perceptual_hash_average_8x8": "1f31199941517f1f",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-11-1d4867509d57.png",
+          "sha256": "15d130ea974d4423784d2339d5534928fc89a9ef185273aa9a60803621611738",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-11-1d4867509d57.png",
+          "sha256": "87128b0ac903cca2246b8d32328f49140775c091e92aee92580fcae72fb1f873",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" A garden? with group outside a thatch building in the background. \".png",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_garden%3F_with_group_outside_a_thatch_building_in_the_background._%22.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/%22_A_garden%3F_with_group_outside_a_thatch_building_in_the_background._%22.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/%22_A_garden%3F_with_group_outside_a_thatch_building_in_the_background._%22.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1487,
+      "width": 1200,
+      "height": 871,
+      "bytes": 766350,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Thomas W. Whiffen",
+      "description": "\" A garden? with group outside a thatch building in the background. \"",
+      "date_time_original": "1909-12-31",
+      "image_id": "cc0-12-391fcf7adff7",
+      "retrieved_utc": "2026-11-07T12:48:37.838478+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-12-391fcf7adff7.png",
+      "source_download_sha256": "391fcf7adff769dd3d93703e42b4acbd2fb9e6dda6ab2552d94208aa64f946f2",
+      "source_download_bytes": 766350,
+      "raw_decoded_size": [
+        1200,
+        871
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          164,
+          0,
+          1035,
+          871
+        ]
+      },
+      "perceptual_hash_average_8x8": "98dfd9f9f848c000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-12-391fcf7adff7.png",
+          "sha256": "7700e930d98a5c72529023a9717e5e646126fe666fb46750b2534061f5f06d1a",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-12-391fcf7adff7.png",
+          "sha256": "ddd073825b3271e21a899a409f3cce1a2acdc10f6e2595b34dcec3dcd5238763",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" Eglise des Innocents \" vue de l'ouest - A2586.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Eglise_des_Innocents_%22_vue_de_l%27ouest_-_A2586.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/%22_Eglise_des_Innocents_%22_vue_de_l%27ouest_-_A2586.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/89/%22_Eglise_des_Innocents_%22_vue_de_l%27ouest_-_A2586.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1519,
+      "width": 2560,
+      "height": 1899,
+      "bytes": 5045468,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Léon Auguste",
+      "description": "Lieu : Sienne\n Lieu : Sienne, Italie\nMission : 1913 - Balkans, Italie -  Jean Brunhes et Auguste Léon - (septembre - 23 octobre)\nThème : Religion\nThème : Habitat / Architecture\nThème : Nature / Environnement\nSous-thème : Eglise\nSous-thème : Christianisme\nSous-thème : Cerisier\nSous-thème : Verger\nSous-thème : Panorama d'agglomération\nSous-thème : Végétation / botanique\nSous-thème : Olivier\nSous-thème : Architecture religieuse\nLégende d'origine : Italie, Sienne, Vue de l'Ouest de la ville avec la petite Eglise des Innocents à g. et un cerisier\nProcédé : Autochrome\nSupport : Verre\nDénomination : Autochrome\nFormat d'origine : Horizontal\n \nAppartenance actuelle : Département des Hauts-de-Seine, musée Albert-Kahn",
+      "date_time_original": "22 September 1913",
+      "image_id": "cc0-13-abb3cc2b706f",
+      "retrieved_utc": "2026-11-07T12:48:41.486334+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-13-abb3cc2b706f.jpg",
+      "source_download_sha256": "abb3cc2b706f3bb30adc94c9dcde0c41c5a84d75c37ac5facee79a74b60c9b57",
+      "source_download_bytes": 5045468,
+      "raw_decoded_size": [
+        2560,
+        1899
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          330,
+          0,
+          2229,
+          1899
+        ]
+      },
+      "perceptual_hash_average_8x8": "fffffeb2181c0000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-13-abb3cc2b706f.png",
+          "sha256": "38791a63864c3f4d70cfeba7f531816fcd7f13a38f6422b7bf3218a645a67957",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-13-abb3cc2b706f.png",
+          "sha256": "4dfb257f17e6d1ab540dfe216c0ec664f5a0b5e6fbf4606e9b1cd82fc214878e",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET sf23-264-2a.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%27Umar_Walks_around_Fulad_Castle,_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22,_Folio_from_a_Hamzanama_(The_Adventures_of_Hamza)_MET_sf23-264-2a.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2615,
+      "width": 900,
+      "height": 1149,
+      "bytes": 303319,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Attributed to   Kesu Kalan",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "circa 1570 date QS:P571,+1570-00-00T00:00:00Z/9,P1480,Q5727902",
+      "image_id": "cc0-14-5476f2f88d77",
+      "retrieved_utc": "2026-11-07T12:48:45.030499+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-14-5476f2f88d77.jpg",
+      "source_download_sha256": "5476f2f88d77ee89c59e267903371897199f2d649ecf322fcb5a3d2dcb0b29b7",
+      "source_download_bytes": 303319,
+      "raw_decoded_size": [
+        900,
+        1149
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          124,
+          900,
+          1024
+        ]
+      },
+      "perceptual_hash_average_8x8": "8fc30103070f9f0f",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-14-5476f2f88d77.png",
+          "sha256": "2d62ffe153da693cf5142ef84f2e51b8f159deac54046ae49b3c9f5204ce470f",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-14-5476f2f88d77.png",
+          "sha256": "88e73a5bcd47d2aa8b2726a21766ba191203b787fa8b9772c710e80263903a78",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET DP235937.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%27Umar_Walks_around_Fulad_Castle,_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22,_Folio_from_a_Hamzanama_(The_Adventures_of_Hamza)_MET_DP235937.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_DP235937.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_DP235937.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2535,
+      "width": 3000,
+      "height": 3713,
+      "bytes": 3935750,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Attributed to   Kesu Kalan",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "circa 1570 date QS:P571,+1570-00-00T00:00:00Z/9,P1480,Q5727902",
+      "image_id": "cc0-15-1534ca4df1c1",
+      "retrieved_utc": "2026-11-07T12:48:51.992349+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-15-1534ca4df1c1.jpg",
+      "source_download_sha256": "1534ca4df1c15089174b9ee62de027ed748aa38b8c9278fd654ab8134365433b",
+      "source_download_bytes": 3935750,
+      "raw_decoded_size": [
+        3000,
+        3713
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          356,
+          3000,
+          3356
+        ]
+      },
+      "perceptual_hash_average_8x8": "83cf8181878b9f81",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-15-1534ca4df1c1.png",
+          "sha256": "9d1e0f6a1c5febf04e331f2fe362607875f69ce0d5ef52e1f468811c3d60789e",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-15-1534ca4df1c1.png",
+          "sha256": "eb946c0bb1bef53014307c8ae6c2b4f4ffb684dabcb104e3cc972785888586de",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" Cross with Religious Architecture \".jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Cross_with_Religious_Architecture_%22.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/%22_Cross_with_Religious_Architecture_%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/%22_Cross_with_Religious_Architecture_%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2048,
+      "width": 3024,
+      "height": 3024,
+      "bytes": 3874973,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Seiichi Miyashita",
+      "description": "crosses with religious architectures",
+      "date_time_original": "2024-11-14 12:30:53",
+      "image_id": "cc0-16-f36c6c24da3f",
+      "retrieved_utc": "2026-11-07T12:48:57.073446+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-16-f36c6c24da3f.jpg",
+      "source_download_sha256": "f36c6c24da3fb48bf46d2ecedae9ed01582c4f68870822890233f67ae20e956b",
+      "source_download_bytes": 3874973,
+      "raw_decoded_size": [
+        3024,
+        3024
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          0,
+          3024,
+          3024
+        ]
+      },
+      "perceptual_hash_average_8x8": "187e7effff7e3c00",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-16-f36c6c24da3f.png",
+          "sha256": "9d182c885fcf18cffdb3da2a6e1d73f612b0e8303af14a9a9d600ab98b2bc561",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-16-f36c6c24da3f.png",
+          "sha256": "6d430849dfa2131c66e9cf47cabd21eab238349dd6651fd8ce104922b2f99e37",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" Grand Travers \" de Nicolas Lavarenne.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg/3840px-%22_Grand_Travers_%22_de_Nicolas_Lavarenne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1360,
+      "width": 4288,
+      "height": 2848,
+      "bytes": 7278871,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Cette photo a été prise par André ALLIOT",
+      "description": "Sculpture de Nicolas Lavarenne exposée au château de la Napoule.",
+      "date_time_original": "2013-08-22 15:41:33",
+      "image_id": "cc0-17-e798fbbd08cd",
+      "retrieved_utc": "2026-11-07T12:49:00.807121+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-17-e798fbbd08cd.jpg",
+      "source_download_sha256": "e798fbbd08cd1cf822d54c91695105e0c6056ff6acd44e448bc0fa92b3f9bd1d",
+      "source_download_bytes": 3980439,
+      "raw_decoded_size": [
+        3840,
+        2550
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          645,
+          0,
+          3195,
+          2550
+        ]
+      },
+      "perceptual_hash_average_8x8": "87830307afffefc3",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-17-e798fbbd08cd.png",
+          "sha256": "acb6e1de896b7ef242ade96fc236e2afbe1b97899fcd57343b80e656904d4c62",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-17-e798fbbd08cd.png",
+          "sha256": "0a8a6dfcb7a16dbbc549a6f71c17e88a2b46eed0bcd9024c88cb16f761fb656f",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Irinka 1932.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Irinka_1932.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/%21Irinka_1932.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/%21Irinka_1932.jpg/3840px-%21Irinka_1932.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1510,
+      "width": 4047,
+      "height": 2983,
+      "bytes": 2112918,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Chobanoglu",
+      "description": "The photographer Irina Chobanova",
+      "date_time_original": "1932",
+      "image_id": "cc0-18-208d1b479358",
+      "retrieved_utc": "2026-11-07T12:49:04.185673+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-18-208d1b479358.jpg",
+      "source_download_sha256": "208d1b4793586f044b5db750088e87a53f3ae835724d50f33926118f25a521f1",
+      "source_download_bytes": 1443450,
+      "raw_decoded_size": [
+        3840,
+        2830
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          505,
+          0,
+          3335,
+          2830
+        ]
+      },
+      "perceptual_hash_average_8x8": "ff0f0f0f0f0f0f0f",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-18-208d1b479358.png",
+          "sha256": "38e9a6224f429cf14cd2b23dc17858bfb55e1c1e754e1563c5239079b7d0ec40",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-18-208d1b479358.png",
+          "sha256": "e6c8eb724476be242a1901252a29a938cd56388c0a4c7095482834405977d30f",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Khwa ttu 1.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Khwa_ttu_1.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/%21Khwa_ttu_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/%21Khwa_ttu_1.jpg/1920px-%21Khwa_ttu_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2731,
+      "width": 3468,
+      "height": 4624,
+      "bytes": 6663822,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Axxter99",
+      "description": "!Khwa ttu",
+      "date_time_original": "Taken on 22 January 2023, 14:28:49",
+      "image_id": "cc0-19-2b2cb79d1452",
+      "retrieved_utc": "2026-11-07T12:50:10.818169+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-19-2b2cb79d1452.jpg",
+      "source_download_sha256": "2b2cb79d1452c0788c16538c992cf164a5aa36a40f371de9e29b55a01db63bf5",
+      "source_download_bytes": 2130609,
+      "raw_decoded_size": [
+        1920,
+        2560
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          320,
+          1920,
+          2240
+        ]
+      },
+      "perceptual_hash_average_8x8": "007efec6c2c2e468",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-19-2b2cb79d1452.png",
+          "sha256": "7f4ba5e326e8624b995e0d5fb4e0c9bef50728caf32c9513a8792cd6d1e7e147",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-19-2b2cb79d1452.png",
+          "sha256": "95187ae781fadb09e7a7013ebaedc4eb9bd021dc9c141e4688caf23a9efa99b9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01976.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01976.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01976.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01976.jpg/3840px-%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01976.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1365,
+      "width": 5472,
+      "height": 3648,
+      "bytes": 9266042,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Daderot",
+      "description": "Exhibit in the Automobile Driving Museum - El Segundo, California, USA.",
+      "date_time_original": "2018-05-16 14:15:33",
+      "image_id": "cc0-20-4aed3e66bd58",
+      "retrieved_utc": "2026-11-07T12:50:21.310542+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-20-4aed3e66bd58.jpg",
+      "source_download_sha256": "4aed3e66bd5873668ac3d2c3d9209c051e75160ab2c7a00e62f9078a38c35f42",
+      "source_download_bytes": 1588643,
+      "raw_decoded_size": [
+        3840,
+        2560
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          640,
+          0,
+          3200,
+          2560
+        ]
+      },
+      "perceptual_hash_average_8x8": "fffffff880000107",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-20-4aed3e66bd58.png",
+          "sha256": "352300ec8609d603b46cfd4c7b5014d1867a50a47be3d4d72168b48f44378231",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-20-4aed3e66bd58.png",
+          "sha256": "febec862184efbf36e2faa9c46c794d87d888864b175e18cc9be2b185a8291c3",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"(Brom)fietsers richting Poeldijk oversteken\" (10522505706).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22(Brom)fietsers_richting_Poeldijk_oversteken%22_(10522505706).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/%22%28Brom%29fietsers_richting_Poeldijk_oversteken%22_%2810522505706%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/%22%28Brom%29fietsers_richting_Poeldijk_oversteken%22_%2810522505706%29.jpg/3840px-%22%28Brom%29fietsers_richting_Poeldijk_oversteken%22_%2810522505706%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4288,
+      "height": 3216,
+      "bytes": 3072354,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "RaAr2010",
+      "description": "Oud bord uit de periode van het RVV 1966.",
+      "date_time_original": "2013-05-26 16:54",
+      "image_id": "cc0-21-65657cc12c60",
+      "retrieved_utc": "2026-11-07T12:50:56.617171+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-21-65657cc12c60.jpg",
+      "source_download_sha256": "65657cc12c6090dcdd5652ce24d85f0b7ff636bc84bc51cc56c666481c5eb87b",
+      "source_download_bytes": 2346396,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "00067e7e7e6c2838",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-21-65657cc12c60.png",
+          "sha256": "3e5a8fdae6a38f3fbb299eaf72129fb2d20a267e898c3b1f6d9b90145e771fed",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-21-65657cc12c60.png",
+          "sha256": "914dd029541e6527ad41d2a84d0b6267cbb9f2d1dbc8891f3dfe0a19863d69cf",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Defurovy Lažany - náměstí.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/%21Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/%21Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg/3840px-%21Defurovy_La%C5%BEany_-_n%C3%A1m%C4%9Bst%C3%AD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 5664,
+      "height": 4248,
+      "bytes": 7250521,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "01x07x2022000",
+      "description": "Defurovy Lažany: náměstí, v době sběru objemného a nebezpečného odpadu z domácností.",
+      "date_time_original": "2022-09-24",
+      "image_id": "cc0-22-9075b5c9f3ff",
+      "retrieved_utc": "2026-11-07T12:51:32.369220+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-22-9075b5c9f3ff.jpg",
+      "source_download_sha256": "9075b5c9f3ff9789b60113ed48fa76af2878da0575fe182f3aceebe96f847755",
+      "source_download_bytes": 2584806,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "f8f8f8f8000c0080",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-22-9075b5c9f3ff.png",
+          "sha256": "cdfc7b7819163c76ea9ede89a0b0c20686d02e82cd675757338af20010485976",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-22-9075b5c9f3ff.png",
+          "sha256": "935cb817428e899a911a3f059f1cd311ea9679320540351fab58633b63b6ce65",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" A Lion\", Folio from a Dispersed Nuzhatnama-i ‘Ala’i of Shahmardan ibn Abi’l Khayr MET DP240347.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_Lion%22,_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_DP240347.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_DP240347.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_DP240347.jpg/3840px-%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_DP240347.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1350,
+      "width": 3895,
+      "height": 2568,
+      "bytes": 2812893,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Creator:Shamardan ibn Abi 'l Khayr",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "early 17 th  century date QS:P571,+1650-00-00T00:00:00Z/7,P4241,Q40719727",
+      "image_id": "cc0-23-573961fa9fbe",
+      "retrieved_utc": "2026-11-07T12:53:11.088343+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-23-573961fa9fbe.jpg",
+      "source_download_sha256": "573961fa9fbe980faa5cbb335f9d6310299df4928ab4181acfeff4842f4f5bdc",
+      "source_download_bytes": 2266200,
+      "raw_decoded_size": [
+        3840,
+        2532
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          654,
+          0,
+          3186,
+          2532
+        ]
+      },
+      "perceptual_hash_average_8x8": "ff7f8000000000ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-23-573961fa9fbe.png",
+          "sha256": "60c7ef4a2d55d4235096f8d8aacf54237d2460ffe0cf8025974fb4e82bb32855",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-23-573961fa9fbe.png",
+          "sha256": "6b4f8b9a17477812f38dab19bb3df3f2809719a342a7034c298f8c13a4279c3e",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01975.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01975.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01975.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01975.jpg/3840px-%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01975.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1365,
+      "width": 5472,
+      "height": 3648,
+      "bytes": 8773264,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Daderot",
+      "description": "Exhibit in the Automobile Driving Museum - El Segundo, California, USA.",
+      "date_time_original": "2018-05-16 14:15:20",
+      "image_id": "cc0-24-a2f0a14c299e",
+      "retrieved_utc": "2026-11-07T12:53:15.094943+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-24-a2f0a14c299e.jpg",
+      "source_download_sha256": "a2f0a14c299ef98211e1f1bebbe9e77bc6a798a9f0c503708aaaabd4d73ed000",
+      "source_download_bytes": 1747057,
+      "raw_decoded_size": [
+        3840,
+        2560
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          640,
+          0,
+          3200,
+          2560
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffdf0f0302038383",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-24-a2f0a14c299e.png",
+          "sha256": "e8a9623df73bf425272edca32b1446306bb729aaab25dc40cc481b07fa9e2273",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-24-a2f0a14c299e.png",
+          "sha256": "96e7317daf68994d00a3273408705197383c5685ef63c973b4586f58d7259f26",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01970.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01970.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01970.jpg/3840px-%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1365,
+      "width": 5472,
+      "height": 3648,
+      "bytes": 8279272,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Daderot",
+      "description": "Exhibit in the Automobile Driving Museum - El Segundo, California, USA.",
+      "date_time_original": "2018-05-16 14:14:49",
+      "image_id": "cc0-25-27569a77e235",
+      "retrieved_utc": "2026-11-07T12:55:25.774391+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-25-27569a77e235.jpg",
+      "source_download_sha256": "27569a77e235108d9a6bf246dcc2193b2d4a8e3244492b0203ebf04c43a888e5",
+      "source_download_bytes": 1717072,
+      "raw_decoded_size": [
+        3840,
+        2560
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          640,
+          0,
+          3200,
+          2560
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffff391000002101",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-25-27569a77e235.png",
+          "sha256": "caf5c2fb2665ecae0d2da06aa0169ff02d54be7f653e01a9ddb958f4255bff81",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-25-27569a77e235.png",
+          "sha256": "5831825fdec2d9363a04044283e8d7b3f53e31fc614cbb71740cf14d4ddfe2d9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"\"Истанбул\"\".jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg/3840px-%22%22%D0%98%D1%81%D1%82%D0%B0%D0%BD%D0%B1%D1%83%D0%BB%22%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4624,
+      "height": 3468,
+      "bytes": 5014086,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Bright estrellas",
+      "description": "Закат в Истанбуле",
+      "date_time_original": "2023-08-11 20:09:03",
+      "image_id": "cc0-26-d8c95254b483",
+      "retrieved_utc": "2026-11-07T12:56:01.338140+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-26-d8c95254b483.jpg",
+      "source_download_sha256": "d8c95254b4834e04ef33fa7b8bad041bd64b3f13ed6aa4b0d9a74c5ba632e9b6",
+      "source_download_bytes": 2291042,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "38f3e7efff6e0000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-26-d8c95254b483.png",
+          "sha256": "8af78f338c0c120ef094ff602c8108794339c96ffc0fde4e5f9c6ab48af9ae83",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-26-d8c95254b483.png",
+          "sha256": "ec87b9612526197314a870ec9263b4b6173f4af0b95b369ed9ebc99d0c79fd5a",
+          "width": 768,
+          "height": 768
+        }
+      }
+    }
+  ],
+  "rejected_downloads": [
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 55120.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/e/e0/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_55120.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\" Entrée des tombeaux mamelouks \" - A3053.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/8/8f/%22_Entr%C3%A9e_des_tombeaux_mamelouks_%22_-_A3053.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 23.264.2b.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/1/18/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_23.264.2b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:!Policistky 17 10 2012.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/c/cf/%21Policistky_17_10_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 55121.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/8/86/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_55121.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"...for War Horses and Cannon Carriage to make them Invisible\", study folder for book Concealing Coloration in the Animal Kingdom-saam 1950.2.76.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/9/93/%22...for_War_Horses_and_Cannon_Carriage_to_make_them_Invisible%22%2C_study_folder_for_book_Concealing_Coloration_in_the_Animal_Kingdom-saam_1950.2.76.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET sf23-264-2c.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/7/72/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2c.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:!Акт о вручении медали 13.02.1946 2 лист.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/b/bd/%21%D0%90%D0%BA%D1%82_%D0%BE_%D0%B2%D1%80%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BC%D0%B5%D0%B4%D0%B0%D0%BB%D0%B8_13.02.1946_2_%D0%BB%D0%B8%D1%81%D1%82.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\" A group of men, double exposed over an image of houses. \".png",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/a/ac/%22_A_group_of_men%2C_double_exposed_over_an_image_of_houses._%22.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\" Casa del Pueblo\" Biblioteca Popular Domingo F. Sarmiento.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/a/a9/%22_Casa_del_Pueblo%22_Biblioteca_Popular_Domingo_F._Sarmiento.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:!Irinka1940.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/7/7d/%21Irinka1940.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 23.264.2a.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/7/75/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_23.264.2a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET sf23-264-2d.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/4/48/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_sf23-264-2d.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 55120.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/e/e0/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_55120.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\" Entrée des tombeaux mamelouks \" - A3053.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/8/8f/%22_Entr%C3%A9e_des_tombeaux_mamelouks_%22_-_A3053.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 23.264.2b.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/1/18/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_23.264.2b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:!Policistky 17 10 2012.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/c/cf/%21Policistky_17_10_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    },
+    {
+      "title": "File:\"'Umar Walks around Fulad Castle, Meets a Foot Soldier and Kicks Him to the Ground\", Folio from a Hamzanama (The Adventures of Hamza) MET 55121.jpg",
+      "error": "HTTPError: 429 Client Error: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1) for url: https://upload.wikimedia.org/wikipedia/commons/8/86/%22%27Umar_Walks_around_Fulad_Castle%2C_Meets_a_Foot_Soldier_and_Kicks_Him_to_the_Ground%22%2C_Folio_from_a_Hamzanama_%28The_Adventures_of_Hamza%29_MET_55121.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+    }
+  ]
+}

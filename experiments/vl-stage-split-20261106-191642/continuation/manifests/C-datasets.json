@@ -1,0 +1,111 @@
+{
+  "source_dir": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets",
+  "sets": {
+    "512": {
+      "directory": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-512",
+      "images": [
+        {
+          "file": "geometry-00.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            512,
+            512
+          ],
+          "sha256": "9e335323ac6b48bc3611c8e40576c39e15edd865aeb9d5343430679bac969cb0"
+        },
+        {
+          "file": "geometry-01.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            512,
+            512
+          ],
+          "sha256": "777bd4ae440d44861c21cc955018bb0c3b7801274b25337d9ac7b61f981e1596"
+        },
+        {
+          "file": "geometry-02.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            512,
+            512
+          ],
+          "sha256": "a33d88aee40d3d6b49633b783d93fabf82c357bd8ef919332787a84f49009d97"
+        },
+        {
+          "file": "geometry-03.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            512,
+            512
+          ],
+          "sha256": "e746a971c39e1eb3b9b49f72d3a14cd782e367754824dba15195538312a51a8d"
+        }
+      ]
+    },
+    "768": {
+      "directory": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-768",
+      "images": [
+        {
+          "file": "geometry-00.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            768,
+            768
+          ],
+          "sha256": "805255251bb77a7412d74e8e8a9093659440dd015e523beb56b28c20b7f4a93b"
+        },
+        {
+          "file": "geometry-01.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            768,
+            768
+          ],
+          "sha256": "fe321db6dcbb1a15f0c8415142ff156492a55f89134070902b06cbe7e0365113"
+        },
+        {
+          "file": "geometry-02.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            768,
+            768
+          ],
+          "sha256": "89ff8cc0f81e8172e04090e08495f0856b50508e64979807f73c6460291e61dc"
+        },
+        {
+          "file": "geometry-03.png",
+          "source_size": [
+            768,
+            768
+          ],
+          "output_size": [
+            768,
+            768
+          ],
+          "sha256": "f0f599ae322d42ffd8c1026c465ae897123df46b0c1a3c1d1c0b21725e49b59b"
+        }
+      ]
+    }
+  }
+}

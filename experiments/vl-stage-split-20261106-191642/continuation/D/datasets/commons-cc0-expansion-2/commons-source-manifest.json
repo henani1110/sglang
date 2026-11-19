@@ -1,0 +1,320 @@
+{
+  "status": "complete",
+  "source": "Wikimedia Commons API, Category:CC-Zero",
+  "api": "https://commons.wikimedia.org/w/api.php",
+  "retrieved_utc": "2026-11-07T13:30:32.266002+00:00",
+  "collection_seed": 20261107,
+  "required_count": 6,
+  "candidate_count": 10,
+  "selected_count": 6,
+  "license_rule": "per-file LicenseShortName CC0/CC-Zero and LicenseUrl contains /publicdomain/zero/1.0",
+  "images": [
+    {
+      "title": "File:Flower farm - possibly Ireland.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Flower_farm_-_possibly_Ireland.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Flower_farm_-_possibly_Ireland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Flower_farm_-_possibly_Ireland.jpg/1280px-Flower_farm_-_possibly_Ireland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 830,
+      "width": 2379,
+      "height": 1929,
+      "bytes": 813974,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "L'Estrange, Robert Augustus Henry",
+      "description": "L'Estrange, Robert Augustus Henry (ca. 1898) Flower farm - possibly Ireland. [Image]",
+      "date_time_original": "1898",
+      "search_phrase": "farm",
+      "image_id": "cc0-00-317f4daebbee",
+      "retrieved_utc": "2026-11-07T13:30:18.855479+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-00-317f4daebbee.jpg",
+      "source_download_sha256": "317f4daebbeeb9d3967abc1487182303e17dc153aaa329af538ee09f8d8ed71e",
+      "source_download_bytes": 366390,
+      "raw_decoded_size": [
+        1280,
+        1038
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          121,
+          0,
+          1159,
+          1038
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffffffff00000000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-00-317f4daebbee.png",
+          "sha256": "3730e176dab5c5ce28f5c19cf66e0c4ff4a18a4a6f8ef03d746771905b438de8",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-00-317f4daebbee.png",
+          "sha256": "93e3b8a4df03a0b39ea2a75ed7446947a19f8f305091fc591a0221b116637cae",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Tabby cat with blue eyes-3336579.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Tabby_cat_with_blue_eyes-3336579.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Tabby_cat_with_blue_eyes-3336579.jpg/1280px-Tabby_cat_with_blue_eyes-3336579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1230,
+      "width": 2877,
+      "height": 3456,
+      "bytes": 2114775,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "AdinaVoicu",
+      "description": "Portrait of a black tabby and white cat with Dominant Blue Eyes (DBE)",
+      "date_time_original": "2018-03-31",
+      "search_phrase": "cat",
+      "image_id": "cc0-01-3e46fb5858d3",
+      "retrieved_utc": "2026-11-07T13:30:21.141573+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-01-3e46fb5858d3.jpg",
+      "source_download_sha256": "3e46fb5858d3f67ea55df2b30707c265ec98f0a8c7831dad376229c2d04d07ac",
+      "source_download_bytes": 327284,
+      "raw_decoded_size": [
+        1280,
+        1538
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          129,
+          1280,
+          1409
+        ]
+      },
+      "perceptual_hash_average_8x8": "2040c1c1f9eefefe",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-01-3e46fb5858d3.png",
+          "sha256": "59897087450c56eab21b698b4508d69d7787af0f466f1c33dd735725f221c7e6",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-01-3e46fb5858d3.png",
+          "sha256": "35b73370064b97f67735b4e1c41770670ea9d71eba1fe7550969745af5f7f205",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:M.Nonius Balbus Nuceria equestrian Statue MANN.png",
+      "description_url": "https://commons.wikimedia.org/wiki/File:M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png/1280px-M.Nonius_Balbus_Nuceria_equestrian_Statue_MANN.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1013,
+      "width": 3063,
+      "height": 3030,
+      "bytes": 6972938,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Jebulon",
+      "description": "Equestrian statue of Marcus Nonius Balbus the Younger, donated  by the inhabitants of Nuceria, from Herculanum forum. Marble, ca. 50 CE",
+      "date_time_original": "2015-07-29",
+      "search_phrase": "statue",
+      "image_id": "cc0-02-e7f9295a6e19",
+      "retrieved_utc": "2026-11-07T13:30:23.117443+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-02-e7f9295a6e19.png",
+      "source_download_sha256": "e7f9295a6e19e2c84cafccaeecd783ac4dfa4b249c0d49bb072b9b2620785f2c",
+      "source_download_bytes": 1192741,
+      "raw_decoded_size": [
+        1280,
+        1266
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          7,
+          0,
+          1273,
+          1266
+        ]
+      },
+      "perceptual_hash_average_8x8": "0008783e3e1a1a1e",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-02-e7f9295a6e19.png",
+          "sha256": "1be4867399f8e1e0dd206c526b8aedec1b576100cf2c5dde7d0cba85c14611bc",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-02-e7f9295a6e19.png",
+          "sha256": "ac8f2609542a8e8ae4b17b4bddf9221549b5ab9d6c0a2aec9a4dd7d5350ebf2d",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Portrait, head of a man Met DP890234.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait,_head_of_a_man_Met_DP890234.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Portrait%2C_head_of_a_man_Met_DP890234.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Portrait%2C_head_of_a_man_Met_DP890234.jpg/1280px-Portrait%2C_head_of_a_man_Met_DP890234.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1140,
+      "width": 2358,
+      "height": 2625,
+      "bytes": 2043004,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Vivant Denon",
+      "description": "",
+      "date_time_original": "1815 date QS:P571,+1815-00-00T00:00:00Z/9",
+      "search_phrase": "portrait",
+      "image_id": "cc0-03-76b40df2d44a",
+      "retrieved_utc": "2026-11-07T13:30:25.440213+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-03-76b40df2d44a.jpg",
+      "source_download_sha256": "76b40df2d44a6517e167560e70e9c2ec6581c1b681a6a2f10af8786127e9f1ad",
+      "source_download_bytes": 541903,
+      "raw_decoded_size": [
+        1280,
+        1425
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          72,
+          1280,
+          1352
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffe7c3c38387f3ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-03-76b40df2d44a.png",
+          "sha256": "133bf9cf228d87a5536adf4386abf7395a29afb2dcd08a8fd6a06bd0048d94bf",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-03-76b40df2d44a.png",
+          "sha256": "e8bb4700a430e6936338b464ab99c9c87421f1090e4a6520cb436d1048436650",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Portrait of a Woman Holding a Book MET ep48.187.734.bw.R.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg/1280px-Portrait_of_a_Woman_Holding_a_Book_MET_ep48.187.734.bw.R.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1282,
+      "width": 2751,
+      "height": 3443,
+      "bytes": 2580595,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Anonymous  Unknown author",
+      "description": "",
+      "date_time_original": "18 th  century date QS:P,+1750-00-00T00:00:00Z/7",
+      "search_phrase": "portrait",
+      "image_id": "cc0-04-1d2cf14d6ab5",
+      "retrieved_utc": "2026-11-07T13:30:28.120596+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-04-1d2cf14d6ab5.jpg",
+      "source_download_sha256": "1d2cf14d6ab5ee9878544736cc24f847be5157dcbcfe8947efc22fcc3f66c8b7",
+      "source_download_bytes": 640830,
+      "raw_decoded_size": [
+        1280,
+        1602
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          161,
+          1280,
+          1441
+        ]
+      },
+      "perceptual_hash_average_8x8": "1b1b1b010060741c",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-04-1d2cf14d6ab5.png",
+          "sha256": "0577fb6aa4c61f93f2a68ddcb42e177c8104457421b717b2477314ea3e0ed0a0",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-04-1d2cf14d6ab5.png",
+          "sha256": "f285d6624102ea48ff2eeda4c9528b83358bbe66a2c95abf7288a91c1df7c9e6",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Portrait of a Man Met DP890858.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_Met_DP890858.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Portrait_of_a_Man_Met_DP890858.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Portrait_of_a_Man_Met_DP890858.jpg/1280px-Portrait_of_a_Man_Met_DP890858.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1350,
+      "width": 2684,
+      "height": 3538,
+      "bytes": 3508872,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "anonymous",
+      "description": "",
+      "date_time_original": "18th century (?)",
+      "search_phrase": "portrait",
+      "image_id": "cc0-05-225b40a6fb76",
+      "retrieved_utc": "2026-11-07T13:30:30.765768+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/source_downloads/cc0-05-225b40a6fb76.jpg",
+      "source_download_sha256": "225b40a6fb765a52698ef07eec7a3ca794924cdb4de615688c56311bf7b566da",
+      "source_download_bytes": 707867,
+      "raw_decoded_size": [
+        1280,
+        1687
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          203,
+          1280,
+          1483
+        ]
+      },
+      "perceptual_hash_average_8x8": "879b9bf9f989c1c3",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/512/cc0-05-225b40a6fb76.png",
+          "sha256": "00799623a292b8f025b35d0091b69afa9a64244ef83238b18ea8b8910ad58ac3",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/images/768/cc0-05-225b40a6fb76.png",
+          "sha256": "fd3592e053ef6e19e0c7d236bb6beaa1d744ae78e1d9ac5a9f1d235cdf689c22",
+          "width": 768,
+          "height": 768
+        }
+      }
+    }
+  ],
+  "rejected_downloads": []
+}

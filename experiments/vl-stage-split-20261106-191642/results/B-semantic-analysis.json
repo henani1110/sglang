@@ -1,0 +1,512 @@
+{
+  "method": {
+    "comparison": "same image bytes and frozen four text prompts; exact sampled token-ID comparison to N",
+    "split_detection": "image request appears in scheduled_encoder_inputs but not num_scheduled_tokens; text D appears in the same scheduler step; image P is matched on a later step",
+    "visual_forward_scope": "mode=R event between encoder-only step and first P step; warmup events are excluded"
+  },
+  "cells": [
+    {
+      "label": "B-N-r0-retry1",
+      "status": "B_completed",
+      "episodes": [
+        {
+          "episode_id": "B-N-r0-retry1-block1-R-00",
+          "validation_errors": [],
+          "text_token_counts": [
+            192,
+            192,
+            192,
+            192
+          ],
+          "image_token_count": 16,
+          "image_sha256": "368e0ec161c332fa256f5dec6475979f59e95d61e9fc4c6c3b95e728b4ac04fa",
+          "output_ids_equal_to_native": null,
+          "anchor_ns": 1806134360953026,
+          "first_image_token_ns": 1806134425823671,
+          "split_steps": [],
+          "first_P_after_split": null,
+          "visual_forward_between_split_and_P": [],
+          "image_finished_events": [
+            {
+              "finished_req_ids": [
+                "chatcmpl-86326997d66bd980-9f381f57"
+              ],
+              "free_encoder_mm_hashes": [],
+              "kind": "scheduler_step",
+              "num_scheduled_tokens": {
+                "cmpl-81d4ce4f1a513c66-0-9fbebefd": 1,
+                "cmpl-84dce21fbdba5bc4-0-b06b79a1": 1,
+                "cmpl-8c2c6fb328bf9187-0-b2cce977": 1,
+                "cmpl-b01cb2bdb2a7b271-0-9118c4ae": 1
+              },
+              "scheduled_encoder_inputs": {},
+              "scheduled_spec_decode_tokens": {},
+              "time_ns": 1806134504463109,
+              "total_num_scheduled_tokens": 4
+            }
+          ]
+        }
+      ],
+      "scheduler_event_count": 200,
+      "server_event_count": 1538,
+      "server_event_kinds": {
+        "visual_forward": 2,
+        "engine_result_ready_to_api": 768,
+        "api_yield": 768
+      },
+      "async_writer": {
+        "path": "/media/chx/Win10/vl-stage-split-20261106-191642/logs/B-N-r0-retry1-server-events.jsonl",
+        "submitted": 1536,
+        "written": 1536,
+        "dropped": 0,
+        "write_errors": 0,
+        "queue_capacity": 65536,
+        "last_error": null,
+        "closed_cleanly": true
+      }
+    },
+    {
+      "label": "B-S-r0",
+      "status": "B_completed",
+      "episodes": [
+        {
+          "episode_id": "B-S-r0-block1-R-00",
+          "validation_errors": [],
+          "text_token_counts": [
+            192,
+            192,
+            192,
+            192
+          ],
+          "image_token_count": 16,
+          "image_sha256": "368e0ec161c332fa256f5dec6475979f59e95d61e9fc4c6c3b95e728b4ac04fa",
+          "output_ids_equal_to_native": true,
+          "anchor_ns": 1806207122407686,
+          "first_image_token_ns": 1806207197116341,
+          "split_steps": [
+            {
+              "time_ns": 1806207152965500,
+              "relative_to_anchor_ms": 30.557814,
+              "image_key": "chatcmpl-905ad597089d425f-8ef44163",
+              "encoder_inputs": [
+                0
+              ],
+              "text_decode_tokens": {
+                "cmpl-85cdbb3b63c9c10e-0-90e6fcc8": 1,
+                "cmpl-a20d47fe951ed4a4-0-b0424001": 1,
+                "cmpl-ac55a4a7ef12a92d-0-a64c1256": 1,
+                "cmpl-b9bc2c69e0790da4-0-b99494ce": 1
+              },
+              "total_num_scheduled_tokens": 4
+            }
+          ],
+          "first_P_after_split": {
+            "time_ns": 1806207172327471,
+            "relative_to_anchor_ms": 49.919785,
+            "image_key": "chatcmpl-905ad597089d425f-8ef44163",
+            "image_scheduled_tokens": 595,
+            "encoder_inputs": null,
+            "total_num_scheduled_tokens": 599
+          },
+          "visual_forward_between_split_and_P": [
+            {
+              "check": {
+                "pass": null
+              },
+              "cpu_elapsed_ms": 14.570314,
+              "feature_key": null,
+              "grid_shape": [
+                1,
+                3
+              ],
+              "image_index": 0,
+              "kind": "visual_forward",
+              "mm_hash": "renderer0-mm-1-image-0",
+              "mode": "R",
+              "native_cache_hit": false,
+              "output_device": "cuda:0",
+              "output_dtype": "torch.bfloat16",
+              "output_shape": [
+                576,
+                8192
+              ],
+              "pixel_device": "cuda:0",
+              "pixel_dtype": "torch.uint8",
+              "pixel_shape": [
+                2304,
+                1536
+              ],
+              "time_ns": 1806207156637478,
+              "torch_profile_trace": null
+            }
+          ],
+          "image_finished_events": [
+            {
+              "finished_req_ids": [
+                "chatcmpl-905ad597089d425f-8ef44163"
+              ],
+              "free_encoder_mm_hashes": [],
+              "kind": "scheduler_step",
+              "num_scheduled_tokens": {
+                "cmpl-85cdbb3b63c9c10e-0-90e6fcc8": 1,
+                "cmpl-a20d47fe951ed4a4-0-b0424001": 1,
+                "cmpl-ac55a4a7ef12a92d-0-a64c1256": 1,
+                "cmpl-b9bc2c69e0790da4-0-b99494ce": 1
+              },
+              "scheduled_encoder_inputs": {},
+              "scheduled_spec_decode_tokens": {},
+              "time_ns": 1806207276050679,
+              "total_num_scheduled_tokens": 4
+            }
+          ]
+        }
+      ],
+      "scheduler_event_count": 200,
+      "server_event_count": 1538,
+      "server_event_kinds": {
+        "visual_forward": 2,
+        "engine_result_ready_to_api": 768,
+        "api_yield": 768
+      },
+      "async_writer": {
+        "path": "/media/chx/Win10/vl-stage-split-20261106-191642/logs/B-S-r0-server-events.jsonl",
+        "submitted": 1536,
+        "written": 1536,
+        "dropped": 0,
+        "write_errors": 0,
+        "queue_capacity": 65536,
+        "last_error": null,
+        "closed_cleanly": true
+      }
+    },
+    {
+      "label": "B-S-r1-2",
+      "status": "B_completed",
+      "episodes": [
+        {
+          "episode_id": "B-S-r1-2-block1-R-00",
+          "validation_errors": [],
+          "text_token_counts": [
+            192,
+            192,
+            192,
+            192
+          ],
+          "image_token_count": 16,
+          "image_sha256": "368e0ec161c332fa256f5dec6475979f59e95d61e9fc4c6c3b95e728b4ac04fa",
+          "output_ids_equal_to_native": true,
+          "anchor_ns": 1806314392911118,
+          "first_image_token_ns": 1806314460900417,
+          "split_steps": [
+            {
+              "time_ns": 1806314418362893,
+              "relative_to_anchor_ms": 25.451775,
+              "image_key": "chatcmpl-8d54434ee230822d-adbf9c33",
+              "encoder_inputs": [
+                0
+              ],
+              "text_decode_tokens": {
+                "cmpl-93afecb382c9ffa2-0-bedbbaa6": 1,
+                "cmpl-ace0ce51a7430fb7-0-8d490a70": 1,
+                "cmpl-b486e38ee6a6a961-0-bba01210": 1,
+                "cmpl-b8f5fa2e3898b675-0-a5520acd": 1
+              },
+              "total_num_scheduled_tokens": 4
+            }
+          ],
+          "first_P_after_split": {
+            "time_ns": 1806314437891993,
+            "relative_to_anchor_ms": 44.980875,
+            "image_key": "chatcmpl-8d54434ee230822d-adbf9c33",
+            "image_scheduled_tokens": 595,
+            "encoder_inputs": null,
+            "total_num_scheduled_tokens": 599
+          },
+          "visual_forward_between_split_and_P": [
+            {
+              "check": {
+                "pass": null
+              },
+              "cpu_elapsed_ms": 14.628575,
+              "feature_key": null,
+              "grid_shape": [
+                1,
+                3
+              ],
+              "image_index": 0,
+              "kind": "visual_forward",
+              "mm_hash": "renderer0-mm-1-image-0",
+              "mode": "R",
+              "native_cache_hit": false,
+              "output_device": "cuda:0",
+              "output_dtype": "torch.bfloat16",
+              "output_shape": [
+                576,
+                8192
+              ],
+              "pixel_device": "cuda:0",
+              "pixel_dtype": "torch.uint8",
+              "pixel_shape": [
+                2304,
+                1536
+              ],
+              "time_ns": 1806314422067081,
+              "torch_profile_trace": null
+            }
+          ],
+          "image_finished_events": [
+            {
+              "finished_req_ids": [
+                "chatcmpl-8d54434ee230822d-adbf9c33"
+              ],
+              "free_encoder_mm_hashes": [],
+              "kind": "scheduler_step",
+              "num_scheduled_tokens": {
+                "cmpl-93afecb382c9ffa2-0-bedbbaa6": 1,
+                "cmpl-ace0ce51a7430fb7-0-8d490a70": 1,
+                "cmpl-b486e38ee6a6a961-0-bba01210": 1,
+                "cmpl-b8f5fa2e3898b675-0-a5520acd": 1
+              },
+              "scheduled_encoder_inputs": {},
+              "scheduled_spec_decode_tokens": {},
+              "time_ns": 1806314537764348,
+              "total_num_scheduled_tokens": 4
+            }
+          ]
+        },
+        {
+          "episode_id": "B-S-r1-2-block1-R-01",
+          "validation_errors": [],
+          "text_token_counts": [
+            192,
+            192,
+            192,
+            192
+          ],
+          "image_token_count": 16,
+          "image_sha256": "368e0ec161c332fa256f5dec6475979f59e95d61e9fc4c6c3b95e728b4ac04fa",
+          "output_ids_equal_to_native": true,
+          "anchor_ns": 1806315442645517,
+          "first_image_token_ns": 1806315498610074,
+          "split_steps": [
+            {
+              "time_ns": 1806315457124069,
+              "relative_to_anchor_ms": 14.478552,
+              "image_key": "chatcmpl-81b70d00fceb8ecb-8b6d595b",
+              "encoder_inputs": [
+                0
+              ],
+              "text_decode_tokens": {
+                "cmpl-933c3d67dbcb590d-0-befd720d": 1,
+                "cmpl-93bac22e2fb44ecf-0-87b27c02": 1,
+                "cmpl-95ca5a2858e734df-0-b046584f": 1,
+                "cmpl-bce7bfb7fc90c746-0-a15ed96d": 1
+              },
+              "total_num_scheduled_tokens": 4
+            }
+          ],
+          "first_P_after_split": {
+            "time_ns": 1806315474310228,
+            "relative_to_anchor_ms": 31.664711,
+            "image_key": "chatcmpl-81b70d00fceb8ecb-8b6d595b",
+            "image_scheduled_tokens": 595,
+            "encoder_inputs": null,
+            "total_num_scheduled_tokens": 599
+          },
+          "visual_forward_between_split_and_P": [
+            {
+              "check": {
+                "pass": null
+              },
+              "cpu_elapsed_ms": 13.993885,
+              "feature_key": null,
+              "grid_shape": [
+                1,
+                3
+              ],
+              "image_index": 0,
+              "kind": "visual_forward",
+              "mm_hash": "renderer0-mm-2-image-0",
+              "mode": "R",
+              "native_cache_hit": false,
+              "output_device": "cuda:0",
+              "output_dtype": "torch.bfloat16",
+              "output_shape": [
+                576,
+                8192
+              ],
+              "pixel_device": "cuda:0",
+              "pixel_dtype": "torch.uint8",
+              "pixel_shape": [
+                2304,
+                1536
+              ],
+              "time_ns": 1806315459261980,
+              "torch_profile_trace": null
+            }
+          ],
+          "image_finished_events": [
+            {
+              "finished_req_ids": [
+                "chatcmpl-81b70d00fceb8ecb-8b6d595b"
+              ],
+              "free_encoder_mm_hashes": [],
+              "kind": "scheduler_step",
+              "num_scheduled_tokens": {
+                "cmpl-933c3d67dbcb590d-0-befd720d": 1,
+                "cmpl-93bac22e2fb44ecf-0-87b27c02": 1,
+                "cmpl-95ca5a2858e734df-0-b046584f": 1,
+                "cmpl-bce7bfb7fc90c746-0-a15ed96d": 1
+              },
+              "scheduled_encoder_inputs": {},
+              "scheduled_spec_decode_tokens": {},
+              "time_ns": 1806315575671492,
+              "total_num_scheduled_tokens": 4
+            }
+          ]
+        }
+      ],
+      "scheduler_event_count": 395,
+      "server_event_count": 3075,
+      "server_event_kinds": {
+        "visual_forward": 3,
+        "engine_result_ready_to_api": 1536,
+        "api_yield": 1536
+      },
+      "async_writer": {
+        "path": "/media/chx/Win10/vl-stage-split-20261106-191642/logs/B-S-r1-2-server-events.jsonl",
+        "submitted": 3072,
+        "written": 3072,
+        "dropped": 0,
+        "write_errors": 0,
+        "queue_capacity": 65536,
+        "last_error": null,
+        "closed_cleanly": true
+      }
+    }
+  ],
+  "cancellation": {
+    "label": "B-S-cancel-r0",
+    "status": "B_cancel_exercise_completed",
+    "image_request_id": "chatcmpl-b6d24e028ea43e58",
+    "partial_image_tokens": 1,
+    "client_cancel_record": {
+      "arm": "R",
+      "block": "B-S-cancel-r0-block1",
+      "episode_id": "B-S-cancel-r0-block1-R-cancel",
+      "kind": "client_stream_cancel",
+      "partial_image_tokens": 1,
+      "request_id": "chatcmpl-b6d24e028ea43e58",
+      "time_ns": 1806871924539523
+    },
+    "split_encoder_only_step": {
+      "finished_req_ids": [],
+      "free_encoder_mm_hashes": [],
+      "kind": "scheduler_step",
+      "num_scheduled_tokens": {
+        "cmpl-82392e65f0561bc3-0-9d4f6574": 1,
+        "cmpl-84740eb9c22df011-0-a21cf438": 1,
+        "cmpl-96873cfc817d1abe-0-b7e80922": 1,
+        "cmpl-96d261ba4c3f5507-0-b99478fe": 1
+      },
+      "scheduled_encoder_inputs": {
+        "chatcmpl-b6d24e028ea43e58-885ec8f4": [
+          0
+        ]
+      },
+      "scheduled_spec_decode_tokens": {},
+      "time_ns": 1806871882554188,
+      "total_num_scheduled_tokens": 4
+    },
+    "first_P_step": {
+      "finished_req_ids": [],
+      "free_encoder_mm_hashes": [],
+      "kind": "scheduler_step",
+      "num_scheduled_tokens": {
+        "chatcmpl-b6d24e028ea43e58-885ec8f4": 595,
+        "cmpl-82392e65f0561bc3-0-9d4f6574": 1,
+        "cmpl-84740eb9c22df011-0-a21cf438": 1,
+        "cmpl-96873cfc817d1abe-0-b7e80922": 1,
+        "cmpl-96d261ba4c3f5507-0-b99478fe": 1
+      },
+      "scheduled_encoder_inputs": {},
+      "scheduled_spec_decode_tokens": {},
+      "time_ns": 1806871892257267,
+      "total_num_scheduled_tokens": 599
+    },
+    "visual_forward_between_split_and_P": [
+      {
+        "check": {
+          "pass": null
+        },
+        "cpu_elapsed_ms": 6.544993,
+        "feature_key": null,
+        "grid_shape": [
+          1,
+          3
+        ],
+        "image_index": 0,
+        "kind": "visual_forward",
+        "mm_hash": "renderer0-mm-1-image-0",
+        "mode": "R",
+        "native_cache_hit": false,
+        "output_device": "cuda:0",
+        "output_dtype": "torch.bfloat16",
+        "output_shape": [
+          576,
+          8192
+        ],
+        "pixel_device": "cuda:0",
+        "pixel_dtype": "torch.uint8",
+        "pixel_shape": [
+          2304,
+          1536
+        ],
+        "time_ns": 1806871884879743,
+        "torch_profile_trace": null
+      }
+    ],
+    "image_finished_event": {
+      "finished_req_ids": [
+        "chatcmpl-b6d24e028ea43e58-885ec8f4"
+      ],
+      "free_encoder_mm_hashes": [],
+      "kind": "scheduler_step",
+      "num_scheduled_tokens": {
+        "cmpl-82392e65f0561bc3-0-9d4f6574": 1,
+        "cmpl-84740eb9c22df011-0-a21cf438": 1,
+        "cmpl-96873cfc817d1abe-0-b7e80922": 1,
+        "cmpl-96d261ba4c3f5507-0-b99478fe": 1
+      },
+      "scheduled_encoder_inputs": {},
+      "scheduled_spec_decode_tokens": {},
+      "time_ns": 1806871928632029,
+      "total_num_scheduled_tokens": 4
+    },
+    "finished_after_client_cancel": true,
+    "text_token_counts": [
+      192,
+      192,
+      192,
+      192
+    ],
+    "text_errors": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "image_schedule_rows": 3,
+    "async_writer": {
+      "path": "/media/chx/Win10/vl-stage-split-20261106-191642/logs/B-S-cancel-r0-server-events.jsonl",
+      "submitted": 1536,
+      "written": 1536,
+      "dropped": 0,
+      "write_errors": 0,
+      "queue_capacity": 65536,
+      "last_error": null,
+      "closed_cleanly": true
+    },
+    "runner_status": "label=B-S-cancel-r0\nmode=S\nprobe=1\nclient_exit=0\nstart=2026-11-07T17:18:02+08:00\nsignal=2026-11-07T17:18:31+08:00\nstop=2026-11-07T17:18:32+08:00\nservice_seconds=30\ngpu0_memory_mib=782\nport8271=free\n"
+  }
+}

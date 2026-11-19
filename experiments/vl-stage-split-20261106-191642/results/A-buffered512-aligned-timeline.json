@@ -1,0 +1,49 @@
+{
+  "episode_id": "A-default-probe1-buffered512-probe1-1-R-00",
+  "block": "1",
+  "max_gap_lane": 1,
+  "text_request_id": "cmpl-aad67b8d9ca032c7",
+  "anchor_ns": 1760445951232489,
+  "image_request_id": "chatcmpl-ae7cf2fa35962592",
+  "image_first_client_token_ms": 61.971816,
+  "first_mixed_step_found": true,
+  "first_mixed_step_ms": 24.597181,
+  "first_mixed_scheduled_tokens": {
+    "chatcmpl-ae7cf2fa35962592-b0078a3c": 595,
+    "cmpl-a0ab854383efe49f-0-a4a9067f": 1,
+    "cmpl-aad67b8d9ca032c7-0-ae47af19": 1,
+    "cmpl-ad8e46bda55a1a00-0-948f49ec": 1,
+    "cmpl-ae322da1e06a60ba-0-bc5bdb6b": 1
+  },
+  "visual_forward_found": true,
+  "visual_forward_ms": 28.578741,
+  "visual_forward_cpu_elapsed_ms": 14.659115,
+  "max_client_gap_ms": 31.449524,
+  "client_gap_start_ms": 25.188492,
+  "client_gap_end_ms": 56.638016,
+  "client_gap_token_indices": [
+    [
+      20,
+      20
+    ],
+    [
+      21,
+      21
+    ]
+  ],
+  "engine_ready_gap_ms": 31.447032,
+  "engine_ready_start_ms": 25.101055,
+  "engine_ready_end_ms": 56.548087,
+  "api_yield_gap_ms": 31.449086,
+  "api_yield_start_ms": 25.116857,
+  "api_yield_end_ms": 56.565943,
+  "event_join_checks": {
+    "left_token_id_engine_matches_client": true,
+    "right_token_id_engine_matches_client": true,
+    "left_token_id_api_matches_client": true,
+    "right_token_id_api_matches_client": true
+  },
+  "all_event_joins_match_token_ids": true,
+  "mixed_step_precedes_max_gap": true,
+  "visual_forward_precedes_max_gap": false
+}

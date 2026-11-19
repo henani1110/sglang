@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "protocol_id": "live-scheduler-backlog-observer-overhead-v0.1",
+  "frozen_date": "2026-11-10",
+  "formal_run": false,
+  "scope": "Descriptive paired comparison of count-only live scheduler snapshot instrumentation on versus off under the same synthetic burst workload.",
+  "fixed_workload": {
+    "model": "Qwen3-VL-2B-Instruct",
+    "gpu": "GPU0 RTX 4090 PCIe Gen4 x16",
+    "gpu1": "excluded, PCIe Gen4 x4",
+    "scheduler_mode": "N",
+    "image_edge": 768,
+    "text_lanes": 6,
+    "text_max_tokens": 192,
+    "arrival_pattern": "burst",
+    "arrival_interval_ms": 25,
+    "image_count": 12,
+    "image_max_tokens": 16,
+    "keep_ratio": 1.0,
+    "image_cost_model": "pre-frozen v0.3, diagnostic only; cannot activate pruning"
+  },
+  "run_order": [
+    {
+      "seed": 20261118,
+      "snapshot": "off",
+      "pair": 1
+    },
+    {
+      "seed": 20261118,
+      "snapshot": "on",
+      "pair": 1
+    },
+    {
+      "seed": 20261119,
+      "snapshot": "on",
+      "pair": 2
+    },
+    {
+      "seed": 20261119,
+      "snapshot": "off",
+      "pair": 2
+    }
+  ],
+  "measurements": [
+    "Per-request client image TTFT and completion, engine-submit-to-first-encoder-admission, visual CUDA duration, text SSE gap, request status, and GPU cleanup.",
+    "For snapshot-on runs, broker receive/drop/write counters and the lagged scheduler snapshot emission duration distribution recorded by the observer.",
+    "Paired differences are descriptive only; no pass/fail or stopping threshold is defined."
+  ],
+  "safety": {
+    "controller_action": "none; all image requests keep the full encoder token set",
+    "flickr": "no API, key, page, or image URL",
+    "docvqa": "no private test or RRC account",
+    "formal_counts_change": "none"
+  },
+  "formal_counts_before_run": {
+    "eligible_quality_items": "0/600",
+    "formal_quality_runs": 0,
+    "formal_online_runs": "0/480"
+  },
+  "code_provenance": {
+    "scripts/patch_hook_e.py": "c622c3ab8ed73a3096c547617b2f81be221afd14212a29a2b363b3a3d9061200",
+    "scripts/patch_scheduler_split_e.py": "0c7cb4c7eaaf300e909fc97795e6e32ac41d5a94ee58f46d5da2710ec05ace45",
+    "scripts/run_live_joint_controller_backlog_validation_e.py": "95a194d713d1e1ee9c4f9802efbdcce373c4a19bde4859bb6cb0b37bebc407a8",
+    "scripts/replay_live_joint_controller_e_seeded_v0.3.py": "625f3cbc2050ba8a74c1a7a7e5e58494ac34d6219e0376f63de59a7b20c8f7e9",
+    "scripts/run_server_e.sh": "d7d2cae8bb23a6344cffd1b7fbbd829d009338200a05acd659a615cea08be341",
+    "overlay/vllm/vl_pilot_hook.py": "841eaec63fb05cdbfbe27f5e52b7be69803a218d4993ca9bae9a9dd4a6000ea3",
+    "overlay/vllm/v1/core/sched/scheduler.py": "b670172131dd7004d2065643331cd771eac734efa1ed6368f7cf48d84e66f3c3",
+    "analysis/image-backlog-cost-model-v0.3.json": "c01db99cc9d0a29b175a9f2d448284b58b47365d074d8766f478b77b8dbdedd3"
+  }
+}

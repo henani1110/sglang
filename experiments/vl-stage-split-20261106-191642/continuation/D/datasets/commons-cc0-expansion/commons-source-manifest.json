@@ -1,0 +1,422 @@
+{
+  "status": "in_progress",
+  "source": "Wikimedia Commons API, Category:CC-Zero",
+  "api": "https://commons.wikimedia.org/w/api.php",
+  "retrieved_utc": "2026-11-07T13:28:41.922996+00:00",
+  "collection_seed": 20261107,
+  "required_count": 10,
+  "candidate_count": 8,
+  "selected_count": 8,
+  "license_rule": "per-file LicenseShortName CC0/CC-Zero and LicenseUrl contains /publicdomain/zero/1.0",
+  "images": [
+    {
+      "title": "File:Textile Design Met DP889358.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Textile_Design_Met_DP889358.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Textile_Design_Met_DP889358.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Textile_Design_Met_DP889358.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 996,
+      "width": 1152,
+      "height": 1121,
+      "bytes": 603339,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Anonymous  Unknown author",
+      "description": "",
+      "date_time_original": "1840 date QS:P571,+1840-00-00T00:00:00Z/9",
+      "search_phrase": "textile",
+      "image_id": "cc0-00-17f3d1beff40",
+      "retrieved_utc": "2026-11-07T13:28:23.137465+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-00-17f3d1beff40.jpg",
+      "source_download_sha256": "17f3d1beff401c5d413ef38975609e24f0b28500d24a5cd4ad656951582afa56",
+      "source_download_bytes": 603339,
+      "raw_decoded_size": [
+        1152,
+        1121
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          15,
+          0,
+          1136,
+          1121
+        ]
+      },
+      "perceptual_hash_average_8x8": "ff818181818181ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-00-17f3d1beff40.png",
+          "sha256": "973e711e67d1d7625125eaa45a5945d025bab3b306af1b5caf4f8203cbafa3bb",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-00-17f3d1beff40.png",
+          "sha256": "999be6ead36fab1b5c158ec0befdd355ad826a22c8730907d292648818b94472",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Blueberries-In-Pack.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Blueberries-In-Pack.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Blueberries-In-Pack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Blueberries-In-Pack.jpg/1280px-Blueberries-In-Pack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 883,
+      "width": 3200,
+      "height": 2760,
+      "bytes": 4970305,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Evan-Amos",
+      "description": "A pulp basket of blueberries from a organic farm co-op program.",
+      "date_time_original": "2011-07-27",
+      "search_phrase": "fruit",
+      "image_id": "cc0-01-47c3980d0d1b",
+      "retrieved_utc": "2026-11-07T13:28:25.985306+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-01-47c3980d0d1b.jpg",
+      "source_download_sha256": "47c3980d0d1ba64dafe6561012ba14b643403f24c2e38a368cab063a613263c2",
+      "source_download_bytes": 349869,
+      "raw_decoded_size": [
+        1280,
+        1104
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          88,
+          0,
+          1192,
+          1104
+        ]
+      },
+      "perceptual_hash_average_8x8": "f7c100008181c3ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-01-47c3980d0d1b.png",
+          "sha256": "a8d132f7338194523761d2ad7dcd81d48036510605c880212bcfe3b7e59cf734",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-01-47c3980d0d1b.png",
+          "sha256": "4c61b9aef9da2606e6b9e850c71a7ff50e196f600e0f5f0add4dc52938de477e",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Textile MET sf46-156-47.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Textile_MET_sf46-156-47.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Textile_MET_sf46-156-47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Textile_MET_sf46-156-47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 900,
+      "width": 916,
+      "height": 805,
+      "bytes": 259977,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "",
+      "description": "Italian; Textile; Textiles-Woven",
+      "date_time_original": "14 th  century date QS:P571,+1350-00-00T00:00:00Z/7",
+      "search_phrase": "textile",
+      "image_id": "cc0-02-1a772d79226a",
+      "retrieved_utc": "2026-11-07T13:28:28.100866+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-02-1a772d79226a.jpg",
+      "source_download_sha256": "1a772d79226a1210ed39caaa63be06055c3ed20cdd8a2adc014987f5cf0f76d9",
+      "source_download_bytes": 259977,
+      "raw_decoded_size": [
+        916,
+        805
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          55,
+          0,
+          860,
+          805
+        ]
+      },
+      "perceptual_hash_average_8x8": "9f83e3e3808003ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-02-1a772d79226a.png",
+          "sha256": "8887769dc44c26f07337e2949d7ce208773f79ba4a11bb5a1c326854bf6e53af",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-02-1a772d79226a.png",
+          "sha256": "ad3d2f6a337e24335f47d8e9c56a8b1f5176670e828a7fa93565fc34a6632457",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Tree with red apples in Barkedal 4.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Tree_with_red_apples_in_Barkedal_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Tree_with_red_apples_in_Barkedal_4.jpg/1280px-Tree_with_red_apples_in_Barkedal_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 1024,
+      "width": 3283,
+      "height": 3283,
+      "bytes": 14603902,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "W.carter",
+      "description": "Tree with red apples 'Särsö' in Barkedal, Lysekil Municipality, Sweden. The apples ripened early and were unusually red on the side facing south and the camera, caused by the uncharacteristically many hours of sunlight during the hot summer of 2018.",
+      "date_time_original": "2018-09-01 11:38:16",
+      "search_phrase": "tree",
+      "image_id": "cc0-03-0aee8fef71a4",
+      "retrieved_utc": "2026-11-07T13:28:29.975452+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-03-0aee8fef71a4.jpg",
+      "source_download_sha256": "0aee8fef71a40be8981a08bf649764478f8b12e0a0bbc88e77692b05ca358ab3",
+      "source_download_bytes": 950307,
+      "raw_decoded_size": [
+        1280,
+        1280
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          0,
+          1280,
+          1280
+        ]
+      },
+      "perceptual_hash_average_8x8": "101807023887ffff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-03-0aee8fef71a4.png",
+          "sha256": "bf5210c505aaae351e48d282b8cd3969859ef7cb3bd6eca02f3aa0de5eb79284",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-03-0aee8fef71a4.png",
+          "sha256": "89551eee5cb0af4c788ecaa8b259532e09c10e7df075fffb81e90dd12d66ed2a",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Spanish Hall of Ambras Castle, Innsbruck (inside)-2024-02-06.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Spanish_Hall_of_Ambras_Castle,_Innsbruck_(inside)-2024-02-06.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Spanish_Hall_of_Ambras_Castle%2C_Innsbruck_%28inside%29-2024-02-06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Spanish_Hall_of_Ambras_Castle%2C_Innsbruck_%28inside%29-2024-02-06.jpg/1280px-Spanish_Hall_of_Ambras_Castle%2C_Innsbruck_%28inside%29-2024-02-06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 776,
+      "width": 7267,
+      "height": 5504,
+      "bytes": 18873089,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Wilfredor",
+      "description": "Spanish Hall of Ambras Castle, Innsbruck, Tyrol, Austria",
+      "date_time_original": "2024-02-06 09:05:25",
+      "search_phrase": "castle",
+      "image_id": "cc0-04-75ad201ec925",
+      "retrieved_utc": "2026-11-07T13:28:32.114432+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-04-75ad201ec925.jpg",
+      "source_download_sha256": "75ad201ec92572f21c620b73710c477d43ada2b6d387c7fd832b4ab591c7d13b",
+      "source_download_bytes": 498444,
+      "raw_decoded_size": [
+        1280,
+        969
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          155,
+          0,
+          1124,
+          969
+        ]
+      },
+      "perceptual_hash_average_8x8": "00000183c7fffffc",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-04-75ad201ec925.png",
+          "sha256": "c198269c009d5dc07566115ee80942cb8a303c24a2c9e64f86b95c5526073520",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-04-75ad201ec925.png",
+          "sha256": "08979ff26f41a3e7a2e5cfa19eed4db6872ab57227e3a0c1a80a406f22c9635f",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Hmongtown Marketplace East Building weaving booth.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Hmongtown_Marketplace_East_Building_weaving_booth.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Hmongtown_Marketplace_East_Building_weaving_booth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Hmongtown_Marketplace_East_Building_weaving_booth.jpg/1280px-Hmongtown_Marketplace_East_Building_weaving_booth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 775,
+      "width": 2994,
+      "height": 2266,
+      "bytes": 2985058,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Pingnova",
+      "description": "Stalls displaying woven wares such as kawm (Hmong woven baskets) at Hmongtown Marketplace, East Building.\n This photo depicts the \"B\" area of the Hmongtown Marketplace East Building, with stalls B1–B51. Most prominent are stalls B1–B14 grouped in the middle of the space, which primarily sell woven baskets (kawm) and traditional Hmong tools. The sides of stalls B14 and B1 are most visible in this photo.\n \nThe photographer stands at the top of the East Building stairs, facing north.  Behind the photographer is the colliqually named \"main entry hallway\".",
+      "date_time_original": "2024-11-03 16:09:59",
+      "search_phrase": "market",
+      "image_id": "cc0-05-a9b3268618cb",
+      "retrieved_utc": "2026-11-07T13:28:35.248075+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-05-a9b3268618cb.jpg",
+      "source_download_sha256": "a9b3268618cb60dcd18667d9c8244bd6f5d4749d56abf7e80624897e7ba34149",
+      "source_download_bytes": 573307,
+      "raw_decoded_size": [
+        1280,
+        969
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          155,
+          0,
+          1124,
+          969
+        ]
+      },
+      "perceptual_hash_average_8x8": "04017fffbf81d878",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-05-a9b3268618cb.png",
+          "sha256": "6426c3182b1d3d9e1a6bf693cff7845b3efadac07ea5975c711ddf6abea327cc",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-05-a9b3268618cb.png",
+          "sha256": "62bcc9d4ede6b6098dab40e91fd288353858b26f00c67853147548c3d12ddddf",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Silk fragment with gold (Textile Museum GW 31.6).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Silk_fragment_with_gold_(Textile_Museum_GW_31.6).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Silk_fragment_with_gold_%28Textile_Museum_GW_31.6%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Silk_fragment_with_gold_%28Textile_Museum_GW_31.6%29.jpg/1280px-Silk_fragment_with_gold_%28Textile_Museum_GW_31.6%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 809,
+      "width": 2400,
+      "height": 1895,
+      "bytes": 6804274,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Unknown artist Unknown artist",
+      "description": "Silk fragment with gold decorated with a series of cocks each of which is enclosed in an octagonal element of the overall diaper pattern. Probably fragmentary garment woven in Iraq. Linen; silk; strip, gold. Plain weave; supplementary-weft patterning. Iraq, 9th century. Textile Museum (George Washington University) 31.6",
+      "date_time_original": "9 th  century date QS:P571,+850-00-00T00:00:00Z/7",
+      "search_phrase": "textile",
+      "image_id": "cc0-06-7517ddee296e",
+      "retrieved_utc": "2026-11-07T13:28:37.842510+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-06-7517ddee296e.jpg",
+      "source_download_sha256": "7517ddee296e915312df204a7547f1f81c5b17e0d763f6865526b30c719aa77f",
+      "source_download_bytes": 637774,
+      "raw_decoded_size": [
+        1280,
+        1011
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          134,
+          0,
+          1145,
+          1011
+        ]
+      },
+      "perceptual_hash_average_8x8": "ff20028080800eff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-06-7517ddee296e.png",
+          "sha256": "5b820b6eb54486549da75240fd7b41ff19a23ff99787b09fcba411c1900a3b06",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-06-7517ddee296e.png",
+          "sha256": "b8a3c38b9f672b4c13fd9bbc9cb5c1bcce979cbf71885871c227415664fd51b8",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:Textile MET sf46-156-47s1.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:Textile_MET_sf46-156-47s1.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Textile_MET_sf46-156-47s1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Textile_MET_sf46-156-47s1.jpg/1280px-Textile_MET_sf46-156-47s1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia 1024 px thumbnail; source aspect ratio <= 1.33",
+      "thumbnail_width": 1024,
+      "thumbnail_height": 784,
+      "width": 2936,
+      "height": 2248,
+      "bytes": 4506323,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "",
+      "description": "Italian; Textile; Textiles-Woven",
+      "date_time_original": "14 th  century date QS:P571,+1350-00-00T00:00:00Z/7",
+      "search_phrase": "textile",
+      "image_id": "cc0-07-948247df2986",
+      "retrieved_utc": "2026-11-07T13:28:40.422735+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/source_downloads/cc0-07-948247df2986.jpg",
+      "source_download_sha256": "948247df2986cc9454c6b9bb3468f2f445c9bbfbaec9c971343309cf43510a28",
+      "source_download_bytes": 638307,
+      "raw_decoded_size": [
+        1280,
+        980
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          150,
+          0,
+          1130,
+          980
+        ]
+      },
+      "perceptual_hash_average_8x8": "df800000000003ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/512/cc0-07-948247df2986.png",
+          "sha256": "3f2e3bb928382ca354f2180ca1172e5fb54e4718fd74e7c1075bcad98956546f",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/images/768/cc0-07-948247df2986.png",
+          "sha256": "3aac8e1e36c3a15dc22524f20e9e36c799250b7b81eeb97d568aa6f07f86be46",
+          "width": 768,
+          "height": 768
+        }
+      }
+    }
+  ],
+  "rejected_downloads": []
+}

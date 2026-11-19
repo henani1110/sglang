@@ -1,0 +1,157 @@
+{
+  "run_id": "vl-encode-pilot-20261106-085428",
+  "date_local": "2026-11-06",
+  "remote_host": "chx-gpu-4090-2",
+  "remote_hostname": "flyvideo-MS-7E06",
+  "remote_project_path": "/home/chx/project/vl-encode-pilot-20261106-085428",
+  "remote_ssd_run_path": "/media/chx/Win10/vl-encode-pilot-20261106-085428",
+  "local_archive_root": "/Users/chenhanxi/Desktop/infra/reproduction_runs/vl-encode-pilot-20261106-085428",
+  "storage": {
+    "mount": "/media/chx/Win10",
+    "device": "/dev/nvme0n1p3",
+    "parent_device": "/dev/nvme0n1",
+    "filesystem": "fuseblk (NTFS)",
+    "observed_available_at_final_check": "209 GB",
+    "placement": "model weights, dataset, feature tensors, Hugging Face/Torch/Triton caches and experiment logs stored on this SSD",
+    "limitation": "uv build/package cache remained on ext4 project storage because the NTFS/FUSEBLK mount could not create a pynvvideocodec. prefixed temporary file"
+  },
+  "model": {
+    "repository": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "weight_sha256": "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0",
+    "dtype": "bfloat16"
+  },
+  "software": {
+    "python": "3.11.13",
+    "pytorch": "2.14.0+cu130",
+    "pytorch_cuda": "13.0",
+    "vllm": "0.33.0",
+    "vllm_git_commit": "4ba787ec9959e566d3b587a796dff07673324da5",
+    "transformers": "5.20.2",
+    "nvidia_driver": "580.178.04",
+    "driver_cuda_api": "13.0"
+  },
+  "engine_configuration": {
+    "tensor_parallel_size": 1,
+    "pipeline_parallel_size": 1,
+    "data_parallel_size": 1,
+    "max_model_len": 2048,
+    "max_num_seqs": 8,
+    "max_num_batched_tokens": 2048,
+    "kv_cache_memory_bytes": 939524096,
+    "attention_backend": "FLASH_ATTN",
+    "mm_encoder_attention_backend": "FLASH_ATTN",
+    "prefix_caching": false,
+    "mm_processor_cache_gb": 0,
+    "chunked_prefill": true,
+    "async_scheduling": false,
+    "enforce_eager": true,
+    "stream_interval": 1
+  },
+  "devices": [
+    {
+      "label": "GPU0",
+      "model": "NVIDIA GeForce RTX 4090",
+      "uuid": "GPU-7d51d535-c0d2-577a-2a08-d6fbdd9b93a8",
+      "pci_bus_id": "0000:01:00.0",
+      "observed_loaded_link": "PCIe Gen4 x16 (16.0 GT/s)",
+      "formal_result": "primary",
+      "max_memory_used_mib": 9204.0,
+      "max_utilization_percent": 72.0
+    },
+    {
+      "label": "GPU1",
+      "model": "NVIDIA GeForce RTX 4090",
+      "uuid": "GPU-321a3dbc-a3ed-3f07-3b13-31dd67f143b0",
+      "pci_bus_id": "0000:05:00.0",
+      "observed_loaded_link": "PCIe Gen4 x4 (16.0 GT/s)",
+      "formal_result": "two-block secondary repeat",
+      "max_memory_used_mib": 8466.0,
+      "max_utilization_percent": 100.0
+    }
+  ],
+  "runs": {
+    "GPU0": {
+      "status": "formal_completed",
+      "warmups": 6,
+      "measured_episodes": 288,
+      "episodes_by_arm": {
+        "T": 96,
+        "R": 96,
+        "B": 96
+      },
+      "paired_RB": {
+        "pairs": 96,
+        "matched_pairs": 96,
+        "matched_rate": 1.0,
+        "pairs_with_same_first_step_signature": 96
+      },
+      "R_minus_B_median_p95_ms": 15.689524,
+      "R_minus_B_median_percent": 87.80804728028124,
+      "positive_blocks": 6,
+      "total_blocks": null
+    },
+    "GPU1": {
+      "status": "secondary_completed",
+      "warmups": 2,
+      "measured_episodes": 96,
+      "episodes_by_arm": {
+        "T": 32,
+        "R": 32,
+        "B": 32
+      },
+      "paired_RB": {
+        "pairs": 32,
+        "matched_pairs": 32,
+        "matched_rate": 1.0,
+        "pairs_with_same_first_step_signature": 32
+      },
+      "R_minus_B_median_p95_ms": 16.050496124999995,
+      "R_minus_B_median_percent": 87.15591051843613,
+      "positive_blocks": 2,
+      "total_blocks": 2
+    }
+  },
+  "budget_and_cleanup": {
+    "gpu_minutes": {
+      "GPU0_estimate": 44.53,
+      "GPU1_estimate": 5.92,
+      "total_estimate": 50.45,
+      "estimate_method": "sum of server log first-to-last timestamps, including startup/failed starts and diagnostics; second-resolution log endpoints, not a GPU utilization integral",
+      "cap": 120
+    },
+    "wall_clock_cap_hours": 4,
+    "wall_clock_start_approx_local": "2026-11-06 16:54 CST",
+    "final_experiment_service_shutdown_local": "2026-11-06 19:40 CST",
+    "peak_memory_used_mib": {
+      "GPU0": 9204,
+      "GPU1": 8466
+    },
+    "final_check": {
+      "ports_8261_8262_closed": true,
+      "experiment_server_and_monitor_processes_stopped": true,
+      "gpu0_memory_used_mib": 782,
+      "gpu1_memory_used_mib": 45,
+      "gpu1_shutdown_log_note": "After client result status secondary_completed, API server stopped in abort mode; the log records EngineCore termination, an output-handler EngineDeadError and semaphore cleanup warning. Result validation errors remained absent; process, port and GPU memory were confirmed released."
+    }
+  },
+  "known_limits": [
+    "The GPU1 repeat has only two blocks and is descriptive, not pooled with GPU0 inference.",
+    "Nsight Systems 2022.1.3 crashed at cuLaunchKernel and yielded no usable CUDA kernel/NVTX timeline.",
+    "PyTorch profiler overhead is high; profiler durations are not used as performance results.",
+    "The measured intervention is the complete visual-forward cutpoint; evidence does not isolate all GPU kernels from nearby preparation/copy/synchronization costs.",
+    "The trace uses one model, one image resolution, synthetic fixed images and four text streams; generality and research novelty remain unverified."
+  ],
+  "artifact_paths": [
+    "artifacts/final-report.md",
+    "artifacts/formal-summary.md",
+    "artifacts/gpu1-secondary-summary.md",
+    "artifacts/preflight-summary.json",
+    "logs/remote_ssd/",
+    "logs/remote_project/",
+    "artifacts/datasets/",
+    "artifacts/features/",
+    "artifacts/features-gpu1/",
+    "scripts/"
+  ]
+}

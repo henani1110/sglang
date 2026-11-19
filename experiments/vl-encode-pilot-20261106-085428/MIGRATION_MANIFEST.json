@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-19",
+  "moves": [
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412/model",
+      "new": "/home/chx/models/Qwen3-4B-1cfa9a720891",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428/models/Qwen3-VL-2B-Instruct",
+      "new": "/media/chx/Win10/models/Qwen3-VL-2B-Instruct",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412/traces",
+      "new": "/home/chx/datasets/chunk-pilot-20261106-094412/traces",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-stage-split-20261106-191642/artifacts/datasets",
+      "new": "/home/chx/datasets/vl-stage-split-20261106-191642/artifact-images",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428/datasets",
+      "new": "/media/chx/Win10/datasets/vl-encode-pilot-20261106-085428/datasets",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-512",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets-512",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-768",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets-768",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412",
+      "new": "/home/chx/experiments/chunk-pilot-20261106-094412",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-encode-pilot-20261106-085428",
+      "new": "/home/chx/experiments/vl-encode-pilot-20261106-085428",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-stage-split-20261106-191642",
+      "new": "/home/chx/experiments/vl-stage-split-20261106-191642",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428",
+      "new": "/media/chx/Win10/experiments/vl-encode-pilot-20261106-085428",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642",
+      "new": "/media/chx/Win10/experiments/vl-stage-split-20261106-191642",
+      "same_inode": true
+    }
+  ],
+  "compatibility": "Old project and SSD paths remain symlinks. No file data deleted. Environments and caches retained inside experiment archives.",
+  "model_index": "/home/chx/models/Qwen3-VL-2B-Instruct"
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "protocol_id": "live-scheduler-backlog-snapshot-validation-v0.1",
+  "frozen_date": "2026-11-10",
+  "formal_run": false,
+  "research_scope": "Validate freshness and association of scheduler-native encoder backlog snapshots with subsequent request admission and API TTFT, without activating them as a content-pruning or deadline controller.",
+  "server": {
+    "model": "Qwen3-VL-2B-Instruct",
+    "gpu": "GPU0 RTX 4090; PCIe Gen4 x16",
+    "gpu1": "excluded; PCIe Gen4 x4",
+    "scheduler_mode": "N",
+    "keep_ratio": 1.0,
+    "image_edge": 768,
+    "max_model_len": 2048,
+    "max_num_seqs": 8
+  },
+  "snapshot_transport": {
+    "source": "scheduler process emits count-only JSON datagrams over loopback UDP",
+    "receiver": "run manager binds an ephemeral loopback port and atomically publishes a latest-state JSON file",
+    "polling": "client reads the latest file immediately before submitting each image request",
+    "fields": [
+      "scheduler_step",
+      "waiting_requests",
+      "deferred_waiting_requests",
+      "running_requests",
+      "waiting_encoder_requests",
+      "running_encoder_prefill_requests",
+      "active_text_decodes",
+      "scheduled_encoder_requests",
+      "scheduled_encoder_inputs",
+      "scheduled_encoder_token_budget",
+      "scheduler_monotonic_time",
+      "broker_receive_monotonic_time"
+    ],
+    "controller_use": "observation only; no budget decision reads this snapshot"
+  },
+  "cells": [
+    {
+      "run_id": "seed-20261116-768-6lane-burst-192tok-12img-snapshot",
+      "seed": 20261116,
+      "arrival_pattern": "burst",
+      "arrival_interval_ms": 25,
+      "text_lanes": 6,
+      "text_max_tokens": 192,
+      "image_count": 12,
+      "image_max_tokens": 16,
+      "image_backlog_cost_model": "analysis/image-backlog-cost-model-v0.3.json",
+      "purpose": "Independent burst validation using the pre-frozen v0.3 predictor strictly for error analysis."
+    },
+    {
+      "run_id": "seed-20261117-768-6lane-uniform-192tok-12img-snapshot",
+      "seed": 20261117,
+      "arrival_pattern": "uniform",
+      "arrival_interval_ms": 750,
+      "text_lanes": 6,
+      "text_max_tokens": 192,
+      "image_count": 12,
+      "image_max_tokens": 16,
+      "image_backlog_cost_model": null,
+      "purpose": "Independent uniform-arrival validation of snapshot availability and queue-state transitions; no burst predictor is extrapolated to this cell."
+    }
+  ],
+  "analysis": [
+    "Record snapshot availability, age, and each scheduler counter at image arrival.",
+    "Join every image by engine request ID to first encoder admission and visual CUDA stage timing.",
+    "Compare snapshot counts with pre-existing HTTP-future pending-image count and actual engine-submit-to-admission queue time.",
+    "Report missing snapshots and contradictory state as observations; do not tune coefficients or declare a pass/fail threshold from these two cells.",
+    "Keep heldout QA untouched and retain keep-all for every request."
+  ],
+  "source_constraints": {
+    "flickr_api_key": "excluded by user; do not acquire or use",
+    "flickr_pages_or_image_urls": "excluded",
+    "docvqa": "public Hugging Face val only; no private test or RRC account",
+    "rights_status": "this synthetic scheduler probe does not affect dataset rights or eligible-item counts"
+  },
+  "formal_counts_before_run": {
+    "eligible_quality_items": "0/600",
+    "formal_quality_runs": 0,
+    "formal_online_runs": "0/480"
+  },
+  "code_provenance": {
+    "scripts/patch_hook_e.py": "c622c3ab8ed73a3096c547617b2f81be221afd14212a29a2b363b3a3d9061200",
+    "scripts/patch_scheduler_split_e.py": "4eae657f4d7a3ecbc91d308c14b6f095b2441e63f256b92f89404727a6d2f92b",
+    "scripts/run_live_joint_controller_backlog_validation_e.py": "3e155f3e8b3de608b2f0d473113c3d8d1242fc89fdc88831e162f1a22cd1b013",
+    "scripts/replay_live_joint_controller_e_seeded_v0.3.py": "625f3cbc2050ba8a74c1a7a7e5e58494ac34d6219e0376f63de59a7b20c8f7e9",
+    "scripts/run_server_e.sh": "d7d2cae8bb23a6344cffd1b7fbbd829d009338200a05acd659a615cea08be341",
+    "overlay/vllm/vl_pilot_hook.py": "841eaec63fb05cdbfbe27f5e52b7be69803a218d4993ca9bae9a9dd4a6000ea3",
+    "overlay/vllm/v1/core/sched/scheduler.py": "3444eb1dab456d39037a5a1af4f894b7f2357b8f3562630781941e139685897e"
+  }
+}

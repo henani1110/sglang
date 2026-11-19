@@ -1,0 +1,1155 @@
+{
+  "date": "2026-11-19",
+  "moves": [
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412/model",
+      "new": "/home/chx/models/Qwen3-4B-1cfa9a720891",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428/models/Qwen3-VL-2B-Instruct",
+      "new": "/media/chx/Win10/models/Qwen3-VL-2B-Instruct",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412/traces",
+      "new": "/home/chx/datasets/chunk-pilot-20261106-094412/traces",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-stage-split-20261106-191642/artifacts/datasets",
+      "new": "/home/chx/datasets/vl-stage-split-20261106-191642/artifact-images",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428/datasets",
+      "new": "/media/chx/Win10/datasets/vl-encode-pilot-20261106-085428/datasets",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-512",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets-512",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642/datasets-768",
+      "new": "/media/chx/Win10/datasets/vl-stage-split-20261106-191642/datasets-768",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/chunk-pilot-20261106-094412",
+      "new": "/home/chx/experiments/chunk-pilot-20261106-094412",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-encode-pilot-20261106-085428",
+      "new": "/home/chx/experiments/vl-encode-pilot-20261106-085428",
+      "same_inode": true
+    },
+    {
+      "old": "/home/chx/project/vl-stage-split-20261106-191642",
+      "new": "/home/chx/experiments/vl-stage-split-20261106-191642",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-encode-pilot-20261106-085428",
+      "new": "/media/chx/Win10/experiments/vl-encode-pilot-20261106-085428",
+      "same_inode": true
+    },
+    {
+      "old": "/media/chx/Win10/vl-stage-split-20261106-191642",
+      "new": "/media/chx/Win10/experiments/vl-stage-split-20261106-191642",
+      "same_inode": true
+    }
+  ],
+  "compatibility": "Old project and SSD paths remain symlinks. No file data deleted. Environments and caches retained inside experiment archives.",
+  "model_index": "/home/chx/models/Qwen3-VL-2B-Instruct",
+  "github_scope": "Scripts, source changes, plans, small summaries and manifests. Full evidence, environments and caches remain in server archives. Dataset inputs are in the datasets directory. JSON/CSV/text data above 128 KiB are retained on the server.",
+  "files": [
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/MIGRATION_MANIFEST.json",
+      "sha256": "b2ca088a86fbd2e70870fd9172c8e9d25645fe2c405de80db3b2ba3ec8439ce3"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/config_frozen.json",
+      "sha256": "ee65a03f8113ae9707edf3afa0fd32471b1efac99f83f69f6c6b5d929b56e840"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/scripts/analyze_pilot.py",
+      "sha256": "839f41f7253311a1e605ec2c32048c9cc54a8bca070d2deba013e47f9a0a7870"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/scripts/pilot_replay.py",
+      "sha256": "0091edea227fdbe5b321264fbee800c5b1acbfd2cd7af0060452c06f631e4ea8"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/scripts/pilot_frozen_config.json",
+      "sha256": "ee65a03f8113ae9707edf3afa0fd32471b1efac99f83f69f6c6b5d929b56e840"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/scripts/pilot_run_block.sh",
+      "sha256": "675ecfc35fc75dccba704966677d2ca8aa782cd6844ec605f3d4e77877e955f0"
+    },
+    {
+      "path": "experiments/chunk-pilot-20261106-094412/scripts/pilot_launch_server.sh",
+      "sha256": "88919e3e6657508bd2b55f48aa7fbcba23d2d7f6f8a82f81680665c5e1897df9"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/pilot_control.json",
+      "sha256": "da010ddce6786ef4744c75062956c120c646851c85192e35be30407c5dc3328c"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/MIGRATION_MANIFEST.json",
+      "sha256": "b2ca088a86fbd2e70870fd9172c8e9d25645fe2c405de80db3b2ba3ec8439ce3"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/\u65b9\u6848.md",
+      "sha256": "7a3bf67316c35ceba47ac995b8e453fb9c770f48c2ff291345a82a9d997be9d0"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/run_server.sh",
+      "sha256": "40ce6aca9f10c067f1ebeaf6afa2314945a830aef16b06d86384a5f7a59c6c08"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/patch_vllm.py",
+      "sha256": "1021c3f449e3de556316fc9753729699e8cb552fcd77902af123b41f08bba079"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/run_server_gpu1.sh",
+      "sha256": "4ad3cc478e7856ac47f0ac1f06bac4876e9ffb344bbafd500133f64aa5745b15"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/create_images.py",
+      "sha256": "54f5b1a684a893bf27f303f9f35b68e10ede7c6e6748322a8b92d24b484f95d6"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/monitor_gpu.sh",
+      "sha256": "2f22ab634b2d91555c7e5c519b8f8f9c5095cf2bd1c23a5a693313293d8fbf66"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/patch_stream.py",
+      "sha256": "c62b92b4f4136d4337fa909f516e9a80bf7a816d59c85c57a63c2bc1a2e5e4f6"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/trace_client.py",
+      "sha256": "1146eef9a427246d6acab85a80161e44874ad3158389afeefbd843e8d63f6a7f"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/patch_schedule.py",
+      "sha256": "57ec3e1b8e927c117dc3f4e5d6fc0f11ceacfa9d6f180f4518480b295bffb117"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/vl_pilot_hook.py",
+      "sha256": "26e626402f2a7b2e303ff670b507de34f6a084b33652be05aa7e5afc58badd9a"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/scripts/patch_v2_runner.py",
+      "sha256": "4d00159a6428791a32ad301be70a91b401bc002dce1d9faa046a92098b107b5f"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/VLLM_BASE_COMMIT.txt",
+      "sha256": "c143ac3a920ba569b83fecd2623fc7f937642782d70a2775c717f8c4cf358f08"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/VLLM_SOURCE_CHANGES.patch",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/vl-encode-pilot-20261106-085428/VLLM_LICENSE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/\u53ef\u884c\u6027\u4e0e\u6536\u655b\u5efa\u8bae.md",
+      "sha256": "5d80d070d9407dce96def8c20fc770c5785880ef8769d7f9421f25c54732291c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/pilot_control.json",
+      "sha256": "f88a7b81fd662dd8ab412cb55918dee47ad3ec2c9146890cae512ed2924364d7"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/MIGRATION_MANIFEST.json",
+      "sha256": "b2ca088a86fbd2e70870fd9172c8e9d25645fe2c405de80db3b2ba3ec8439ce3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/\u89c6\u89c9\u7f16\u7801\u4e0ePrefill\u62c6\u6b65\u5b9e\u9a8c\u65b9\u6848.md",
+      "sha256": "7887c598cbc963d2950fef1d3cab2e39a410836b714e5c73696decce99a9bea6"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/README.md",
+      "sha256": "4ce3ab482fb96064739cdec31a65bb2c5a334fb59fb3c3b6adcb154a394a9253"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/C-output-divergence-review.md",
+      "sha256": "690255e1190820cf51e7b3f5ffe14c84a006c6419cf1d9c3533a55c72058cbf1"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/service-ledger-normalized.csv",
+      "sha256": "b57dc0ccda072ad66e2d4421bd8430f68953b94efaf406203e38effed986238e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-stage-decision.md",
+      "sha256": "7c056a02a048dea595d07fc9784155fa5ebe1e2efb0d1cc6089ba15f96654046"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/transfer-checksums.txt",
+      "sha256": "af336492df74f511266f4a5454deda37f207ac6c0b2828c61c88eb2ed3f2b704"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/B-semantic-analysis.md",
+      "sha256": "2f26b66f49a9ae95cd55750d182e1bac3094db0ac63464a9eb27691b6303e22e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-analysis.md",
+      "sha256": "ac05ec68fda33e1f63a74862cf42e04823d9c727f2f2b845826c5e52ecf5437b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/C-main-analysis.md",
+      "sha256": "2652232a3c5eac39ee4ebe7a479669cfa28051879c9b8595871460139de09ce1"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-async-analysis.md",
+      "sha256": "2b0096c6aab43014f788b3ad856b034a272bf6e8d56d5010c140413a58ae63da"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered128-analysis.md",
+      "sha256": "b7090512cc1ada62db5fa56970abc5293ef009cb10fea469deafc33ed7f5b7bb"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-analysis.json",
+      "sha256": "b4e65db5c545ece71d1ac2d1895aaa188ae84a6fea24c5ac0b0cafd2af21e8a5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/B-semantic-analysis.json",
+      "sha256": "2cd3c749f44dbb5b4ee613ecfc672b0c71ab30661f26c1bc3899b59970441429"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-async-analysis.json",
+      "sha256": "95f1f76ebaffe8a7dc7b1dda2b579a9eec20e43102fbf516c58902601144cfb2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered128-aligned-timeline.json",
+      "sha256": "8b2fcf39685dbc2ee5414eddee6c4875be527ae828abbf345fd57c970618b2a4"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered512-analysis.json",
+      "sha256": "e581efd42803f65d32bbf7b3ee26a507c13b52edadc29e93b0472479b07102d7"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered128-analysis.json",
+      "sha256": "3e4b3749ac2c6b23e63c77162049bf07f00d6af494837316a2242b49a1ba0052"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/service-ledger-normalization-notes.md",
+      "sha256": "38e16b058092f266b34e5ad8660ad93474a2f8d1c4c80bfb3ae32054d2c5251f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered512-aligned-timeline.json",
+      "sha256": "db9ae87ed364ded7c3932bb480bb74e0c1823b548d4b3c20167e1db6bfef3e1d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/results/A-buffered512-analysis.md",
+      "sha256": "7cec859f8454012bc422e2a84260a4f78df43ea645bde2fb73f94f35dc61ea6c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/prior-run-manifest.json",
+      "sha256": "48cd85f0a0b97efd7e8bd0b66202d02f540505bb07da3de46ecee0fc0a1b4ab2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/run-manifest-initial-A-stop.json",
+      "sha256": "b2d9b429c1a7477d27aedbcb249ca9c851e581b1738be69b7e90c9a8743d73d1"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/SHA256SUMS-before-finalization.txt",
+      "sha256": "0b623a6ccdaa1704709249ac7b074e8c394d726026a1c6ca653210263d9745a3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/run-manifest.json",
+      "sha256": "8bb27cd46f318d571766d15075da1bbdef339a9cbb68a7c14b4b23863aac1ea7"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered512-archive/project/service-ledger.csv",
+      "sha256": "74c3cc899a492a39587e6b568aabd92349cb0f377f42e563a40a2fc41bf3a4ab"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered512-archive/project/run-manifest.json",
+      "sha256": "35beeb08bf8c21e31d77ebe30cc2e74e720f57776d157588804cf5ff81eb1c41"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered512-archive/project/scripts/patch_buffered_timeline.py",
+      "sha256": "192a5479bf8482312b0d7c33f502e6ea8020c6767ea89be81b072f6a85183700"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered512-archive/project/scripts/run_a_cell_remote.sh",
+      "sha256": "b75b844eac306f45e3491edc685cbf3d7075aa4ed1895f9ba96487da2973820c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered-archive/project/service-ledger.csv",
+      "sha256": "212e97ecac57968b4050a025b5b4c095ff685688f689906ed413450724271345"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered-archive/project/run-manifest.json",
+      "sha256": "35beeb08bf8c21e31d77ebe30cc2e74e720f57776d157588804cf5ff81eb1c41"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered-archive/project/scripts/patch_buffered_timeline.py",
+      "sha256": "b53b0d93d7074b468ef6505f0a5a7f499ee9594456ae677129297def2744cc45"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/artifacts/vl-stage-split-A-buffered-archive/project/scripts/run_a_cell_remote.sh",
+      "sha256": "a40f5ee4e089ce0a0557e8c0f2cb0132091ac2996d7b939fcedcecd037b9e472"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/pilot_control.json",
+      "sha256": "41c52aad1a75220c99d5ea9cb58b29973ead9ee12ae2c25271e7c1835d8ee5c5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/README.md",
+      "sha256": "c868d7147e5fb1a5fa0d8ccc597f8886418c897b092884adca53d285b92f66bd"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/patches/scheduler.py",
+      "sha256": "2b40dbecf60e776584183609c75a7a79e7ff3a20c0faf3153017d1addb338260"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/docs/resource-ledger.md",
+      "sha256": "6ea75247b17450450dfc838a90baf60b00a2eecea99258d25312d51353552592"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/source_snapshot/gpu_model_runner.py",
+      "sha256": "9af35d5741574a2cbab7784e6222c6722f053f2c3de9f3f8937dbbac3e541da5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/source_snapshot/chat_completion_serving.py",
+      "sha256": "fbe6d3360b3a407ff4b3e3539e73d4565dc0370112a382689bc268520b86c245"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/source_snapshot/scheduler.py",
+      "sha256": "0bbe2deead89a5c30a23a16a61a1ac8a01deaae19253e23899251be98bbe3c1c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/source_snapshot/request.py",
+      "sha256": "dd7c30bf8b0894dc123a739c299c0133566f8cc075b081e45905f1c29506e69d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/source_snapshot/vl_pilot_hook.py",
+      "sha256": "34221e50b43a8c72b50baa0f56d34e391988ae2086ed9d67520cd882bcdf2189"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-partial-idfix/formal-analysis.json",
+      "sha256": "74b392a2f5c3c56596d052994a4ee9264e86e460f4fc0b517b30349cbda5706e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-partial-idfix/formal-analysis.md",
+      "sha256": "a26c4f12ea30891b448ed8295c8ccbb9935fe653eb12af8da2139f3284d2ebdf"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-partial-idfix/formal-cell-summary.json",
+      "sha256": "2d86ae738fcf9aed06bdddda079c437f472878df9c92f06aacaa4c59304a57ef"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-partial-idfix/formal-state-partition.json",
+      "sha256": "c443649ea7d97a79989070ecf0607e676dc654c62ce1b0a215370f6242e3b796"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-partial-idfix/formal-paired-bootstrap.json",
+      "sha256": "dce194f9da18f65f8614af1bdbf9cd99431e49b6b9f995ec1a1db7216c69eecc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-pre-id-join-fix/formal-analysis.json",
+      "sha256": "74b392a2f5c3c56596d052994a4ee9264e86e460f4fc0b517b30349cbda5706e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-pre-id-join-fix/formal-analysis.md",
+      "sha256": "403de6aa35cd5175937b387a39667a6d7a13e2c6500d44749df7c4978d615de3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-pre-id-join-fix/formal-cell-summary.json",
+      "sha256": "1633a53777a28e1326b5893fab43e4b1467c7131f8b0ab5274c724125850620f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-pre-id-join-fix/formal-state-partition.json",
+      "sha256": "c443649ea7d97a79989070ecf0607e676dc654c62ce1b0a215370f6242e3b796"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-pre-id-join-fix/formal-paired-bootstrap.json",
+      "sha256": "acbd443b471399f1ae5e036f9a3da1d2b3d86b40169aefafd4e583065a254a88"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-idfix/formal-analysis.json",
+      "sha256": "74b392a2f5c3c56596d052994a4ee9264e86e460f4fc0b517b30349cbda5706e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-idfix/formal-analysis.md",
+      "sha256": "a26c4f12ea30891b448ed8295c8ccbb9935fe653eb12af8da2139f3284d2ebdf"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-idfix/formal-cell-summary.json",
+      "sha256": "2d86ae738fcf9aed06bdddda079c437f472878df9c92f06aacaa4c59304a57ef"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-idfix/formal-state-partition.json",
+      "sha256": "c443649ea7d97a79989070ecf0607e676dc654c62ce1b0a215370f6242e3b796"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-idfix/formal-paired-bootstrap.json",
+      "sha256": "dce194f9da18f65f8614af1bdbf9cd99431e49b6b9f995ec1a1db7216c69eecc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/formal-analysis.json",
+      "sha256": "b65652f77076b2e31c290f44ca68e0df1c7846b8df1adfa670808ab097b9a723"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/interpretation-and-next-stage.md",
+      "sha256": "26de58481ba5c9d22aa05e39a0faa14e479278dd98a990e97fec2112ab93d156"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/formal-analysis.md",
+      "sha256": "3598d147e79dc63e58b875b04241acd162858ef8ed0af43abf54be3bcc525797"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/formal-cell-summary.json",
+      "sha256": "2d86ae738fcf9aed06bdddda079c437f472878df9c92f06aacaa4c59304a57ef"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/formal-state-partition.json",
+      "sha256": "71daa616c0b704739cc3ca9c999e5bda33b76f9332ab6ec06ef746e45b9c314a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-final-dedup-idfix/formal-paired-bootstrap.json",
+      "sha256": "dce194f9da18f65f8614af1bdbf9cd99431e49b6b9f995ec1a1db7216c69eecc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-statefix-pre-dedup/formal-analysis.json",
+      "sha256": "da9c8b75ac56bdcc269bc0433de32371f936ea14dd9a86f10155d8b8e95ca19f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-statefix-pre-dedup/formal-analysis.md",
+      "sha256": "a26c4f12ea30891b448ed8295c8ccbb9935fe653eb12af8da2139f3284d2ebdf"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-statefix-pre-dedup/formal-cell-summary.json",
+      "sha256": "2d86ae738fcf9aed06bdddda079c437f472878df9c92f06aacaa4c59304a57ef"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-statefix-pre-dedup/formal-state-partition.json",
+      "sha256": "71daa616c0b704739cc3ca9c999e5bda33b76f9332ab6ec06ef746e45b9c314a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis-statefix-pre-dedup/formal-paired-bootstrap.json",
+      "sha256": "dce194f9da18f65f8614af1bdbf9cd99431e49b6b9f995ec1a1db7216c69eecc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis/formal-analysis.json",
+      "sha256": "74b392a2f5c3c56596d052994a4ee9264e86e460f4fc0b517b30349cbda5706e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis/formal-analysis.md",
+      "sha256": "403de6aa35cd5175937b387a39667a6d7a13e2c6500d44749df7c4978d615de3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis/formal-cell-summary.json",
+      "sha256": "1633a53777a28e1326b5893fab43e4b1467c7131f8b0ab5274c724125850620f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis/formal-state-partition.json",
+      "sha256": "c443649ea7d97a79989070ecf0607e676dc654c62ce1b0a215370f6242e3b796"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/results/formal-analysis/formal-paired-bootstrap.json",
+      "sha256": "acbd443b471399f1ae5e036f9a3da1d2b3d86b40169aefafd4e583065a254a88"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/geometry-control-manifest.json",
+      "sha256": "664b769561b264771dda8bc7ff17bf6c04a5d0e7cca69c8587766adaa91ca06a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion/commons-source-manifest.json",
+      "sha256": "45fdac96bf5dfc3548f531d7a733c80003a1852d7f6fc52debfd6e2ebc7d94cc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/holdout-qa.json",
+      "sha256": "6a5e38688745d5ad6280fd8c8e0b450c8dc6ce70310e747655e9e77e8c15e7de"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/holdout-selected-manifest.json",
+      "sha256": "9791de5f45af94c58e2be26ae8f62fb603887d9ae80ccc0cf86ed5e0d68fa571"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/holdout-final/holdout-selected-manifest.local.json",
+      "sha256": "e3bfb825d09b4c65f82e589bdbb43d8297f4b066511d02abcf698140aac1cc19"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/commons-source-manifest.json",
+      "sha256": "80be08cac8848bab6eb1955c2793b3353c7c756fd3f924defaadc9cc749ac21e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/acquisition_attempts/collection-attempt-02-partial.json",
+      "sha256": "262060c2906ec24ec6c21d7038797363a0046a1750cb2bbeb3016b70a023704c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/acquisition_attempts/collection-attempt-03-partial.json",
+      "sha256": "b07623128cdc9deee1d8566b00dd2da1b087d3c7770deae60d8192c0a955aced"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/acquisition_attempts/collection-attempt-04-partial.json",
+      "sha256": "700e9f65dd44443e4b6d86e3d4374055a743a90c188d58c9e4e0b6b301a4d447"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0-expansion-2/commons-source-manifest.json",
+      "sha256": "502c4a6258ca9e92489a26a5f3e5c513d12f5cdd5f45303e4c82ed570d5858c5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/manifests/estimator-profile.json",
+      "sha256": "92bb071b94599533a79113f2bf519dff785b75788ffd27ccd7d8ffe0c9ac9483"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/manifests/chat-hook-patch.json",
+      "sha256": "313f25892b5de83911284d6f13e8bf40b5b13b82b1cce8c9b7f1ddae85070b2d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/analyze_formal_matrix_d.py",
+      "sha256": "78f75c666a2087cfca92d49302e46d95c7b0c78dc712371cd98b0f83cd3d05fc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/collect_commons_cc0.py",
+      "sha256": "54a1dac577e965e8f907fff8cbfcf54a1f17e3cd3c89d4c9efa30e687ef8c315"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/patch_chat_completion_d.py",
+      "sha256": "64284d8e3b90c15e18b4d844d4e15816fc0ebb1e2ac4edb53e5a883974f72696"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/run_server_d.sh",
+      "sha256": "f2cdc8516426093e23d46aef35a3c3777d8c00ebd02175709492e498c2019f46"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/curate_d_holdout.py",
+      "sha256": "6355cf29d86d5f50a1437b1cb424c86d00bf1bc0e755c8fe4a9cbfdfbb34160a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/campaign_d.py",
+      "sha256": "4d796895e9d3585f6c5b641e0f1618683221667bc5142f10c580e567453250b9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/analyze_calibration_d.py",
+      "sha256": "79f90283ee18dfe6bef6662d23fecc16a0cfa24f8e7bbddd2d4efb88ab5523f5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/orchestrate_formal_matrix_d.py",
+      "sha256": "55ce140776322bd885646db7e2363506a3c7bd812e1e319ee3007cec8094c25d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/run_d_cell.sh",
+      "sha256": "39afe2fa98dceecc1f27fbb9b1c1372dcf57a41c5381a252fa6143d0370d620f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/orchestrate_calibration_d.py",
+      "sha256": "3d459fd9b221e8cbfb7adedef27cf928ba3d258ba14b05d91c73c3fb70f54a03"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/validate_calibration_trace_d.py",
+      "sha256": "87b85b74577318f5743cb0d144027a575afb4056ba4f3123eae1b83cd81e5fa1"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/patch_scheduler_d.py",
+      "sha256": "97c009b68fdfdcdaf685b4922950718b44d5abdf32b83c8e4b927d26511b4b16"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/plot_formal_analysis.py",
+      "sha256": "d117cc7ba919fface8364c1b38ac79c1c0abc4cf6cd0d0271178e0e5b20e8318"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/archive/analyze_formal_matrix_d.partial-idfix.py",
+      "sha256": "bf8794865c4a1dc53bb97a281a943226dc890b3983e255b3ed3923827f209b28"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/D/scripts/archive/analyze_formal_matrix_d.pre-id-join-fix.py",
+      "sha256": "bf8794865c4a1dc53bb97a281a943226dc890b3983e255b3ed3923827f209b28"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/plan-v4.md",
+      "sha256": "317fad143c14eb1264e138badd6d5a3666a6e52b18f8106f1c8e27da990cdf37"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/plan-v3.md",
+      "sha256": "58c4a59e7e7a0204562f21d0420e63b51091ea9a0ab7ed8464b892411c65f72d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/goal-prompt-next-stage-E.txt",
+      "sha256": "9827835e3a62cec184c823fa3db0fb8666e03a2e18ffea618fc3289f3f1f9ed6"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/formal-analysis-method.md",
+      "sha256": "1a3a4781a276e58b3e7e02456c0a7841027f4bd7a19859100a27e16d8c730287"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/plan-v2-snapshot.md",
+      "sha256": "0330ece103c2f6acd1519eb278618990c3f3f1b4fd36506c26d605dee1b6e76f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/docs/goal-prompt.txt",
+      "sha256": "9919d817707e79c9618071c71cef0dc92598a2c50e72645c2a62659a182fa245"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/manifests/C-F-selected.json",
+      "sha256": "8510a3fd398936d03f53eeb4452d59b9596025e0b741c1e7c0cd8ef530cdb5ab"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/manifests/C-datasets.json",
+      "sha256": "7abd84bd8af49f97f237d46db63ce51acf77ade9886473da5717da284be17b7e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/analyze_async_a.py",
+      "sha256": "b314102f35d722e9210ae88430e52216a9973941cbe4eb970ccc50b71feb0441"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/package_c_evidence.py",
+      "sha256": "2365a7cbc6f7dbdc615b30177916be2c9e0f52a9d493b8c712da2eb3a33fd74d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/package_b_evidence.py",
+      "sha256": "4c584328c5cf37f8b871a0b6a2f29af241d34c0bce71fb7ba13dabb903521b01"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/orchestrate_c_main.py",
+      "sha256": "75843de1f0fb92d75d53460acd9f6109411b2b5b2cb54b9aaa070ff657e7452c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/patch_async_probe.py",
+      "sha256": "f7e1ede4949a4796c1bc017cf3b200049901ff0382558c0673c40891910bb347"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/analyze_c_main.py",
+      "sha256": "b43b9d1b7df21b6477170acbaa330b80b038f50464e6458dd0fe8f913a0c9591"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/run_b_cell_continuation.sh",
+      "sha256": "c89f6f4249d636f7d0195267edf2fb5bd6d2201b4746e43b08517c4d789b32d2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/patch_dual_encoder_budget.py",
+      "sha256": "f336c17098ee7db226c70bb2fb3b9747f219b9180ada6d863b11960dfad8fd59"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/run_a_cell_continuation.sh",
+      "sha256": "1650c1995aa426966fc50dd71365a5a31b99f1e6298d204e28ca0b4903324bdf"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/run_server_c.sh",
+      "sha256": "7eee7aa1a0e04f23debacf268399c9262b7b1f6d2c167c7b8c498d43975ff81e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/trace_client.py",
+      "sha256": "36a50f3292624964cf150a825a3bc8e66a51ef13677725834947baeb89220d76"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/analyze_b.py",
+      "sha256": "70c55334d285dd40e6c08a2296393b8041797d34fbc7af0bd4aef5f9146d6451"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/campaign_c.py",
+      "sha256": "c3dc3cb121097d41d133aeba459d93f65a36be2b263fb17ba5edfe822d5a1851"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/prepare_c_datasets.py",
+      "sha256": "e27e7a4d088185d40c7c43edd418d5ee697c073ce19aaf6ddf92caeae7c9764b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/run_c_cell.sh",
+      "sha256": "d6011a805dff88f820d3bb308f24d4752505ca8816387f229ab3423d776d47f0"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/campaign_b_cancel.py",
+      "sha256": "ace0c4bdf2d44753dbd1b03805307c68528660e7c357a52fd44f883dca549eb9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/orchestrate_c_calibration.py",
+      "sha256": "871314c657326941760e29d196ad386ad490e158ba7ba5bb4040f1e50c9f2ec9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/campaign_b.py",
+      "sha256": "912790c2d415acd1f45c115b8891355b6d1889aa2c1aefc50be0dee255917ce8"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/patch_scheduler_split.py",
+      "sha256": "7e0753892db413070715f8d0abc33308e98bfcfad2df2d39adc0f9c147d71acf"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/scripts/campaign_c_two_image_probe.py",
+      "sha256": "b687b26ad03232d1434437f1d9fc018257263868671f515d260f15ffb7a2ab89"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/source-snapshots/pre-u-budget/vllm/v1/core/sched/scheduler.py",
+      "sha256": "d67976449a6c874bf36f3ad4239392d4660bd042b5dfb0b99b56733a41e4228b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/source-snapshots/pre-c-stage/scripts/trace_client.py",
+      "sha256": "62835191e2aa31c1c19db2646934a4ae0a6e7f18a0a1288426228b9823ab85a5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/source-snapshots/prepatch/vllm/v1/core/sched/scheduler.py",
+      "sha256": "d76cc22257550972137df9c893505d0bd0f5d482374691e6eca4372772de501a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/experimental-plan-v0.7.md",
+      "sha256": "8bd2611bbba8c1e03f6a3946d54e2ed6c68c123b14fe344ffe2a9b2ec0a9f60b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/experimental-plan-v0.9.md",
+      "sha256": "6c8cb52f1ee7028eb94900d7a2903994d7deedd791d123015352c56284e02cb6"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/data-rights-audit.md",
+      "sha256": "efd93476023fb8895f355ac7bcd47e2ba313c69c0abe27fd13f08bc35e314f56"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/experimental-plan-v0.2.md",
+      "sha256": "4ee0bceb1aa8dedaaa3f99da4ab98c5512a69cffebc3d0a0f52933d8c6b05893"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/experimental-plan-v0.8.md",
+      "sha256": "9b134d5290dae4d366e58eb7143d33dd2aae5ca2b48379076dc235c2003adc5b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/implementation-preflight.md",
+      "sha256": "2db91d52c634d35a0e243f0c07bed47fd877870c107d249d1a24549ebd0238bd"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/run_server_e.sh",
+      "sha256": "06e84d493f4da5009cff2f9a051a1358e6a22be3f2ab1b163df45a5b44681f61"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/experimental-plan-v0.3.md",
+      "sha256": "8c4343a64f7d42060bf89d0b33fe89d8dfbe8e8a5d473ce8cde29207a3ed7881"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/literature-and-novelty-audit.md",
+      "sha256": "335d7fc1253e3ba26821c186c56a9e7aa2e4b5882a76e1cd81fa47ed8b062950"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/content-risk-budget-design-v0.2.md",
+      "sha256": "8dbb646048be9fd4c96c04449e84054115c561963a480fa633a4fb20bd4c1baa"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/README.md",
+      "sha256": "a2bd68fb4a6b74ea01b2e0c1ebf6a6ddbb90a54331e0319f4e9d7d79fe5730a5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/protocol/live-scheduler-backlog-observer-overhead-freeze-v0.1.json",
+      "sha256": "9c5b9428a3706968a7e6f1951c67eb3c35e87376461eddea6ecec7b8fbf84ecb"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/protocol/live-scheduler-backlog-snapshot-validation-freeze-v0.1.json",
+      "sha256": "cbbc139a9f4d8d03125f2be83bdf7503eeb6f4470e43d823cc74c71db0014a4f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/protocol/live-scheduler-backlog-uniform-cell-freeze-v0.1.json",
+      "sha256": "ff74c9079aed5e0dec7ab5f6578bf9a3f03cb76f0b55de711350b39fe19c0b70"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/archive/e-v0.8-live-controller-fixed-replay-sha256-v0.1.txt",
+      "sha256": "a6c4aa722ae5544e42fd91f70eeb1d0da4cd0d42cf4fc999b91ed50d365ec78e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/archive/e-v0.9-eight-cell-replay-sha256-v0.1.txt",
+      "sha256": "ef87d9ace35eb0af4b85ca331c34735f6b0b8cdc97bfdd58bd75c7f5eb864c62"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/manifests/scheduler-split-e.json",
+      "sha256": "ec17a40caa72f0278f099e343ed263d745798e7b00e23075cc473eb46cf23e91"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/manifests/vl-pilot-hook-patch.json",
+      "sha256": "6a3a01e3711aaa9bca8ca70895184d91ca9a39232e9921b26efbf1e5d60e3cbe"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/prepare_chartqa_eval_candidates_e.py",
+      "sha256": "77b7518164cf1caf1226b53f78465364af43871ac56db06fbc19dd152e525930"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_keepall_request_equivalence_e.py",
+      "sha256": "4ea1615e9631e10b396b642b1cd1408c6db94fcebb4c06a0bacf7f90ca8b323b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/chartqa_relaxed_scorer_e.py",
+      "sha256": "dcd5fe648ab419dedded561edf1fa1af6788b10dba95294e6fe374d180e1fe4d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_model_runner_v1_exploratory_e.py",
+      "sha256": "068c014d81b99c6b372c99099c0f78d5ea57c12946589a133504aa2233b09e5d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/campaign_e_online.py",
+      "sha256": "d1febb41922c437bd9a5943a859ffccad5ea8503157f524bf908e1e1e37a3251"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_probe_overhead_e.py",
+      "sha256": "e92572137e967462a86621c0f2e9a70a122c08bf2e350fb7f55a006a7586036d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/extract_chartqa_candidates_e.py",
+      "sha256": "44992bbea75f298d2645581633c979f7a681c150a7f091f3677bc40563444829"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/replay_live_joint_controller_e_seeded_v0.3.py",
+      "sha256": "625f3cbc2050ba8a74c1a7a7e5e58494ac34d6219e0376f63de59a7b20c8f7e9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_default_equivalence_e.py",
+      "sha256": "1cc934ea26cf5e79ad636da9f5d3d3d395732bd76c67fdadd299dd8644685136"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_adaptive_resolution_e.py",
+      "sha256": "1dccef47239be4efd08491516e8741956a6994c824768f939fef705caa7a7c7a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/replay_live_joint_controller_e_fixed_keep_diag_v0.1.py",
+      "sha256": "32fa85ae6ed810cbc31483604600ebdd2575cfea89b4b5010baffc3912de5127"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/inspect_processor_grid_e.py",
+      "sha256": "80237b4b684c1d2cc566ddc42fc4c371112104f62831124eb6e404474b65e3fa"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/e_content_budget_policy.py",
+      "sha256": "0237e6c44a788a016bfedc2fa73a844ad90f439fbc656de16cd5be2e5e29f066"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_batch_multi_image_e.py",
+      "sha256": "10a0dd68983b8e0aeb35f6b3329a6c0b7022b8c350bebaea89fdcdcf894c13e2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_completion_e.py",
+      "sha256": "a659cc5a786cc20e1388a9ba259eb96b164412a73751dde80ea6b6ca32db484e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_async_llm_e.py",
+      "sha256": "9cff0f389dce2593eee420e6ac45484f8aeccfb3ef8d2a3b5181ede4fde90cca"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_qwen3vl_image_pruning_e.py",
+      "sha256": "45524296f99da289cf8534173f1391dff64b673aed305ec8eb79b07f130dbcdc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_motivation_phase1_matrix_v0_1.sh",
+      "sha256": "2ac6f00c28494bc389136aeac984688ffa5f9a1b66d06fd15418a9d516cff4a8"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_e_n_baseline_calibration_block.py",
+      "sha256": "8c72a95c71d2fdf5b21b495e62738e60756c0f2c5f4a414c98c2997f75cc5779"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_model_runner_v2_e.py",
+      "sha256": "b2c1fd0503552d87c8e314a8e0cfd78d9144ffec6730958de8dbfe58ee919df9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_batch_text_image_e.py",
+      "sha256": "b2fe60cdbf2e3257f85b7d8cf96862b975047bd5f3d3f07aaecfa7b34bb4a763"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/e_live_joint_controller_e.py",
+      "sha256": "e9b4b67a2a7db4a5954598d727a72752567359911d907ac7a96188da50237c8c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_completion_e.py",
+      "sha256": "924e5918731f9c611858a1fc1bf330b8ed2992a6e94bfd31fc4d150bd316aa63"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/preflight_import_e.py",
+      "sha256": "0857855bf44ad71a7dba5815c0298a01db8b0215ceccf35ba0c8bfe129ccb4b7"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_shutdown_timeout_image_probe_e.py",
+      "sha256": "0dbb675753b29f55ff880be39ea538e4ee659254ee77d430f0aa6b26420879df"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_kv_blocks_e.py",
+      "sha256": "1d0657c10c8649f3bf1e8a35fe49cde8fe4289d1d9344492f029c8ee1d6c8976"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/calibrate_queue_probe_overhead_e.py",
+      "sha256": "6592a212b961766bb71e4ea263cb46f2861775415f21084099fc90f3d67b5a72"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_model_runner_e.py",
+      "sha256": "aef090bc7ea587d54877e4c190bb216411601df122eb8aad78cd8a399831adfb"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_batch_multi_image_e.py",
+      "sha256": "340a09bd28b8aa7d0d1a7d8aa716a557040c46d41fa6e3a26801bf34b659628d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_docvqa_4b_capacity_e.py",
+      "sha256": "59d6ca0c50eb33397c222fd536d387a2a70eec07bc580ed07869af52d8c747f2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_probe_overhead_e.sh",
+      "sha256": "0794960c21ab289bd1ef70bf5f6ac2edeb3d86bba04f102e137ca68f13645e82"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/prepare_docvqa_2026_candidate_e.py",
+      "sha256": "94d567e3c75453917b853bfc48d453576c7a6bcddeb766973a3c737f9f4f1789"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_docvqa_2026_capacity_eval_e.py",
+      "sha256": "ad1f51e27e9d1d46d8ae2ee405f16b3134ab92e07456ff6602ac315ffdf66303"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/prepare_textvqa_candidates_e.py",
+      "sha256": "e960bd244cccf94f33fb8f26043fb7ea36816019c20cc83136139ad3eaaee1fe"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_server_e_deadline_a.sh",
+      "sha256": "d1b6a6ecfe1ee4b00904bc7e05d929eaf5b01c71c21b3af1fa56d2a49d3d745c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/generate_online_synthetic_assets_e_v0_1.py",
+      "sha256": "81df4e6fcc1cfe180e87f70a1958e59cd557df102588ffbb8f03a394b5b6e76a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_e_n_fixed_keep_diagnostic_block_v0.1.py",
+      "sha256": "b41f8607d41ba58229ac5267619f0bf1aa33a66c57a68a98f029913a7461206c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_e_n_baseline_calibration_block_v0.2.py",
+      "sha256": "261034130338bf93d16956d443aa4954cb5a3f081748c90b3f114cb318a4c680"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_multimodal_inputs_e.py",
+      "sha256": "b16a6638f74e4b4415844a2811884a6a0ec1c87aa59833c12e155bb65d719630"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_server_docvqa_4b_capacity_e.sh",
+      "sha256": "206da6a37b758c2f7c71cc9d126b556ba7df1108743dded94095e02ff70a1d08"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_multimodal_config_image_pruning_e.py",
+      "sha256": "3aae16e96440bf1087edc9eb2b35feca27cbd62a653537a639584c92c3e18e99"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_encoder_runner_e.py",
+      "sha256": "d4831870298762ebf964bcf3a8c9ca24d95131b05e3ebc41713f099d8c291c9a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_chartqa_budget_sweep_e.py",
+      "sha256": "b9269271499733c0fc85d47dfa6963f96a578d7385c110c629f863f8b7c82010"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_default_equivalence_e.py",
+      "sha256": "c25cbbffb778bd456fbb64dd13cd13e64290fa09bba14dec55a77acd8015fc53"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/summarize_e_online_server_trace_v0_1.py",
+      "sha256": "983b5edf97c92cc62e44daf2ebd795869a9fea87e9ec6ddc1cbac67a2eb2b58b"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_keepall_request_equivalence_e.py",
+      "sha256": "3052c88810c3088b9d5afee98997e4719a57d5dacec6836e84ecb4a8cb88ba08"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/prepare_gqa_candidates_e.py",
+      "sha256": "4c5bc35f15bec2e639e8ff47472593ee9f153d094714cbf92efc789ade2383cc"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_batch_endpoint_image_pruning_e.py",
+      "sha256": "5f54ce6a5a2c9c36b05eaa2095eb9ef37f2332d88c4cf521665e67c9b599f87d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_hook_e.py",
+      "sha256": "c622c3ab8ed73a3096c547617b2f81be221afd14212a29a2b363b3a3d9061200"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_live_joint_controller_smoke_cell_e.py",
+      "sha256": "e6d8461b3dbdd623c53eec0fc222f3c36f1b272e1661ee9d70e38dc72e9d9a6c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_scheduler_split_e.py",
+      "sha256": "0c7cb4c7eaaf300e909fc97795e6e32ac41d5a94ee58f46d5da2710ec05ace45"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_n_baseline_calibration_integrity_e.py",
+      "sha256": "9fac7f85d757e7bd96f0661d035991dcc4ed8e30d714a9978919ddb1ca307779"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_chartqa_exploratory_e.py",
+      "sha256": "1aee7adaf596e60b48c2766b2655bf071e8137ea542318b1f634d50d7a9c24d7"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/build_e_sha256_manifest.py",
+      "sha256": "781e33d7c6931f46e069e8f08001fa9263f1de8d0cdb2364a150eea0c370de4d"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_motivation_phase1_v0_1.py",
+      "sha256": "208e92d9c84d676fbe224a40107d314bad6de13a1e38ed47a7f00dfb3d411a23"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_multimodal_utils_e.py",
+      "sha256": "f45d2e4b888c60cc26dd789415cb575cd53800e67189ee6308be42bd8b0ff8d3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_preencoder_controller_e.py",
+      "sha256": "6515f4d56c2239f272727badcf2814012dbf613f469f13582e112ae2f5eb8ce9"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_stage_split_e.py",
+      "sha256": "84d0c6c2fcda0c3bff2d29dfe9880b331e4681f0fba7bdc5f9bd35fdcfc445fb"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_server_e.sh",
+      "sha256": "d7d2cae8bb23a6344cffd1b7fbbd829d009338200a05acd659a615cea08be341"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_trace_join_e.py",
+      "sha256": "1041d206e31fde248e4830a5622f63c7adda5f720b3d7ec778185be066a4eece"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/patch_chat_completion_e.py",
+      "sha256": "1d49c560fae4b9f8f68273e5b8c26dc2b4efc5c3a10a81095dba6628a4382015"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/geoprune_ranker_e.py",
+      "sha256": "6e1d4da9bb5713963a6e0e9e061fd230fdeaf72739eb0161143634dab794e477"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_n_baseline_calibration_e.py",
+      "sha256": "364e3f41bb6d49c71ce58b26c33521cd1162063e0d02da1a7af21d840e969d80"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_live_joint_controller_backlog_validation_e.py",
+      "sha256": "95a194d713d1e1ee9c4f9802efbdcce373c4a19bde4859bb6cb0b37bebc407a8"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_request_budget_image_pruning_e.py",
+      "sha256": "ee7a274fe2b1badbccb6bb17f08c3052bef45d31bbb151d7e9a0ff30769309ce"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_request_budget_image_pruning_e.py",
+      "sha256": "6c28d3126a68b219746f91da497b2eff5634758dcc05b7bf45044ab4eedb99f3"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/replay_live_joint_controller_e_seeded_v0.2.py",
+      "sha256": "a085bbbe72641a1aa92e1becc9b7fbd45402a01d5f8f037fc0aedcd7de55f017"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_queue_timing_e.py",
+      "sha256": "71ebc8f7488b24a51cbfa4faf2f2eee4ba86d519897f2c27b2487c5d20de80f5"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_concurrent_images_e.py",
+      "sha256": "7189948bd41428a5f5cfac265bd7160bdac278717d80ca0f6efb5b7ad2de7a5f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/audit_n_fixed_keep_diagnostic_e.py",
+      "sha256": "36b42739ba4c7fca57deb9ede363cc32c6da24ecb51c3671fa9662b967deb9f8"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_stage_split_e.py",
+      "sha256": "74f9097e0593ec86b202c666864fc0f9bc8ffff0175720824459b1ff00a05961"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/smoke_live_joint_controller_e.py",
+      "sha256": "93d2518be02426dfb4636025534274f73da64472f59138321e738612cf6e2151"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_chartqa_exploratory_e.py",
+      "sha256": "326554abdab51fea02103f70d444027cb77872b603bf61a4f73eace56b33c30e"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_e_online_formal_arm_v0_1.py",
+      "sha256": "42ad96efb43858d5a625a9cc8d8b17341a32403bbd72ebdf4d5951f5a5c4b63f"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/campaign_motivation_phase1_v0_1.py",
+      "sha256": "75c0a229740dfba82775d1a7012cc855f497ebe468820cfb3d2e3ce8944f8f71"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/replay_live_joint_controller_e.py",
+      "sha256": "a085bbbe72641a1aa92e1becc9b7fbd45402a01d5f8f037fc0aedcd7de55f017"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/analyze_chartqa_risk_proxies_e.py",
+      "sha256": "aa6ed1adf9ce841cfb87bdd9d1b7ec7b332480e3bd42d244e2318c37356233c2"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/continuation/E/scripts/run_motivation_phase1_v0_1.py",
+      "sha256": "8807cd0d9febbc2b4884f3d2df935b6653cc68cea5dcc9e929459127fc576c96"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_timeline.py",
+      "sha256": "b5e5624802d76030963cb02256ca36d90e467fa25d4e5a89a8c8f1b1e185ef45"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/analyze_buffered_a.py",
+      "sha256": "b5abd5a1d7b72b4f5769ea052da40528327eb5618595394ea58c66bcd68a0ea4"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/run_server.sh",
+      "sha256": "65281b05ed123c157bb404f02f0a1633f1c80d0d418ecf677a74c2274881b391"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_vllm.py",
+      "sha256": "1021c3f449e3de556316fc9753729699e8cb552fcd77902af123b41f08bba079"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/create_images.py",
+      "sha256": "54f5b1a684a893bf27f303f9f35b68e10ede7c6e6748322a8b92d24b484f95d6"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/analyze_run.py",
+      "sha256": "40ddec24825112a7380d37228ebe6fbbee9a49bb7b5b1ed60616a1affb497868"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_buffered_timeline.py",
+      "sha256": "192a5479bf8482312b0d7c33f502e6ea8020c6767ea89be81b072f6a85183700"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/analyze_a.py",
+      "sha256": "ebd0a77f3c292d565c5acc5d4252c70fd0416eef3b81f2919ea14ccfe55065b8"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/monitor_resources.sh",
+      "sha256": "4001233698fe5f5a7ae0b742bfaef6da5fbae9b015bbd392a8444b5ba3ae78da"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_stream.py",
+      "sha256": "c62b92b4f4136d4337fa909f516e9a80bf7a816d59c85c57a63c2bc1a2e5e4f6"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/campaign_a.py",
+      "sha256": "1790fca1f156422219155857d4f853b6c22ef27fbb3738af761cf47f969979df"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/trace_client.py",
+      "sha256": "36a50f3292624964cf150a825a3bc8e66a51ef13677725834947baeb89220d76"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_schedule.py",
+      "sha256": "57ec3e1b8e927c117dc3f4e5d6fc0f11ceacfa9d6f180f4518480b295bffb117"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/run_a_cell_remote.sh",
+      "sha256": "b75b844eac306f45e3491edc685cbf3d7075aa4ed1895f9ba96487da2973820c"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_light_probe.py",
+      "sha256": "d2b4361772ad9620caa4a8bfb1284590916610e364acc244a47a0d7cbf7c3785"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/vl_pilot_hook.py",
+      "sha256": "26e626402f2a7b2e303ff670b507de34f6a084b33652be05aa7e5afc58badd9a"
+    },
+    {
+      "path": "experiments/vl-stage-split-20261106-191642/scripts/patch_v2_runner.py",
+      "sha256": "4d00159a6428791a32ad301be70a91b401bc002dce1d9faa046a92098b107b5f"
+    },
+    {
+      "path": "experiments/chunk-vl-archive-20261119/README.md",
+      "sha256": "e57e7dcb3285dde8819e548d0ec7c831234fe092a089a62c4deb13f63f58c59f"
+    }
+  ]
+}

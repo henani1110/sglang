@@ -1,0 +1,9 @@
+{
+  "arm": "S",
+  "diagnostic": false,
+  "episode_id": "D-S-G768-L6-burst-s1011-a0",
+  "image_index": null,
+  "mode": "NORMAL",
+  "torch_profile": false,
+  "verify": false
+}

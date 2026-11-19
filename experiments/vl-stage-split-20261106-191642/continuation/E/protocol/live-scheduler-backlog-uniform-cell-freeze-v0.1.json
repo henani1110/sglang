@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "protocol_id": "live-scheduler-backlog-uniform-cell-freeze-v0.1",
+  "frozen_date": "2026-11-10",
+  "formal_run": false,
+  "parent_protocol": "protocol/live-scheduler-backlog-snapshot-validation-freeze-v0.1.json",
+  "reason_for_separate_cell_freeze": "The first frozen protocol's 192-token text stream is appropriate for the short burst trace but may finish before the 12-image uniform trace ends. This uniform cell lengthens text generation while retaining the same server, image payload size and arrival spacing.",
+  "cell": {
+    "run_id": "seed-20261117-768-6lane-uniform-1024tok-12img-snapshot",
+    "seed": 20261117,
+    "arrival_pattern": "uniform",
+    "arrival_interval_ms": 750,
+    "text_lanes": 6,
+    "text_max_tokens": 1024,
+    "image_edge": 768,
+    "image_count": 12,
+    "image_max_tokens": 16,
+    "image_backlog_cost_model": null,
+    "scheduler_mode": "N",
+    "keep_ratio": 1.0,
+    "purpose": "Observe scheduler-native queue snapshots under repeated low-rate image arrivals with sustained text decode; do not extrapolate the burst fit or activate any controller action."
+  },
+  "analysis": [
+    "Capture the latest scheduler snapshot immediately before each image submission, with broker receive age.",
+    "Join each image request to engine submission, first encoder scheduler admission, visual CUDA event and client TTFT.",
+    "Report text lane activity, scheduler queue counters and missing/stale observations descriptively; no hard success threshold is used.",
+    "Do not alter the already sealed DocVQA heldout or any quality calibration."
+  ],
+  "source_constraints": {
+    "Flickr": "No API key, API call, page or image URL.",
+    "DocVQA": "Public Hugging Face val only; private test and RRC login are out of scope.",
+    "data_rights": "Synthetic replay does not change dataset eligibility or rights counts."
+  },
+  "formal_counts_before_run": {
+    "eligible_quality_items": "0/600",
+    "formal_quality_runs": 0,
+    "formal_online_runs": "0/480"
+  },
+  "code_provenance": {
+    "scripts/run_live_joint_controller_backlog_validation_e.py": "3e155f3e8b3de608b2f0d473113c3d8d1242fc89fdc88831e162f1a22cd1b013",
+    "scripts/replay_live_joint_controller_e_seeded_v0.3.py": "625f3cbc2050ba8a74c1a7a7e5e58494ac34d6219e0376f63de59a7b20c8f7e9",
+    "scripts/run_server_e.sh": "d7d2cae8bb23a6344cffd1b7fbbd829d009338200a05acd659a615cea08be341",
+    "overlay/vllm/vl_pilot_hook.py": "841eaec63fb05cdbfbe27f5e52b7be69803a218d4993ca9bae9a9dd4a6000ea3",
+    "overlay/vllm/v1/core/sched/scheduler.py": "3444eb1dab456d39037a5a1af4f894b7f2357b8f3562630781941e139685897e",
+    "analysis/image-backlog-cost-model-v0.3.json": "c01db99cc9d0a29b175a9f2d448284b58b47365d074d8766f478b77b8dbdedd3"
+  }
+}

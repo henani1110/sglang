@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "component": "vllm.entrypoints.openai.chat_completion.serving",
+  "vllm_version": "0.33.0",
+  "source_sha256": "fbe6d3360b3a407ff4b3e3539e73d4565dc0370112a382689bc268520b86c245",
+  "patched_sha256": "f2bf349f50162ca25090c2bc383641033d666d32ae85dd70ac27f0c2643f8632",
+  "source_snapshot": "/home/chx/project/vl-stage-split-20261106-191642/continuation/D/source_snapshot/chat_completion_serving.py",
+  "overlay_path": "/home/chx/project/vl-stage-split-20261106-191642/continuation/D/overlay/vllm/entrypoints/openai/chat_completion/serving.py",
+  "diff_path": "/home/chx/project/vl-stage-split-20261106-191642/continuation/D/patches/chat_completion_serving_d.diff",
+  "hooks": {
+    "engine_result_ready": "chat stream generator consumes RequestOutput, before parser/serialization",
+    "api_yield": "immediately before yielding the chat chunk to SSE serialization",
+    "request_id": "OpenAI chat request_id (chatcmpl-...), shared with scheduler and client response ID"
+  }
+}

@@ -1,0 +1,564 @@
+{
+  "status": "in_progress",
+  "source": "Wikimedia Commons API, Category:CC-Zero",
+  "api": "https://commons.wikimedia.org/w/api.php",
+  "retrieved_utc": "2026-11-07T12:38:23.745120+00:00",
+  "collection_seed": 20261107,
+  "required_count": 32,
+  "candidate_count": 40,
+  "selected_count": 11,
+  "license_rule": "per-file LicenseShortName CC0/CC-Zero and LicenseUrl contains /publicdomain/zero/1.0",
+  "images": [
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, from the Old Judge series (N172) for Old Judge Cigarettes MET DP825079.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825079.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825079.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 3528,
+      "width": 1575,
+      "height": 2713,
+      "bytes": 1036967,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-00-d0e12317a547",
+      "retrieved_utc": "2026-11-07T12:36:42.837370+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-00-d0e12317a547.jpg",
+      "source_download_sha256": "d0e12317a54708bda376a8ed136b54c7d03e1c3b3251ed740a08d2c0978e006a",
+      "source_download_bytes": 1036967,
+      "raw_decoded_size": [
+        1575,
+        2713
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          569,
+          1575,
+          2144
+        ]
+      },
+      "perceptual_hash_average_8x8": "efc7c7c785010719",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-00-d0e12317a547.png",
+          "sha256": "7b12dd0c76405fbb4c7c8d5e2f881b0d100d2bd39cc9ecf328e31e0ed888ec7b",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-00-d0e12317a547.png",
+          "sha256": "92d92e43af59481be585daf590800bdd65c1dad5bd5fe0b36c684f7671d2cf21",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" A Lion\", Folio from a Dispersed Nuzhatnama-i ‘Ala’i of Shahmardan ibn Abi’l Khayr MET 18892.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_A_Lion%22,_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg/3840px-%22_A_Lion%22%2C_Folio_from_a_Dispersed_Nuzhatnama-i_%E2%80%98Ala%E2%80%99i_of_Shahmardan_ibn_Abi%E2%80%99l_Khayr_MET_18892.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1522,
+      "width": 4000,
+      "height": 2973,
+      "bytes": 3459459,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Creator:Shamardan ibn Abi 'l Khayr",
+      "description": "Folio from an illustrated manuscript; Codices",
+      "date_time_original": "early 17 th  century date QS:P571,+1650-00-00T00:00:00Z/7,P4241,Q40719727",
+      "image_id": "cc0-01-f7be9b25783d",
+      "retrieved_utc": "2026-11-07T12:36:46.870006+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-01-f7be9b25783d.jpg",
+      "source_download_sha256": "f7be9b25783d7e7512e8e99c90aceb3781e47a5202a5b78734690b9e9fb1bbeb",
+      "source_download_bytes": 2624764,
+      "raw_decoded_size": [
+        3840,
+        2854
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          493,
+          0,
+          3347,
+          2854
+        ]
+      },
+      "perceptual_hash_average_8x8": "e3ff93018083b1ff",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-01-f7be9b25783d.png",
+          "sha256": "681e201ba0979dc38b36eb4782a0e516f8126e196b9feb22d7c947f871fa84ee",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-01-f7be9b25783d.png",
+          "sha256": "bce288485b4606797bee05098447a55c394498a7597989c256a55c60486f0da9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"...common values that bind them in harmony.\" (12677533805).png",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22...common_values_that_bind_them_in_harmony.%22_(12677533805).png",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%22...common_values_that_bind_them_in_harmony.%22_%2812677533805%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/%22...common_values_that_bind_them_in_harmony.%22_%2812677533805%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1248,
+      "width": 1837,
+      "height": 1119,
+      "bytes": 878416,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Exchanges Photos",
+      "description": "\"...common values that bind them in harmony.\"",
+      "date_time_original": "2014-02-21 15:46",
+      "image_id": "cc0-02-74dec2e614c6",
+      "retrieved_utc": "2026-11-07T12:36:49.870368+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-02-74dec2e614c6.png",
+      "source_download_sha256": "74dec2e614c6fe245905c15d1245eccccff4f063f7b6f35280ff4781278ae75e",
+      "source_download_bytes": 878416,
+      "raw_decoded_size": [
+        1837,
+        1119
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          359,
+          0,
+          1478,
+          1119
+        ]
+      },
+      "perceptual_hash_average_8x8": "005fff1804d4b4bf",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-02-74dec2e614c6.png",
+          "sha256": "886ba2ba9ef62c1c1e880293c9874d7c8153e24eeea7bda2529a1bc63d56b8e1",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-02-74dec2e614c6.png",
+          "sha256": "05ae56c719c8dd0896ba0c2b934ae1b91e47c252af6b1528ed79ebe6a4fe714a",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\" Arbour tree\" Aston on Clun (1294200).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22_Arbour_tree%22_Aston_on_Clun_(1294200).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/%22_Arbour_tree%22_Aston_on_Clun_%281294200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/%22_Arbour_tree%22_Aston_on_Clun_%281294200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2865,
+      "width": 1000,
+      "height": 1399,
+      "bytes": 183433,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Percy Benzie Abery",
+      "description": "Abstract: \" Arbour tree\" Aston on Clun",
+      "date_time_original": "192-?",
+      "image_id": "cc0-03-5ef75aaf062c",
+      "retrieved_utc": "2026-11-07T12:36:52.573391+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-03-5ef75aaf062c.jpg",
+      "source_download_sha256": "5ef75aaf062c312d5fa24255ddf054d834d48e94f4db9212fa629924d8838932",
+      "source_download_bytes": 183433,
+      "raw_decoded_size": [
+        1000,
+        1399
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          199,
+          1000,
+          1199
+        ]
+      },
+      "perceptual_hash_average_8x8": "fff7632706060000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-03-5ef75aaf062c.png",
+          "sha256": "4960fc6b4ab6667be049cdc93111b21be795988ca480b54f6159b33d8b775828",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-03-5ef75aaf062c.png",
+          "sha256": "b65b07cb558455827fff9a6afa0ea918af084fd5c4f736f40b3e0fe0ddad65fa",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, late 1880s - from the Old Judge series (N172) for Old Judge Cigarettes MET DP825078 (cropped).jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_late_1880s_-_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825078_(cropped).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/%22%2410%2C000%22_Kelly%2C_Chicago%2C_late_1880s_-_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/%22%2410%2C000%22_Kelly%2C_Chicago%2C_late_1880s_-_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 2729,
+      "width": 1332,
+      "height": 1775,
+      "bytes": 624046,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-04-73d269a0e77e",
+      "retrieved_utc": "2026-11-07T12:36:59.005016+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-04-73d269a0e77e.jpg",
+      "source_download_sha256": "73d269a0e77e1424d311df70e72cc0d5e0510f5cb1f0a9be041c37e3e7264cdd",
+      "source_download_bytes": 624046,
+      "raw_decoded_size": [
+        1332,
+        1775
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          221,
+          1332,
+          1553
+        ]
+      },
+      "perceptual_hash_average_8x8": "fbffefef8b08001e",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-04-73d269a0e77e.png",
+          "sha256": "ef67b2a21abd34103e474012422e13495422d797894372678eb84846b6ecb4cc",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-04-73d269a0e77e.png",
+          "sha256": "a0dad0509809b87a03ecd8403e819157adacef78df8567f972f0c0a5278bf9f9",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:\"$10,000\" Kelly, Chicago, from the Old Judge series (N172) for Old Judge Cigarettes MET DP825078.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:%22$10,000%22_Kelly,_Chicago,_from_the_Old_Judge_series_(N172)_for_Old_Judge_Cigarettes_MET_DP825078.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/%22%2410%2C000%22_Kelly%2C_Chicago%2C_from_the_Old_Judge_series_%28N172%29_for_Old_Judge_Cigarettes_MET_DP825078.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 3508,
+      "width": 1599,
+      "height": 2739,
+      "bytes": 1138650,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Goodwin & Company",
+      "description": "Baseball card, photograph; Photographs",
+      "date_time_original": "1887–90",
+      "image_id": "cc0-05-43e5614c6476",
+      "retrieved_utc": "2026-11-07T12:38:04.913413+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-05-43e5614c6476.jpg",
+      "source_download_sha256": "43e5614c64765af6a227c122a64d94b32a9d561e353c9934efaf678fceb6a7ae",
+      "source_download_bytes": 1138650,
+      "raw_decoded_size": [
+        1599,
+        2739
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          0,
+          570,
+          1599,
+          2169
+        ]
+      },
+      "perceptual_hash_average_8x8": "e3fbefef8b818894",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-05-43e5614c6476.png",
+          "sha256": "b646f6745f193ae9fcad91b40aeaf692fe000dd341b04c332395a155c5de233c",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-05-43e5614c6476.png",
+          "sha256": "8f726f2b47cd402daa56a77216867dd9ffa21a503d8b0a3699e33164dea54470",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Khwa ttu.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Khwa_ttu.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/%21Khwa_ttu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%21Khwa_ttu.jpg/3840px-%21Khwa_ttu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4624,
+      "height": 3468,
+      "bytes": 5871391,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Axxter99",
+      "description": "!Khwa ttu",
+      "date_time_original": "Taken on 22 January 2023, 11:40:45",
+      "image_id": "cc0-06-79495392e2c8",
+      "retrieved_utc": "2026-11-07T12:38:08.819696+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-06-79495392e2c8.jpg",
+      "source_download_sha256": "79495392e2c86ee5490adc5226a5f9b3d59b3d362a3346dac130f59d6a86b393",
+      "source_download_bytes": 3181496,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "0007ff4f2bfefca0",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-06-79495392e2c8.png",
+          "sha256": "b8da69d467bffc50a37ce2794ce669931eed947c1a39a225b83d4c1239563f43",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-06-79495392e2c8.png",
+          "sha256": "b8750c357d31d581a86ec68d838c000280b45431c34b7f316742d129cd089aea",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!941 Lincoln Continental Coupe, Series 57 - Automobile Driving Museum - El Segundo, CA - DSC01972.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!941_Lincoln_Continental_Coupe,_Series_57_-_Automobile_Driving_Museum_-_El_Segundo,_CA_-_DSC01972.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg/3840px-%21941_Lincoln_Continental_Coupe%2C_Series_57_-_Automobile_Driving_Museum_-_El_Segundo%2C_CA_-_DSC01972.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1714,
+      "width": 4077,
+      "height": 3412,
+      "bytes": 8326387,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Daderot",
+      "description": "Exhibit 1941 Lincoln Continental Coupe (Automobile Driving Museum) in El Segundo, California, USA.",
+      "date_time_original": "2018-05-16",
+      "image_id": "cc0-07-1462caaaf9e1",
+      "retrieved_utc": "2026-11-07T12:38:12.523407+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-07-1462caaaf9e1.jpg",
+      "source_download_sha256": "1462caaaf9e149a7c6be9b7fdc4ee461837f9ddd5ada6596de227b4f47bd4785",
+      "source_download_bytes": 1961331,
+      "raw_decoded_size": [
+        3840,
+        3214
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          313,
+          0,
+          3527,
+          3214
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffffffe381808001",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-07-1462caaaf9e1.png",
+          "sha256": "3edbca8dfebefceb4852629a7d39853b3a4e9dbfa3e80dfb6a11b0a3aa8f5eee",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-07-1462caaaf9e1.png",
+          "sha256": "ed5f435fa122bb0bb0c6c77bdf40d1cb4a13ff5fb48086ddb82b522ab47e3951",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:!Irinka 1943.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!Irinka_1943.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/%21Irinka_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/%21Irinka_1943.jpg/3840px-%21Irinka_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1362,
+      "width": 4593,
+      "height": 3054,
+      "bytes": 3000725,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Chobanoglu",
+      "description": "The photographer Irina Chobanova",
+      "date_time_original": "2024-05-10",
+      "image_id": "cc0-08-a899491636a3",
+      "retrieved_utc": "2026-11-07T12:38:15.879784+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-08-a899491636a3.jpg",
+      "source_download_sha256": "a899491636a3e78df22f9756a43b0493a671b10d414041217442304f83d985f0",
+      "source_download_bytes": 1803944,
+      "raw_decoded_size": [
+        3840,
+        2553
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          643,
+          0,
+          3196,
+          2553
+        ]
+      },
+      "perceptual_hash_average_8x8": "1f9f1f1f0f0f0f0f",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-08-a899491636a3.png",
+          "sha256": "fb2ab885cadc5928ef49b12199d82272340f563288891da76c70532199a64eb0",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-08-a899491636a3.png",
+          "sha256": "093651f3000eecf340a6dc154ecf574abe80e9724c29921892c9b7be6d05bbc6",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:! Russisch-Orthodoxe Kirche (Dresden) Zwiebeltürme.JPG",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!_Russisch-Orthodoxe_Kirche_(Dresden)_Zwiebelt%C3%BCrme.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG/3840px-%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Zwiebelt%C3%BCrme.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1536,
+      "width": 4000,
+      "height": 3000,
+      "bytes": 432539,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Frze",
+      "description": "Russisch-Orthodoxe Kirche, Dresden\nZwiebeltürme",
+      "date_time_original": "2014-01-29 12:39:44",
+      "image_id": "cc0-09-aa4f074784e8",
+      "retrieved_utc": "2026-11-07T12:38:19.201252+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-09-aa4f074784e8.jpg",
+      "source_download_sha256": "aa4f074784e8c53fc657ce371e0868ea38aee2e109c4ecc77e73ad05df46f506",
+      "source_download_bytes": 1307887,
+      "raw_decoded_size": [
+        3840,
+        2880
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          480,
+          0,
+          3360,
+          2880
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffff8f8f8c000000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-09-aa4f074784e8.png",
+          "sha256": "a6aa75818f0836791010f6574d01bf3cf7e064e7660d2b80710f4fb6eeb7ea8c",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-09-aa4f074784e8.png",
+          "sha256": "d51fc62d76e0d613231d9b9687015b2a50a62726636e0b3fe36f3502a3ac4787",
+          "width": 768,
+          "height": 768
+        }
+      }
+    },
+    {
+      "title": "File:! Russisch-Orthodoxe Kirche (Dresden) Glockenturm.jpg",
+      "description_url": "https://commons.wikimedia.org/wiki/File:!_Russisch-Orthodoxe_Kirche_(Dresden)_Glockenturm.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Glockenturm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/%21_Russisch-Orthodoxe_Kirche_%28Dresden%29_Glockenturm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "download_variant": "Wikimedia thumbnail (requested 2048 px long edge)",
+      "thumbnail_width": 2048,
+      "thumbnail_height": 1770,
+      "width": 3069,
+      "height": 2653,
+      "bytes": 225615,
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist_credit": "Frze",
+      "description": "Russisch-Orthodoxe Kirche, Dresden",
+      "date_time_original": "2014-01-29 12:37:48",
+      "image_id": "cc0-10-461339a79b83",
+      "retrieved_utc": "2026-11-07T12:38:22.244869+00:00",
+      "source_download_path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/source_downloads/cc0-10-461339a79b83.jpg",
+      "source_download_sha256": "461339a79b83ec3efa58502ac9246a9329fe04d8c0532e00b3ff150d9d6e2cd3",
+      "source_download_bytes": 225615,
+      "raw_decoded_size": [
+        3069,
+        2653
+      ],
+      "crop": {
+        "method": "center_square_after_exif_transpose",
+        "box": [
+          208,
+          0,
+          2861,
+          2653
+        ]
+      },
+      "perceptual_hash_average_8x8": "ffffefe7c3810000",
+      "processed": {
+        "512": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/512/cc0-10-461339a79b83.png",
+          "sha256": "7a7c32f09c78c5a4d696f77d8c6a72137463754a443781901096c701fd6aa462",
+          "width": 512,
+          "height": 512
+        },
+        "768": {
+          "path": "/media/chx/Win10/vl-stage-split-20261106-191642/continuation/D/datasets/commons-cc0/images/768/cc0-10-461339a79b83.png",
+          "sha256": "433e9cecd6c6a29553658b4c0b94da1f8a59fc4f69892f5cce14366edceed22c",
+          "width": 768,
+          "height": 768
+        }
+      }
+    }
+  ],
+  "rejected_downloads": []
+}
